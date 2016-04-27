@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="23ce826c-4e23-4c13-9ac9-63cdccb22d86" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <list class="bullet">
+        <listItem>
+          <para>
+            Register a "cutover" predicate in the <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference>'s constructor to revert to non-deduplicated list behavior if it turns out that your collection's population has too many unique values.
+          </para>
+        </listItem>
+        <listItem>
+          <para>
+            The Condensed Library provides <link xlink:href="#StandardPredicates">standard cutover predicates</link> for common types.
+          </para>
+        </listItem>
+        <listItem>
+          <para>
+            By default, the CondensedCollection does not perform cutover.
+          </para>
+        </listItem>
+      </list>
+    </introduction>
+
+    <section address="Section1">
+      <title>Background</title>
+      <content>
+        <para>
+          A <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference> creates significant overhead for each unique item in its intern pool (somewhere in the 70-80 byte range), plus an additional copy/reference of each interned value in the collection's internal lookup table. This high overhead is typically amortized if you're working with a very large collection that has a lot of repeated elements. But too many unique values will cause your memory usage to skyrocket.
+        </para>
+        <para>
+          In short, if you expect your collection to always have a lot of unique values, don't use a CondensedCollection--just use a normal List&lt;T&gt; or some other appropriate collection.
+        </para>
+        <para>
+          However, there may be situations when your app doesn't know anything about its incoming workload, but you want to take advantage of a CondensedCollection's behavior as a nice-to-have optimization if the elements happen to be sufficiently repetitive. In this case, registering a cutover callback can give you the flexibility you need.
+        </para>
+      </content>
+    </section>
+    <section>
+      <title>Registering a Cutover Callback</title>
+      <content>
+        <para>
+          A cutover callback is a user-supplied delegate that's occasionally called by a CondensedCollection as items are added/inserted/updated. Statistics are provided to your callback, and if you decide that the population is too diverse, the collection stops performing its internal deduplication and starts storing your objects like an ordinary list.
+        </para>
+        <para>
+          In the simplest case, say you're using a CondensedCollection to store Int32 values. A reasonable cutover predicate would look like this:
+        </para>
+        <code source="..\Samples\Samples.cs" region="SimpleCutover"></code>
+        <para>
+          ...the predicate above decides to stop performing deduplication if the collection exceeds 65,536 unique values (that's the number of unique values that will fit in the collection's internal 2-byte wide index--after that, the collection would start using a 4-byte index to reference your interned values, which is counterproductive because you're only storing a 4-byte type).
+        </para>
+        <para>
+          More elaborate cutover rules may be provided to suit the needs of your application or the size of your type. For example, you may not want to consider cutting over until your collection has at least one million elements to examine, at which point you choose to cutover if the ratio of elements to unique values isn't high enough:
+        </para>
+        <code source="..\Samples\Samples.cs" region="StringCutover"></code>
+        <para>
+          You can determine whether cutover has occurred by using the <codeEntityReference>P:Condensed.CondensedCollection`1.IndexType</codeEntityReference> property or the <codeEntityReference>P:Condensed.CondensedCollection`1.HasCutover</codeEntityReference> property.
+        </para>
+      </content>
+    </section>
+    <section address="StandardPredicates">
+      <title>Standard Cutover Predicates</title>
+      <content>
+        <para>
+          To simplify usage, the Condensed Library offers a set of standard cutover predicates for many common types. These can be found in the <codeEntityReference>T:Condensed.StandardCutoverPredicates</codeEntityReference> class.
+        </para>
+        <code source="..\Samples\Samples.cs" region="StandardCutover"></code>
+        <para>
+          These predicates offer reasonable behavior for most common types--for example, the standard predicate for an Int32 type is identical to the first example above. Other predicates for variable-sized types (like strings) are heuristics based on expected usage. Custom predicates should be used if these standard heuristics don't meet your needs or you would like more control over cutover behavior.
+        </para>
+      </content>
+    </section>
+
+    <relatedTopics>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="88ffb368-39bd-430b-bd09-0800d2f14dbf" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <para>The Condensed Library provides a set of specialized LINQ operators that can be much more efficient with large collections than the standard ones provided by <codeEntityReference>N:System.Linq</codeEntityReference>.</para>
+    </introduction>
+
+    
+    <section address="Section1">
+      <title>Using Specialized LINQ Operators</title>
+      <content>
+        <para>To use the specialized extension methods, add a "<codeInline>using Condensed.Linq;</codeInline>" statement to your source files that need to use them:</para>
+        <code source="..\Samples\LinqSample1.cs"/>
+        <para>
+          In addition to memory savings, LINQ operators are a core part of the collection's value proposition. The <codeEntityReference linkText="Count">M:Condensed.Linq.CondensedCollectionExtensions.Count``1(Condensed.CondensedCollection{``0},System.Func{``0,System.Boolean})</codeEntityReference> call in the sample above takes approximately 0.002 seconds to run on a 2015 laptop. The same logic takes over 5 seconds to execute against an ordinary List&lt;T&gt; collection. Specialized operators take advantage of the CondensedCollection's built-in knowledge of unique values and internal reference counting to improve the performance of many LINQ operations.
+        </para>
+        <para>
+          The trade-off is that loading the CondensedCollection typically takes anywhere from 2-10x longer than loading an ordinary List&lt;T&gt;, depending on the type and the quality of its equality comparer.
+        </para>
+        <para>
+          The following operators are currently supported in the initial alpha release, with more on way:
+        </para>
+        <list class="bullet">
+          <listItem>
+            <para>All</para>
+          </listItem>
+          <listItem>
+            <para>Any</para>
+          </listItem>
+          <listItem>
+            <para>Average</para>
+          </listItem>
+          <listItem>
+            <para>Count</para>
+          </listItem>
+          <listItem>
+            <para>Distinct</para>
+          </listItem>
+          <listItem>
+            <para>First</para>
+          </listItem>
+          <listItem>
+            <para>FirstOrDefault</para>
+          </listItem>
+          <listItem>
+            <para>Max</para>
+          </listItem>
+          <listItem>
+            <para>Min</para>
+          </listItem>
+        </list>
+      </content>
+
+    </section>
+
+    <relatedTopics>
+
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

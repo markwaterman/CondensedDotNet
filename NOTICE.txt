@@ -1,0 +1,3 @@
+
+Condensed Collection Library for .NET
+Copyright 2016 Mark Waterman

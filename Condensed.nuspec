@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package >
+  <metadata>
+    <id>Condensed</id>
+    <version>0.1.0-alpha1</version>
+    <title>Condensed Collection Library for .NET</title>
+    <authors>Mark Waterman</authors>
+    <owners>Mark Waterman</owners>
+    <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
+    <projectUrl>https://github.com/markwaterman/CondensedDotNet</projectUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <description>An IList&lt;T&gt; implementation that uses interning (deduplication) for memory-efficient storage of immutable items.</description>
+    <releaseNotes>Initial experimental release.</releaseNotes>
+    <copyright>Copyright 2016 Mark Waterman</copyright>
+    <tags>Condensed CondensedCollection Interning Deduplication Flyweight Compress</tags>
+  </metadata>
+  <files>
+	<file src="Condensed\bin\Release\Condensed.dll" target="lib\portable-net451+win81" />
+	<file src="Condensed\bin\Release\Condensed.XML" target="lib\portable-net451+win81" />
+    <file src="CondensedAnalyzer\CondensedAnalyzer\bin\Release\*.dll" target="analyzers\dotnet\cs" exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*;**\System.Composition.*" />
+    <file src="CondensedAnalyzer\CondensedAnalyzer\bin\Release\tools\*.ps1" target="tools\" />
+  </files>
+</package>

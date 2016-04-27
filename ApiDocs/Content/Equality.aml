@@ -1,0 +1,102 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="4e8c0308-b111-44cc-aa69-99f3a651f306" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <!--
+    <summary>
+      <para>Optional summary abstract</para>
+    </summary>
+    -->
+
+    <introduction>
+      <!-- Uncomment this to generate an outline of the section and sub-section
+           titles.  Specify a numeric value as the inner text to limit it to
+           a specific number of sub-topics when creating the outline.  Specify
+           zero (0) to limit it to top-level sections only.  -->
+      <!-- <autoOutline /> -->
+
+      <para>
+        Types stored in a <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference> must provide a way for the collection to compare elements for equality, otherwise elements will not be deduplicated.
+      </para>
+    </introduction>
+
+    <section address="Section1">
+      <title>Storing Custom Types</title>
+      <content>
+        <para>
+          Most common System types in the .NET Framework already perform appropriate equality checks (String, DateTime, the various primitives, etc.) by implementing 
+          <codeEntityReference>T:System.IEquatable`1</codeEntityReference>
+          However, if you're storing your own custom type then you must write code that can determine whether two instances are logically equal.
+        </para>
+        <para>
+          Consider what happens when you store simple, naive objects in a CondensedCollection:
+        </para>
+        <code source="..\Samples\Equality.cs" region="BasicCake" title="Broken Deduplication"></code>
+        <para>
+          ...no deduplication is performed! The collection is broken because, by default, reference types check for equality by looking to see if two variables point to the same object instance. Because we create two instances in the example above, we get two distinct values stored in the collection's intern pool.
+        </para>
+      </content>
+    </section>
+    
+    
+    <section address="Section2">
+      
+      <title>Fixing the Cake</title>
+      
+      <content>
+        <para>
+          We will modify our Cake class to get equality behavior that we're looking for. Overrides must be provided for:
+        </para>
+        
+        <list class="bullet">
+          <listItem>
+            <para>
+              <codeEntityReference>M:System.Object.GetHashCode</codeEntityReference>
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              <codeEntityReference>M:System.Object.Equals(System.Object)</codeEntityReference>
+            </para>
+          </listItem>
+        </list>
+        
+        <para>
+          Implementing 
+          <codeEntityReference>T:System.IEquatable`1</codeEntityReference>
+          is also recommended, though not strictly required. Our corrected Cake class now looks like this:
+        </para>
+
+        <code source="..\Samples\Equality.cs" region="FixedCake" title="Corrected Equality"></code>
+
+        <para>
+          Now the CondensedCollection will properly deduplicate our identical cake objects.
+        </para>
+
+        <alert class="tip">
+          <para>
+            The GetHashCode implementation above is inspired by a StackOverflow 
+            <externalLink>
+            <linkText>answer</linkText>
+            <linkUri>http://stackoverflow.com/a/263416/3634591</linkUri>
+          </externalLink>
+            provided by the legendary Jon Skeet.
+          </para>   
+        </alert>
+
+        <para>
+          Alternatively, if you would rather not modify your class (or if you don't have control over its implementation) then you can create an 
+          <codeEntityReference>T:System.Collections.Generic.IEqualityComparer`1</codeEntityReference>
+          implementation for your type and then feed it into the CondensedCollection's constructor.
+        </para>
+        
+      </content>
+    </section>
+
+    <relatedTopics>
+      
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

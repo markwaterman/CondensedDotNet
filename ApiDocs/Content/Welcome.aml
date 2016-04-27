@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<topic id="a2dd277a-ec2e-4f4b-a42d-e31f23b94bdd" revisionNumber="1">
+	<developerConceptualDocument xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink">
+	
+		<introduction>
+			<para>
+        The <legacyBold>Condensed Collection Library for .NET</legacyBold> provides the <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference> class, an IList&lt;T&gt; implementation that uses interning (deduplication) for efficient storage of large numbers of immutable elements.
+      </para>
+		</introduction>
+
+		<section>
+			<title>Installation</title>
+			<content>
+				<list class="bullet">
+					<listItem>
+						<para>NuGet: TODO</para>
+					</listItem>
+          <listItem>
+            <para>
+              Build from source: 
+			  <externalLink>
+                <linkText>https://github.com/markwaterman/CondensedDotNet</linkText>
+                <linkUri>https://github.com/markwaterman/CondensedDotNet</linkUri>
+              </externalLink>
+            </para>
+          </listItem>
+				</list>
+			</content>
+		</section>
+
+    <section>
+      <title>Usage</title>
+      <content>
+        <para>
+          The CondensedCollection class provides a generalized form of interning for any immutable .NET type. Use this collection like an ordinary list, keeping the following guidelines in mind:
+        </para>
+        <list class="ordered">
+          <listItem>
+            <para>
+              The type stored in the collection <link xlink:href="12336e43-b0f4-46fb-a17b-c640871bddab">immutable</link>.</para>
+          </listItem>
+          <listItem>
+            <para>
+              The collection must be able to properly <link xlink:href="4e8c0308-b111-44cc-aa69-99f3a651f306">compare elements for equality</link>.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              If the contents of the collection are subject to change after the initial load, you might need to think about <link xlink:href="606626e5-fb28-47c5-939f-a87c14d4f99a">memory reclamation</link> from the collection's intern pool.
+            </para>
+          </listItem>
+        </list>
+        <code source="..\Samples\Samples.cs" region="WelcomeSample" title="Basic Usage"></code>
+        <para>
+          Internally, the CondensedCollection uses a variable-width index to reference the unique values in its intern pool. Given sufficient repetition in your collection, this can provide significant memory savings even when storing small types. In the example above, references to the 31 unique days in a month can be held in an internal index that is just one byte wide.
+        </para>
+        <para>
+          Interning items can reduce memory consumption and can often improve performance for certain compute-intensive tasks. The trade-off is that modifications to the collection are slower. The Wikipedia article on
+          <externalLink>
+            <linkText>string interning</linkText>
+            <linkUri>https://en.wikipedia.org/wiki/String_interning</linkUri>
+          </externalLink>
+          offers good background on the performance/space tradeoffs involved.
+        </para>
+      </content>
+    </section>
+	
+    <section>
+      <title>
+        Features
+      </title>
+      <content>
+        <para>
+          The CondensedCollection provides the following additional features:
+        </para>
+        <list class="bullet">
+          <listItem>
+            <para>
+              Specialized <link xlink:href="88ffb368-39bd-430b-bd09-0800d2f14dbf">LINQ operators</link> in the <codeEntityReference>N:Condensed.Linq</codeEntityReference> namespace that are optimized to work on the collection. (Add a "<codeInline>using Condensed.Linq;</codeInline>" statement to source files that need to use these extension methods.)
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Optional automatic fallback ("<link xlink:href="23ce826c-4e23-4c13-9ac9-63cdccb22d86">cutover</link>") to non-deduplicated list behavior if the items in the collection aren't sufficiently unique to make the interning overhead worthwhile.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Support for nullable types.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              Flexible options for <link xlink:href="606626e5-fb28-47c5-939f-a87c14d4f99a">reclaiming memory</link>.
+            </para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+	
+    <section>
+      <title>
+        Thread Safety
+      </title>
+      <content>
+        <para>
+          <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference> is <legacyItalic>not</legacyItalic> thread-safe and does not perform any internal synchronization. Multiple simultaneous readers are allowed, provided there is no active writer. An exclusive lock or a <codeEntityReference qualifyHint="false">T:System.Threading.ReaderWriterLockSlim</codeEntityReference> should be used to synchronize multi-threaded access to each instance of the collection.
+        </para>
+      </content>
+    </section>
+
+		<relatedTopics>
+			<link xlink:href="6326cb27-4108-4317-ae04-e67a8cb4738d" />
+		</relatedTopics>
+	</developerConceptualDocument>
+</topic>

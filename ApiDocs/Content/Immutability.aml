@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="12336e43-b0f4-46fb-a17b-c640871bddab" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    <introduction>
+      <para>Objects stored in a <codeEntityReference>T:Condensed.CondensedCollection`1</codeEntityReference> must be immutable.</para>
+    </introduction>
+
+    <section address="Section1">
+      <title>The Immutability Requirement</title>
+      <content>
+        <para>
+          Modifying an object that's held in the CondensedCollection's intern pool will cause every other element pointing to that unique value to reflect the same change. This is almost never a desirable outcome.
+        </para>
+        <alert class="warning">
+          <para>
+            You may hear a little voice in your head whispering, "It'll be OK to use a mutable type. I just won't modify objects in the collection."
+          </para>
+          <para>
+            Don't listen to that voice.
+          </para>
+          <para>
+            "But I promise to be careful," says the little voice.
+          </para>
+          <para>
+            No! Don't do it. You'll forget your promise in two months, or someone else on your team won't know about it, or somewhere you'll reference the CondensedCollection as an <codeEntityReference qualifyHint="false">T:System.Collections.Generic.IList`1</codeEntityReference> and will lose track of what kind of collection you're working with, and your app will break catastrophically. Don't give in to the temptation.
+          </para>
+        </alert>
+        <para>
+          Unfortunately, .NET doesn't give us a way to enforce immutability at compile time or at runtime.  There's an experimental 
+          <externalLink>
+          <linkText>Roslyn Analyzer</linkText>
+          <linkUri>https://msdn.microsoft.com/en-us/library/mt162308.aspx</linkUri>
+        </externalLink>
+          that ships with the library's NuGet package, but it's very rough right now and only detects the simplest, most blatant violations with a warning:
+        </para>
+        <definitionTable>
+          <definedTerm>Warning CLDN001</definedTerm>
+          <definition>
+            <para>
+              <computerOutputInline>
+                Type 'Foo' is a mutable reference type and should not be used in a CondensedCollection&lt;T&gt;.
+              </computerOutputInline>
+            </para>
+          </definition>
+        </definitionTable>
+        <para>
+          ...with time this analyzer should become more robust, and hopefully language support for immutability will improve in the not-to-distant future. But for now your program is expected to be on its best behavior.
+        </para>
+        <alert class="tip">
+          <para>
+            It's OK to store mutable structs (like
+            <codeEntityReference qualifyHint="false" linkText="System.Drawing.Point">T:System.Drawing.Point</codeEntityReference>,
+            for example) in a CondensedCollection--the collection returns copies of value types, so they can be safely modified. However, mutable structs are a controversial design choice, and they're frowned upon by many developers in the .NET community (search for 
+            <externalLink>
+              <linkText>"C# mutable struct"</linkText>
+              <linkUri>https://www.google.com/search?q=C%23+mutable+struct</linkUri>
+            </externalLink>
+            and prepare to read a lot of conflicting opinions).
+          </para>
+        </alert>
+      </content>
+     
+    </section>
+
+    <relatedTopics>
+     
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>

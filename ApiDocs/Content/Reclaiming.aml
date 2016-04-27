@@ -1,0 +1,111 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<topic id="606626e5-fb28-47c5-939f-a87c14d4f99a" revisionNumber="1">
+  <developerConceptualDocument
+    xmlns="http://ddue.schemas.microsoft.com/authoring/2003/5"
+    xmlns:xlink="http://www.w3.org/1999/xlink">
+
+    
+    <summary>
+      <para>
+        Many implementations of interning suffer from the problem that they never clean up their pool of interned items (.NET's built-in
+        <externalLink>
+          <linkText>string interning table</linkText>
+          <linkUri>https://msdn.microsoft.com/en-us/library/system.string.intern.aspx</linkUri>
+        </externalLink>
+        is one example). The Condensed Library addresses this problem by offering several approaches to memory reclamation.
+      </para>
+    </summary>
+    
+
+    <introduction>
+      <autoOutline />
+
+      <para>
+        Depending on your workload, you can choose one of the following options to clean up unused values in a <codeEntityReference linkText="CondensedCollection's">T:Condensed.CondensedCollection`1</codeEntityReference> intern pool.
+      </para>
+      <alert class="tip">
+        <para>
+          Use the CondensedCollection's <codeEntityReference>P:Condensed.CondensedCollection`1.InternPoolCount</codeEntityReference> property to see the size of the intern pool--if it's larger than the <codeEntityReference>P:Condensed.CondensedCollection`1.UniqueCount</codeEntityReference> property then your collection's pool contains unused values that can be reclaimed.
+        </para>
+      </alert>
+    </introduction>
+
+    <section address="DoNothing">
+      <title>Option 1: Do nothing</title>
+      <content>
+        <para>
+          Reasons not to worry about reclaiming items from the intern pool include:
+        </para>
+        <list class="bullet">
+          <listItem>
+            <para>
+              You never modify the contents of the collection after initial load.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              The collection gets modified, but the set of unique values you put in it is small and unchanging, so you don't need to worry about the intern pool containing unused values.
+            </para>
+          </listItem>
+          <listItem>
+            <para>
+              The collection gets modified, but the lifetime of the collection instance (or your application) is brief, so you don't care if some extra memory is consumed by the collection's intern pool.
+            </para>
+          </listItem>
+        </list>
+      </content>
+    </section>
+
+    <section address="ExplicitCleanup">
+      <title>Option 2: Periodically call CondensedCollection.Cleanup</title>
+      <content>
+        <para>
+          The <codeEntityReference>M:Condensed.CondensedCollection`1.Cleanup</codeEntityReference> method rebuilds the collection's internal data structures, removing unused values and making them eligible for garbage collection. This is a relatively expensive operation, so you may only want to perform it on an infrequent, periodic basis.
+        </para>
+        <alert class="note">
+          <para>
+            The <codeEntityReference>M:Condensed.CondensedCollection`1.Cleanup</codeEntityReference> method has no effect on collections that have cut over to normal (non-deduplicated) list storage. Reconstruct the collection from itself to rebuild it and restart deduplication (Option 3).
+          </para>
+        </alert>
+      </content>
+    </section>
+
+    <section address="Reconstruct">
+      <title>Option 3: Reconstruct</title>
+      <content>
+        <para>
+          If you've constructed a CondensedCollection with the ability to <link xlink:href="23ce826c-4e23-4c13-9ac9-63cdccb22d86">cut over</link> to non-deduplicated storage then the Cleanup() method will not be effective if/when your collection makes the transition. To restart deduplication, you can simply reconstruct a CondensedCollection from itself for a fresh start.
+        </para>
+        <code source="..\Samples\Samples.cs" region="ReconstructFromCutover"></code>
+      </content>
+    </section>
+
+    <section address="InternedValueReclaimable">
+      <title>
+        Option 4: Cleanup from the InternedValueReclaimable Event (Preferred)
+      </title>
+      <content>
+        <para>
+          The CondensedCollection will raise the <codeEntityReference>E:Condensed.CondensedCollection`1.InternedValueReclaimable</codeEntityReference> event 
+          as soon as one of the values in its pool is no longer used. You can set the <codeEntityReference linkText="InternReclaimableEventArgs.Cleanup">P:Condensed.InternReclaimableEventArgs.Cleanup</codeEntityReference> 
+          property to true in your event handler to trigger a cleanup of the pool as soon as your handler completes.
+        </para>
+        <para>
+          A cleanup should <legacyItalic>not</legacyItalic> be performed every time this event is raised--the cleanup operation is very expensive, 
+          and it causes a full reindexing of the collection's internal data structures. Only set the <codeEntityReference linkText="InternReclaimableEventArgs.Cleanup">P:Condensed.InternReclaimableEventArgs.Cleanup</codeEntityReference> 
+          property to true when the number of unused intern pool items exceeds your application's tolerances. The 
+          <codeEntityReference>T:Condensed.InternReclaimableEventArgs</codeEntityReference> argument provides statistics about your collection to help you decide when a cleanup should be run.
+        </para>
+        <para>A event handler that only performs occasional cleanup could be implemented as follows:</para>
+        <code source="..\Samples\CleanupEvent.cs" region="CleanupEvent"></code>
+        <para>
+          The InternedValueReclaimable event will not be fired if the collection has cut over to a non-deduplicated list
+        </para>
+      </content>
+    </section>
+
+    <relatedTopics>
+
+    </relatedTopics>
+  </developerConceptualDocument>
+</topic>
