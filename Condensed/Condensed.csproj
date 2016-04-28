@@ -51,6 +51,7 @@
     <Compile Include="BitCollection.cs" />
     <Compile Include="CondensedCollection.cs" />
     <Compile Include="CondensedStats.cs" />
+    <Compile Include="Linq\Sum.cs" />
     <Compile Include="StandardCutoverPredicates.cs" />
     <Compile Include="Exceptions.cs" />
     <Compile Include="Indexes\IntListBitStorage.cs" />

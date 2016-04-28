@@ -40,6 +40,9 @@
             <para>Average</para>
           </listItem>
           <listItem>
+            <para>Contains</para>
+          </listItem>
+          <listItem>
             <para>Count</para>
           </listItem>
           <listItem>
@@ -52,10 +55,19 @@
             <para>FirstOrDefault</para>
           </listItem>
           <listItem>
+            <para>Last</para>
+          </listItem>
+          <listItem>
+            <para>LastOrDefault</para>
+          </listItem>
+          <listItem>
             <para>Max</para>
           </listItem>
           <listItem>
             <para>Min</para>
+          </listItem>
+          <listItem>
+            <para>Sum</para>
           </listItem>
         </list>
       </content>

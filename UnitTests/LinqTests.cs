@@ -102,6 +102,45 @@ namespace UnitTests
         }
 
         [TestMethod]
+        public void Last()
+        {
+            CondensedCollection<int> l = new CondensedCollection<int>();
+            for (int i = 0; i < 100; ++i)
+                l.Add(i);
+
+            var lastItem = l.Last((i) => i == 99);
+            Assert.AreEqual(99, lastItem);
+
+            var firstItem = l.Last((i) => i == 0);
+            Assert.AreEqual(0, firstItem);
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(InvalidOperationException))]
+        public void LastNotFound()
+        {
+            var l = new CondensedCollection<int?>();
+            for (int i = 0; i < 1000; ++i)
+                l.Add(i % 2);
+
+            var item = l.Last((i) => i == 3);
+        }
+
+        [TestMethod]
+        public void LastOrDefault()
+        {
+            var l = new CondensedCollection<string>();
+            for (int i = 0; i < 100; ++i)
+                l.Add(i.ToString());
+
+            var item = l.LastOrDefault((i) => i == "42");
+            Assert.AreEqual("42", item);
+
+            item = l.LastOrDefault((i) => i == "99999");
+            Assert.IsNull(item);
+        }
+
+        [TestMethod]
         public void Average()
         {
             var l = new CondensedCollection<int>();
@@ -265,6 +304,29 @@ namespace UnitTests
 
             avg = l.Average((ts) => null);
             Assert.IsNull(avg);
+        }
+
+        [TestMethod]
+        public void SumNullable()
+        {
+            var l = new CondensedCollection<int?>();
+            var control = new List<int?>();
+
+            // add some integers with null mixed in.
+            for (int i = 0; i < 100; ++i)
+            {
+                int? val = i % 7;
+                if (val == 3) val = null;
+
+                l.Add(val);
+                control.Add(val);
+            }
+
+            var sum = l.Sum();
+            var cSum = control.Sum();
+
+            Assert.AreEqual(253, sum);
+            Assert.AreEqual(cSum, sum);
         }
 
 

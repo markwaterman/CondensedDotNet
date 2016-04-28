@@ -279,3 +279,9 @@ $RECYCLE.BIN/
 
 # Windows shortcuts
 *.lnk
+
+# Condensed project specific
+# ==========================
+
+# Sandcastle build output
+ApiDocs/Help

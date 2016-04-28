@@ -140,6 +140,121 @@ namespace Condensed.Linq
         }
 
 
+
+        /// <summary>
+        /// Returns the last element in a sequence that satisfies a specified condition. Optimized for a CondensedCollection.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of source.</typeparam>
+        /// <param name="source">The collection to return an element from.</param>
+        /// <param name="predicate">A function to test each element for a condition.</param>
+        /// <returns>The last element in the sequence that passes the test in the specified predicate function.</returns>
+        /// <remarks>
+        /// This implementation of Last() is specialized for a CondensedCollection and tries to
+        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// to use the <see cref="Enumerable.Last{TSource}(IEnumerable{TSource}, Func{TSource, bool})"/> implementation.
+        /// </remarks>
+        public static TSource Last<TSource>(this CondensedCollection<TSource> source, Func<TSource, bool> predicate)
+        {
+            if (source == null) throw new ArgumentNullException("source");
+            if (source.HasCutover)
+                return source._unindexedValues.Last(predicate);
+
+            if (source.Count == 0) throw new InvalidOperationException("The source sequence is empty.");
+
+            int lastMatchedIndex = IndexOfLast(source, predicate);
+            if (lastMatchedIndex < source.Count)
+            {
+                return source[lastMatchedIndex];
+            }
+            else
+            {
+                throw new InvalidOperationException("No element satisfies the condition in predicate.");
+            }
+        }
+
+        /// <summary>
+        /// Returns the last element of the sequence that satisfies a condition or a default value if
+        /// no such element is found. Optimized for a CondensedCollection.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of source.</typeparam>
+        /// <param name="source">The collection to return an element from.</param>
+        /// <param name="predicate">A function to test each element for a condition.</param>
+        /// <returns>
+        /// default(T) if source is empty or if no element passes the test specified by predicate; 
+        /// otherwise, the last element in source that passes the test specified by predicate.
+        /// </returns>
+        /// <remarks>
+        /// This implementation of LastOrDefault() is specialized for a CondensedCollection and tries to
+        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// to use the <see cref="Enumerable.LastOrDefault{TSource}(IEnumerable{TSource}, Func{TSource, bool})"/> implementation.
+        /// </remarks>
+        public static TSource LastOrDefault<TSource>(this CondensedCollection<TSource> source, Func<TSource, bool> predicate)
+        {
+            if (source == null) throw new ArgumentNullException("source");
+            if (source.HasCutover)
+                return source._unindexedValues.LastOrDefault(predicate);
+
+            int lastMatchedIndex = IndexOfLast(source, predicate);
+            if (lastMatchedIndex < source.Count)
+            {
+                return source[lastMatchedIndex];
+            }
+            else
+            {
+                return default(TSource);
+            }
+        }
+
+        /// <summary>
+        /// Finds last match of a predicate, supports Last() and LastOrDefault().
+        /// </summary>
+        /// <param name="source">The collection to return an element from.</param>
+        /// <param name="predicate">A function to test each element for a condition.</param>
+        /// <returns>Index of last matching item in the condensed list, or one past the last element (the count) if not found.</returns>
+        internal static int IndexOfLast<TSource>(CondensedCollection<TSource> source, Func<TSource, bool> predicate)
+        {
+            if (predicate == null)
+                throw new ArgumentNullException("predicate", "Predicate cannot be null.");
+            if (source.HasCutover)
+                throw new InvalidOperationException("Internal error: index type not supported.");
+
+            BitArray evaluatedInterns = new BitArray(source._internPool.Count);
+            int lastMatch = source._indexList.Count;
+            int internsEvaluated = 0;
+            int currentInternIndex;
+            for (int index = source._indexList.Count - 1; index >= 0 ; --index)
+            {
+                currentInternIndex = source._indexList[index];
+
+                // don't bother running the predicate against a value we've already checked:
+                if (evaluatedInterns[currentInternIndex])
+                    continue;
+                else
+                    evaluatedInterns.Set(currentInternIndex, true);
+
+                // run the predicate:
+                if (predicate(source._internPool[currentInternIndex]))
+                {
+                    // we found the last match!
+                    lastMatch = index;
+                    break;
+                }
+
+                internsEvaluated++;
+                if (internsEvaluated == source._objToInternLookup.Count)
+                {
+                    // we've checked every unique item. Safe to
+                    // drop out of the loop:
+                    break;
+                }
+            }
+
+            return lastMatch;
+        }
+
+
         /// <summary>
         /// Determines whether all elements of the collection satisfy a condition. Optimized for a CondensedCollection.
         /// </summary>
@@ -247,6 +362,27 @@ namespace Condensed.Linq
             else
                 return source._objToInternLookup.Keys;
 
+        }
+
+        /// <summary>
+        /// Determines whether a sequence contains a specified value by using a specified comparer.
+        /// </summary>
+        /// <typeparam name="TSource">The type of the elements of source.</typeparam>
+        /// <param name="source">A CondensedCollection in which to locate a value.</param>
+        /// <param name="value">The value to locate in the CondensedCollection.</param>
+        /// <param name="comparer">An equality comparer to compare values.</param>
+        /// <returns>true if the collection contains an element that has the specified value; otherwise, false.</returns>
+        public static bool Contains<TSource>(this CondensedCollection<TSource> source, TSource value, IEqualityComparer<TSource> comparer)
+        {
+            if (source == null) throw new ArgumentNullException("source");
+            comparer = comparer ?? EqualityComparer<TSource>.Default;
+
+            foreach (var uniqueVal in source._objToInternLookup.Keys)
+            {
+                if (comparer.Equals(uniqueVal, value))
+                    return true;
+            }
+            return false;
         }
     }
 }
