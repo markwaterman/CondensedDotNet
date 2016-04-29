@@ -15,8 +15,10 @@
     <tags>Condensed CondensedCollection Interning Deduplication Flyweight Compress</tags>
   </metadata>
   <files>
-	<file src="Condensed\bin\Release\Condensed.dll" target="lib\portable-net451+win81" />
-	<file src="Condensed\bin\Release\Condensed.XML" target="lib\portable-net451+win81" />
+	<file src="Condensed\bin\Release\Condensed.dll" target="lib\portable-net45+netcore45+wpa81" />
+	<file src="Condensed\bin\Release\Condensed.XML" target="lib\portable-net45+netcore45+wpa81" />
+	<file src="Condensed\bin\ReleaseNet45\Condensed.dll" target="lib\net45" />
+	<file src="Condensed\bin\ReleaseNet45\Condensed.XML" target="lib\net45" />
     <file src="CondensedAnalyzer\CondensedAnalyzer\bin\Release\*.dll" target="analyzers\dotnet\cs" exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*;**\System.Composition.*" />
     <file src="CondensedAnalyzer\CondensedAnalyzer\bin\Release\tools\*.ps1" target="tools\" />
   </files>
