@@ -47,7 +47,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Condensed\Condensed.csproj">
+    <ProjectReference Include="..\Condensed\Condensed.Portable.csproj">
       <Project>{81a2f8d5-df76-4377-be7e-446f947a1e0e}</Project>
       <Name>Condensed</Name>
     </ProjectReference>

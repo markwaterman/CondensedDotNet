@@ -13,7 +13,7 @@
     <RootNamespace>ApiDocs</RootNamespace>
     <Name>ApiDocs</Name>
     <!-- SHFB properties -->
-    <FrameworkVersion>.NET Framework 4.5</FrameworkVersion>
+    <FrameworkVersion>.NET Portable Library 4.5</FrameworkVersion>
     <OutputPath>.\Help\</OutputPath>
     <HtmlHelpName>Condensed</HtmlHelpName>
     <Language>en-US</Language>
@@ -38,7 +38,7 @@
     <HelpTitle>Condesed Collection Library for .NET</HelpTitle>
     <ContentPlacement>AboveNamespaces</ContentPlacement>
     <DocumentationSources>
-      <DocumentationSource sourceFile="..\Condensed\Condensed.csproj" xmlns="" />
+      <DocumentationSource sourceFile="..\Condensed\Condensed.Portable.csproj" />
     </DocumentationSources>
     <BuildAssemblerVerbosity>OnlyWarningsAndErrors</BuildAssemblerVerbosity>
     <HelpFileFormat>HtmlHelp1, Website</HelpFileFormat>
