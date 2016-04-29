@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondensedAnalyzer.Test", "C
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondensedAnalyzer.Vsix", "CondensedAnalyzer\CondensedAnalyzer.Vsix\CondensedAnalyzer.Vsix.csproj", "{190D4AEE-72CE-4402-A2B8-92D0608C7C80}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Condensed", "Condensed\Condensed.csproj", "{81A2F8D5-DF76-4377-BE7E-446F947A1E0E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Condensed", "Condensed\Condensed.Portable.csproj", "{81A2F8D5-DF76-4377-BE7E-446F947A1E0E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Samples", "Samples\Samples.csproj", "{249878B3-4B05-407F-973F-69679E7BEE96}"
 EndProject
