@@ -22,6 +22,7 @@ using System.Threading.Tasks;
 
 namespace Condensed.Indexes
 {
+    [Serializable]
     abstract class OffsetIndex : IList<int>
     {
         public abstract int this[int index] { get; set; }

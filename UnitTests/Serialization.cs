@@ -28,7 +28,6 @@ namespace UnitTests
     [TestClass()]
     public class Serialization
     {
-        /* // not supporting built-in binary serialization now since it isn't available in PCLs...
         [TestMethod]
         public void SerializeSingleUnique()
         {
@@ -133,6 +132,5 @@ namespace UnitTests
             Assert.AreEqual(TimeSpan.FromSeconds(0), l2[10000]);
             Assert.AreEqual(TimeSpan.FromSeconds(1), l2[10001]);
         }
-        */
     }
 }

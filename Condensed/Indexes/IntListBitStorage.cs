@@ -25,6 +25,7 @@ namespace Condensed.Indexes
     /// <summary>
     /// Collection of integers with values of 0 or 1. Values are stored internally in a bit vector.
     /// </summary>
+    [Serializable]
     class IntListBitStorage : OffsetIndex
     {
         private BitCollection _bits;

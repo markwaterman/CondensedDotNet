@@ -39,6 +39,9 @@ namespace Condensed
         /// <returns>Default predicate used for the type.</returns>
         public static Predicate<CondensedStats> GetDefaultCutoverPredicate(Type type)
         {
+            if (type == null)
+                throw new ArgumentNullException("type");
+
             if (type == typeof(bool))
                 return StandardCutoverPredicates.NeverCutover;
             else if (type == typeof(byte) ||

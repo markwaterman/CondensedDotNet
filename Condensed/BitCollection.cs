@@ -45,6 +45,7 @@ namespace Condensed
     /// </para>
     /// </remarks>
     /// <threadsafety static="true" instance="false" />
+    [Serializable]
     public class BitCollection : IList<bool>
     {
         const int BITS_PER_WORD = 64;

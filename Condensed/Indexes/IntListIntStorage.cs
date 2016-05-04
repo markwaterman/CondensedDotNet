@@ -24,6 +24,7 @@ namespace Condensed.Indexes
     /// <summary>
     /// Collection of integers with values that range from 0 to 2,147,483,647 (inclusive). Values are stored internally as System.Int32 values.
     /// </summary>
+    [Serializable]
     class IntListIntStorage : OffsetIndex
     {
         private List<Int32> _intIndex;

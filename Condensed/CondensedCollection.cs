@@ -54,6 +54,7 @@ namespace Condensed
     /// <threadsafety static="true" instance="false" />
     /// <conceptualLink target="a2dd277a-ec2e-4f4b-a42d-e31f23b94bdd" />
     [DebuggerDisplay("Count = {Count}")]
+    [Serializable]
     public class CondensedCollection<T> : IList<T>
     {
         /// <summary>
@@ -133,6 +134,15 @@ namespace Condensed
         /// <conceptualLink target="606626e5-fb28-47c5-939f-a87c14d4f99a" />
         public event EventHandler<InternReclaimableEventArgs> InternedValueReclaimable;
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CondensedCollection{T}"/> class with the 
+        /// default capacity, default comparer for the type, and no cutover predicate.
+        /// </summary>
+        /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
+        public CondensedCollection()
+            : this(capacity: 0, comparer: null, cutoverPredicate: null, collection: null)
+        {
+        }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CondensedCollection{T}"/> class.
@@ -1142,7 +1152,7 @@ namespace Condensed
 
     } // class CondensedCollection
 
-
+    [Serializable]
     internal class UniqueValueInfo
     {
         internal int InternPoolOffset;

@@ -22,6 +22,7 @@ using System.Threading.Tasks;
 
 namespace Condensed
 {
+    [Serializable]
     sealed class NullKeyDictionary<TKey, TValue> : IDictionary<TKey, TValue>
     {
         private Dictionary<TKey, TValue> _dict;
@@ -129,7 +130,7 @@ namespace Condensed
             if (key == null)
             {
                 if (_hasNullKey)
-                    throw new ArgumentException("An element with the same key already exists.", "item");
+                    throw new ArgumentException("An element with the same key already exists.", "key");
 
                 _valForNullKey = value;
                 _hasNullKey = true;
@@ -277,6 +278,7 @@ namespace Condensed
             return GetEnumerator();
         }
 
+        [Serializable]
         sealed class KeyCollection : ICollection<TKey>
         {
             private NullKeyDictionary<TKey, TValue> _nkDict;
@@ -355,6 +357,7 @@ namespace Condensed
             }
         }
 
+        [Serializable]
         sealed class ValueCollection : ICollection<TValue>
         {
             private NullKeyDictionary<TKey, TValue> _nkDict;

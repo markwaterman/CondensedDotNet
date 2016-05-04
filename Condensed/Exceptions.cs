@@ -32,12 +32,13 @@ namespace Condensed
     /// state of your application--consider calling
     /// <see cref="Environment.FailFast(string, Exception)"/> if it is encountered.
     /// </remarks>
+    [Serializable]
     public class InternalCorruptionException : Exception
     {
         /// <summary>
         /// Default error message.
         /// </summary>
-        private static readonly string DefaultErrorMessage = "An unrecoverable inconsistency in the CondensedCollection's internal reference counting was detected. A typical cause is earlier multi-threaded access to the collection where a modification was made without an exclusive lock.";
+        private const string DefaultErrorMessage = "An unrecoverable inconsistency in the CondensedCollection's internal reference counting was detected. A typical cause is earlier multi-threaded access to the collection where a modification was made without an exclusive lock.";
 
         /// <summary>
         /// Default constructor.
@@ -63,6 +64,18 @@ namespace Condensed
         {
         }
 
-        
+#if !PORTABLE
+        /// <summary>
+        /// Initializes a new instance of the InternalCorruptionException class with serialized data.
+        /// </summary>
+        /// <param name="info">The object that holds the serialized object data.</param>
+        /// <param name="context">The contextual information about the source or destination.</param>
+        protected InternalCorruptionException(System.Runtime.Serialization.SerializationInfo info, System.Runtime.Serialization.StreamingContext context)
+            :base(info, context)
+        {
+        }
+#endif
+
+
     }
 }

@@ -25,6 +25,7 @@ namespace Condensed.Indexes
     /// <summary>
     /// Collection of integers with values that range from 0 to 65535 (inclusive). Values are stored internally as System.UShort values.
     /// </summary>
+    [Serializable]
     class IntListUShortStorage : OffsetIndex
     {
         private List<UInt16> _ushortIndex;

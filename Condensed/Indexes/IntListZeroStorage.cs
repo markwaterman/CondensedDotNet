@@ -26,6 +26,7 @@ namespace Condensed.Indexes
     /// A "fake" collection of integers that can only hold the value 0. Used
     /// by the CondensedCollection when it only contains a single unique value.
     /// </summary>
+    [Serializable]
     class IntListZeroStorage : OffsetIndex
     {
         int _count = 0;
