@@ -9,9 +9,9 @@
     <HelpKeywords>
       <HelpKeyword index="K" term="version, history" />
     </HelpKeywords>
-    <Topic id="346c0cd4-f808-47a1-988b-bb9d120c390d" visible="True" title="0.1.0-alpha" />
+    <Topic id="346c0cd4-f808-47a1-988b-bb9d120c390d" visible="True" isSelected="true" title="0.1.0-alpha1" tocTitle="0.1.0-alpha1" linkText="0.1.0-alpha1" />
   </Topic>
-  <Topic id="12336e43-b0f4-46fb-a17b-c640871bddab" visible="True" isSelected="true" title="Immutability Overview" tocTitle="Immutability Overview" linkText="Immutability Overview">
+  <Topic id="12336e43-b0f4-46fb-a17b-c640871bddab" visible="True" title="Immutability Overview" tocTitle="Immutability Overview" linkText="Immutability Overview">
     <HelpKeywords>
       <HelpKeyword index="K" term="CLDN001" />
       <HelpKeyword index="K" term="Immutability" />

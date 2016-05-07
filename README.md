@@ -2,13 +2,14 @@
 
 The **Condensed Collection Library for .NET** provides the [CondensedCollection](http://www.markwaterman.net/docs/condenseddotnet/html/567ca794-b467-8736-0b20-caacc958e8a9.htm)  class, an IList<T> implementation that uses interning (deduplication) for efficient storage of large numbers of immutable elements.
 
+* [NuGet package](https://www.nuget.org/packages/Condensed)
 * [Documentation](http://www.markwaterman.net/docs/condenseddotnet/)
 
 ## Usage
 
 The CondensedCollection class provides a generalized form of interning for any immutable .NET type. Use this collection like an ordinary list, keeping the following guidelines in mind:
 
-1. The type stored in the collection **must be [immutable](http://www.markwaterman.net/docs/condenseddotnet/html/12336e43-b0f4-46fb-a17b-c640871bddab.htm)**
+1. The type stored in the collection **must be [immutable](http://www.markwaterman.net/docs/condenseddotnet/html/12336e43-b0f4-46fb-a17b-c640871bddab.htm)**.
 2. Your type must provide a way to compare its instances for equality.
 3. If the contents of the collection are subject to change after the initial load, you want to perform [memory reclamation](http://www.markwaterman.net/docs/condenseddotnet/html/606626e5-fb28-47c5-939f-a87c14d4f99a.htm) from the collection's intern pool.
 
@@ -50,7 +51,7 @@ CondensedCollection is _not_ thread-safe and does not perform any internal synch
 
 ## Status
 
-Pre-alpha (under active development).
+Alpha, suitable for internal testing and experimentation. Feedback is appreciated!
 
 ## License
 

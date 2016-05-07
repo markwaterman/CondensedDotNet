@@ -13,12 +13,18 @@
 			<content>
 				<list class="bullet">
 					<listItem>
-						<para>NuGet: TODO</para>
+						<para>
+              NuGet:
+              <externalLink>
+                <linkText>https://www.nuget.org/packages/Condensed</linkText>
+                <linkUri>https://www.nuget.org/packages/Condensed</linkUri>
+              </externalLink>
+            </para>
 					</listItem>
           <listItem>
             <para>
               Build from source: 
-			  <externalLink>
+			        <externalLink>
                 <linkText>https://github.com/markwaterman/CondensedDotNet</linkText>
                 <linkUri>https://github.com/markwaterman/CondensedDotNet</linkUri>
               </externalLink>
