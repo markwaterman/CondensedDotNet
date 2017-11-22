@@ -115,21 +115,21 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\Condensed\Condensed.Portable.csproj">
-      <Project>{81a2f8d5-df76-4377-be7e-446f947a1e0e}</Project>
-      <Name>Condensed</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CondensedAnalyzer\CondensedAnalyzer.csproj">
-      <Project>{FC8F9958-68BC-4AD5-83AE-7E1F1706AEBC}</Project>
-      <Name>CondensedAnalyzer</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.Analyzers.dll" />
     <Analyzer Include="..\..\packages\Microsoft.CodeAnalysis.Analyzers.1.1.0\analyzers\dotnet\cs\Microsoft.CodeAnalysis.CSharp.Analyzers.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Condensed-NetFramework\Condensed-NetFramework.csproj">
+      <Project>{c91eb068-49cf-4bec-8c9e-378aeb3f4aa0}</Project>
+      <Name>Condensed-NetFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CondensedAnalyzer\CondensedAnalyzer.csproj">
+      <Project>{fc8f9958-68bc-4ad5-83ae-7e1f1706aebc}</Project>
+      <Name>CondensedAnalyzer</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

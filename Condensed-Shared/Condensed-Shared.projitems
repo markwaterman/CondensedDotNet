@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>09605f2b-b52e-4370-bf37-66614741bb85</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>Condensed_Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)BitCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CondensedCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)CondensedStats.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Exceptions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Indexes\IntListBitStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Indexes\IntListByteStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Indexes\IntListIntStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Indexes\IntListUShortStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Indexes\IntListZeroStorage.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Indexes\OffsetIndex.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)IndexType.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)InternReclaimableEventArgs.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Linq\Average.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Linq\CondensedCollectionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Linq\Max.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Linq\Min.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Linq\Sum.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)NullKeyDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)StandardCutoverPredicates.cs" />
+  </ItemGroup>
+</Project>

@@ -1,0 +1,25 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <AssemblyName>Condensed</AssemblyName>
+    <RootNamespace>Condensed</RootNamespace>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>Condensed.snk</AssemblyOriginatorKeyFile>
+    <Company>www.markwaterman.net</Company>
+    <Product>Condensed</Product>
+    <Description>An IList implementation that uses interning (deduplication) to store large numbers of immutable items.</Description>
+    <Copyright>Copyright © 2016-2017 Mark Waterman</Copyright>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DocumentationFile>bin\Debug\netstandard2.0\Condensed.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DocumentationFile>bin\Release\netstandard2.0\Condensed.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <Import Project="..\Condensed-Shared\Condensed-Shared.projitems" Label="Shared" />
+
+</Project>

@@ -1,37 +1,35 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{A55857DC-3232-488D-84BC-DD5F92563F76}</ProjectGuid>
+    <ProjectGuid>{C91EB068-49CF-4BEC-8C9E-378AEB3F4AA0}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Condensed</RootNamespace>
     <AssemblyName>Condensed</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>bin\DebugNet45\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\DebugNet45\Condensed.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\Condensed.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>bin\ReleaseNet45\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <DocumentationFile>bin\ReleaseNet45\Condensed.XML</DocumentationFile>
-    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+    <DocumentationFile>bin\Release\Condensed.xml</DocumentationFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -50,36 +48,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BitCollection.cs" />
-    <Compile Include="CondensedCollection.cs" />
-    <Compile Include="CondensedStats.cs" />
-    <Compile Include="Exceptions.cs" />
-    <Compile Include="Indexes\IntListBitStorage.cs" />
-    <Compile Include="Indexes\IntListByteStorage.cs" />
-    <Compile Include="Indexes\IntListIntStorage.cs" />
-    <Compile Include="Indexes\IntListUShortStorage.cs" />
-    <Compile Include="Indexes\IntListZeroStorage.cs" />
-    <Compile Include="Indexes\OffsetIndex.cs" />
-    <Compile Include="IndexType.cs" />
-    <Compile Include="InternReclaimableEventArgs.cs" />
-    <Compile Include="Linq\Average.cs" />
-    <Compile Include="Linq\CondensedCollectionExtensions.cs" />
-    <Compile Include="Linq\Max.cs" />
-    <Compile Include="Linq\Min.cs" />
-    <Compile Include="Linq\Sum.cs" />
-    <Compile Include="NullKeyDictionary.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StandardCutoverPredicates.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Condensed.snk" />
   </ItemGroup>
+  <Import Project="..\Condensed-Shared\Condensed-Shared.projitems" Label="Shared" />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
