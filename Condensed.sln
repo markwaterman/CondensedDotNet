@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27004.2009
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests.Portable", "UnitTests\UnitTests.Portable.csproj", "{60F6B3B0-254E-4C1E-9A0A-4A84BD8AF779}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnitTests-NetFramework", "UnitTests\UnitTests-NetFramework.csproj", "{60F6B3B0-254E-4C1E-9A0A-4A84BD8AF779}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CondensedAnalyzer", "CondensedAnalyzer\CondensedAnalyzer\CondensedAnalyzer.csproj", "{FC8F9958-68BC-4AD5-83AE-7E1F1706AEBC}"
 EndProject
@@ -17,7 +17,7 @@ Project("{7CF6DF6D-3B04-46F8-A40B-537D21BCA0B4}") = "ApiDocs", "ApiDocs\ApiDocs.
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "Condensed-Shared", "Condensed-Shared\Condensed-Shared.shproj", "{09605F2B-B52E-4370-BF37-66614741BB85}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Condensed-NetStandard20", "Condensed-NetStandard20\Condensed-NetStandard20.csproj", "{2BB397EE-6067-441B-A2FC-93650918A6B8}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Condensed-NetStandard20", "Condensed-NetStandard20\Condensed-NetStandard20.csproj", "{2BB397EE-6067-441B-A2FC-93650918A6B8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Condensed-NetFramework", "Condensed-NetFramework\Condensed-NetFramework.csproj", "{C91EB068-49CF-4BEC-8C9E-378AEB3F4AA0}"
 EndProject
