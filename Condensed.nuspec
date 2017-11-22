@@ -2,7 +2,7 @@
 <package >
   <metadata>
     <id>Condensed</id>
-    <version>0.1.0-alpha1</version>
+    <version>0.2.0-alpha2</version>
     <title>Condensed Collection Library for .NET</title>
     <authors>Mark Waterman</authors>
     <owners>Mark Waterman</owners>
@@ -10,15 +10,15 @@
     <projectUrl>https://github.com/markwaterman/CondensedDotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <description>An IList&lt;T&gt; implementation that uses interning (deduplication) for memory-efficient storage of immutable items.</description>
-    <releaseNotes>Initial experimental release.</releaseNotes>
-    <copyright>Copyright 2016 Mark Waterman</copyright>
+    <releaseNotes>Alpha2 release.</releaseNotes>
+    <copyright>Copyright 2016-2017 Mark Waterman</copyright>
     <tags>Condensed CondensedCollection Interning Deduplication Flyweight Compress</tags>
   </metadata>
   <files>
-	<file src="Condensed\bin\Release\Condensed.dll" target="lib\portable-net45+netcore45+wpa81" />
-	<file src="Condensed\bin\Release\Condensed.XML" target="lib\portable-net45+netcore45+wpa81" />
-	<file src="Condensed\bin\ReleaseNet45\Condensed.dll" target="lib\net45" />
-	<file src="Condensed\bin\ReleaseNet45\Condensed.XML" target="lib\net45" />
+	<file src="Condensed-NetStandard20\bin\Release\netstandard2.0\Condensed.dll" target="lib\netstandard2.0" />
+	<file src="Condensed-NetStandard20\bin\Release\netstandard2.0\Condensed.xml" target="lib\netstandard2.0" />
+	<file src="Condensed-NetFramework\bin\Release\Condensed.dll" target="lib\net45" />
+	<file src="Condensed-NetFramework\bin\Release\Condensed.xml" target="lib\net45" />
     <file src="CondensedAnalyzer\CondensedAnalyzer\bin\Release\*.dll" target="analyzers\dotnet\cs" exclude="**\Microsoft.CodeAnalysis.*;**\System.Collections.Immutable.*;**\System.Reflection.Metadata.*;**\System.Composition.*" />
     <file src="CondensedAnalyzer\CondensedAnalyzer\bin\Release\tools\*.ps1" target="tools\" />
   </files>
