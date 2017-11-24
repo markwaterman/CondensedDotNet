@@ -4,8 +4,8 @@
     <id>Condensed</id>
     <version>0.2.0-alpha2</version>
     <title>Condensed Collection Library for .NET</title>
-    <authors>Mark Waterman</authors>
-    <owners>Mark Waterman</owners>
+    <authors>markwaterman</authors>
+    <owners>markwaterman</owners>
     <licenseUrl>http://www.apache.org/licenses/LICENSE-2.0</licenseUrl>
     <projectUrl>https://github.com/markwaterman/CondensedDotNet</projectUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
