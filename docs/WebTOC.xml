@@ -1,0 +1,235 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Title="Welcome" Url="html/a2dd277a-ec2e-4f4b-a42d-e31f23b94bdd.htm" />
+  <HelpTOCNode Id="f5e95799-8c6e-44fa-b13b-e6b9f99dc90a" Title="Version History" Url="html/6326cb27-4108-4317-ae04-e67a8cb4738d.htm">
+    <HelpTOCNode Title="0.1.0-alpha1" Url="html/346c0cd4-f808-47a1-988b-bb9d120c390d.htm" />
+  </HelpTOCNode>
+  <HelpTOCNode Title="Immutability Overview" Url="html/12336e43-b0f4-46fb-a17b-c640871bddab.htm" />
+  <HelpTOCNode Title="LINQ Operators" Url="html/88ffb368-39bd-430b-bd09-0800d2f14dbf.htm" />
+  <HelpTOCNode Title="Cutover Overview" Url="html/23ce826c-4e23-4c13-9ac9-63cdccb22d86.htm" />
+  <HelpTOCNode Title="Reclamation and Cleanup" Url="html/606626e5-fb28-47c5-939f-a87c14d4f99a.htm" />
+  <HelpTOCNode Title="Equality Overview" Url="html/4e8c0308-b111-44cc-aa69-99f3a651f306.htm" />
+  <HelpTOCNode Title="License" Url="html/6c8df980-bdc2-46d6-b712-f2f740467dd9.htm" />
+  <HelpTOCNode Id="c73a6ecf-9687-4019-8095-8d2b8c6a200c" Title="API Reference" Url="html/48635bf0-eed3-4978-e228-386eea4ad6d1.htm">
+    <HelpTOCNode Id="9b513368-2ea6-4cfc-a9f4-28529407b3c9" Title="Condensed" Url="html/01bf1e63-a14c-2cab-2f87-1169fbf96d44.htm">
+      <HelpTOCNode Id="3e76b53f-cdd9-4ac3-a78c-defab996712e" Title="BitCollection Class" Url="html/324295ac-4466-2f3e-aa61-6eb27c917a18.htm">
+        <HelpTOCNode Id="03f0152f-788e-43d6-badd-424a6b17bc32" Title="BitCollection Constructor " Url="html/b698fb06-efd2-a673-61d0-05cc397d2434.htm">
+          <HelpTOCNode Title="BitCollection Constructor " Url="html/eb9c03e8-471e-8887-f5f4-ae05486ba740.htm" />
+          <HelpTOCNode Title="BitCollection Constructor (Int32)" Url="html/e097f5cf-26aa-59f3-a9e7-24a15f9a4cee.htm" />
+          <HelpTOCNode Title="BitCollection Constructor (Int32, Boolean, Int32)" Url="html/f99b0e41-9fae-5589-6641-b74866c02534.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="27fdfead-b582-4f60-85f4-04a64fad2066" Title="BitCollection Properties" Url="html/45ddd059-8019-dca6-757b-10e032d89be0.htm">
+          <HelpTOCNode Title="Capacity Property " Url="html/3cd5177c-7f9d-b2e3-0443-13c437179dda.htm" />
+          <HelpTOCNode Title="Count Property " Url="html/fd86f0b1-9cd0-fa6e-1a72-0eccab16d3b5.htm" />
+          <HelpTOCNode Title="IsReadOnly Property " Url="html/dc766d19-ebb6-10d4-42a5-10efd21f18e6.htm" />
+          <HelpTOCNode Title="Item Property " Url="html/cb96e0e6-f9af-332c-a31b-bcb0ca6a5276.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="ad11a2b9-db6b-4874-83f2-bf83a19c148e" Title="BitCollection Methods" Url="html/116c353e-a957-f854-1d45-54d22cad02fb.htm">
+          <HelpTOCNode Title="Add Method " Url="html/939057d2-db2b-b08d-685a-bd6b27eb430b.htm" />
+          <HelpTOCNode Title="Clear Method " Url="html/85543e28-1bfd-c609-8492-be3ba981e429.htm" />
+          <HelpTOCNode Title="Contains Method " Url="html/8be39975-f6de-5ffb-22b8-9a00f3ebf280.htm" />
+          <HelpTOCNode Title="CopyTo Method " Url="html/55586251-580c-a36d-6c8c-69aa7cc1c9d5.htm" />
+          <HelpTOCNode Title="GetEnumerator Method " Url="html/b39e8bd2-1f0e-8d5f-5c23-cd68e4c3caaf.htm" />
+          <HelpTOCNode Title="IndexOf Method " Url="html/d4a7f18c-70e1-6858-be5c-f1d5605252a1.htm" />
+          <HelpTOCNode Title="Insert Method " Url="html/19da3fdb-4524-836f-4480-f15f8f997037.htm" />
+          <HelpTOCNode Title="Remove Method " Url="html/36e68864-3206-975c-f4ad-74a3fbb2e187.htm" />
+          <HelpTOCNode Title="RemoveAt Method " Url="html/9a3897d8-af78-7129-3eef-3e32d69f2698.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="ac15ce1f-b5c8-49d9-90eb-2cf7d9b0b0cb" Title="CondensedCollection(T) Class" Url="html/567ca794-b467-8736-0b20-caacc958e8a9.htm">
+        <HelpTOCNode Id="5584e75f-a063-4488-a135-8f8f97ee0e1e" Title="CondensedCollection(T) Constructor " Url="html/0f761938-d40a-4c06-ff0e-1ac3d0c4a689.htm">
+          <HelpTOCNode Title="CondensedCollection(T) Constructor " Url="html/9f08ec04-a912-d61e-8b3f-bc476fa90cae.htm" />
+          <HelpTOCNode Title="CondensedCollection(T) Constructor (Int32, IEqualityComparer(T), Predicate(CondensedStats), IEnumerable(T))" Url="html/9e2d88bb-392a-edc4-2bc5-4245bec546aa.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="89a30e23-2f11-4c61-a365-f9e0e8268680" Title="CondensedCollection(T) Properties" Url="html/392897eb-25ef-1cbb-be05-9f90f43e4f4b.htm">
+          <HelpTOCNode Title="Capacity Property " Url="html/32223b4a-8160-02b6-5830-acd8f05656d9.htm" />
+          <HelpTOCNode Title="Comparer Property " Url="html/ab8cb006-c52c-02a9-dd4b-606538dd4d11.htm" />
+          <HelpTOCNode Title="Count Property " Url="html/f1df2bcf-428c-dd94-9644-f676e087d21f.htm" />
+          <HelpTOCNode Title="CutoverPredicate Property " Url="html/6a948783-2645-5cec-e67e-823df11845fe.htm" />
+          <HelpTOCNode Title="HasCutover Property " Url="html/2dcc1db2-5437-5d52-7514-5f6c534deae6.htm" />
+          <HelpTOCNode Title="IndexType Property " Url="html/bd41c4e6-329f-2208-b310-4095bfb166c9.htm" />
+          <HelpTOCNode Title="InternPoolCount Property " Url="html/9f0383ee-57a3-5713-12ba-72eb2bb1ad86.htm" />
+          <HelpTOCNode Title="IsReadOnly Property " Url="html/fc949dbc-c2ca-f8ca-40dc-f7fa9f2058a8.htm" />
+          <HelpTOCNode Title="Item Property " Url="html/3b212bf6-cd04-a500-d6fb-e0274607fd2d.htm" />
+          <HelpTOCNode Title="ReclaimableInternsCount Property " Url="html/faafeccb-61b6-5b79-4124-2a3b1b536bc1.htm" />
+          <HelpTOCNode Title="UniqueCount Property " Url="html/53abe78c-4313-2f61-7fc8-62d60bdd7092.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="22878ada-16af-407e-aca5-f8cf3142901c" Title="CondensedCollection(T) Methods" Url="html/843603a9-f0d8-cb94-4da4-191c6544b4cb.htm">
+          <HelpTOCNode Title="Add Method " Url="html/0d9d0097-db3a-e9d5-bc9d-08aa08879b15.htm" />
+          <HelpTOCNode Title="Cleanup Method " Url="html/7037e78b-13c2-a89c-ca7b-212a32e64225.htm" />
+          <HelpTOCNode Title="Clear Method " Url="html/1d4edc1c-fe75-70fc-1c65-23aa8cf7f401.htm" />
+          <HelpTOCNode Title="Contains Method " Url="html/492fe572-3b4a-cd7d-3caa-3403642f98a0.htm" />
+          <HelpTOCNode Title="CopyTo Method " Url="html/bd1af4af-795b-df7d-7ebf-9ee93dbed9ac.htm" />
+          <HelpTOCNode Title="GetEnumerator Method " Url="html/2b4321fe-1177-5286-8ef4-cabb7c5d8c11.htm" />
+          <HelpTOCNode Title="IndexOf Method " Url="html/ff093ad8-e735-8a06-f18a-43fcc5d7f590.htm" />
+          <HelpTOCNode Title="Insert Method " Url="html/b2a6fd17-075e-44f1-5e0c-372a8c7273f2.htm" />
+          <HelpTOCNode Title="Remove Method " Url="html/7540c193-5179-08cc-de60-deeae8bc8773.htm" />
+          <HelpTOCNode Title="RemoveAt Method " Url="html/65f9967b-14da-1a83-3841-4ce09335a2f3.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="a4c28e94-fbff-44c8-bc34-93e020bf8867" Title="CondensedCollection(T) Events" Url="html/61eb268d-5c8e-d319-0717-b67e2423387c.htm">
+          <HelpTOCNode Title="InternedValueReclaimable Event" Url="html/dcf7cb21-1008-3382-8e86-2238dc21499e.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Id="5d4a5a26-6d7c-43f6-a76c-416520f2bde6" Title="CondensedStats Structure" Url="html/838a1fb1-96f0-c15c-cb34-ceed9d853037.htm">
+        <HelpTOCNode Id="24315bd6-0979-4731-b418-7a61ce744bf6" Title="CondensedStats Properties" Url="html/e1cd63fa-720f-54d6-1375-e25ad523b9ae.htm">
+          <HelpTOCNode Title="Count Property " Url="html/854f93c6-db52-4a03-ef6d-6ea7810d9167.htm" />
+          <HelpTOCNode Title="InternPoolCount Property " Url="html/7aaec257-1621-a928-bc6d-3e3f3ac2d279.htm" />
+          <HelpTOCNode Title="UniqueCount Property " Url="html/a9d0b553-8b0d-9fd4-c916-10c38634742f.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="a725288e-9c30-4e33-9aa6-43c11c127389" Title="CondensedStats Methods" Url="html/a63676af-4752-96d7-69a9-308a89338682.htm">
+          <HelpTOCNode Id="df1d7efe-47a8-41ea-bdb1-03594c7e1ca2" Title="Equals Method " Url="html/2342584b-8dcc-925a-a81f-6f8d2865f078.htm">
+            <HelpTOCNode Title="Equals Method (Object)" Url="html/dacfdf94-30ee-3a4e-a9c4-7844bf13e4a3.htm" />
+            <HelpTOCNode Title="Equals Method (CondensedStats)" Url="html/17b40535-1938-fc6c-ab18-b014021b60a1.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="GetHashCode Method " Url="html/05be3db4-1260-6d80-6186-67a247608921.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Id="855ad17f-57ca-4403-a554-213dd7838aae" Title="CondensedStats Operators" Url="html/02744b47-4271-7687-8b95-61ed86269e1b.htm">
+          <HelpTOCNode Title="Equality Operator " Url="html/38d3e39b-e601-ef10-2bbf-31d41b97faaa.htm" />
+          <HelpTOCNode Title="Inequality Operator " Url="html/d25d5204-99bb-cc5e-374e-2a5a629fd36f.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+      <HelpTOCNode Title="IndexType Enumeration" Url="html/46a3982a-d16d-aaca-67cf-93d5936faf94.htm" />
+      <HelpTOCNode Id="859c1457-86ff-4762-9f23-969d74f02547" Title="InternalCorruptionException Class" Url="html/d79f31a7-b58b-a409-14d8-9dce0ce59acc.htm">
+        <HelpTOCNode Id="79e343fd-cc85-40a6-a5b4-6a48e70b09dd" Title="InternalCorruptionException Constructor " Url="html/c2d61c07-286a-d638-3e62-7397971e8670.htm">
+          <HelpTOCNode Title="InternalCorruptionException Constructor " Url="html/133ab1a4-deab-88dc-68d0-ee69f59883f2.htm" />
+          <HelpTOCNode Title="InternalCorruptionException Constructor (String)" Url="html/96b70733-0ba4-9c0a-86a2-d5bec727c7c2.htm" />
+          <HelpTOCNode Title="InternalCorruptionException Constructor (SerializationInfo, StreamingContext)" Url="html/426d044e-052d-b7e9-f958-a3c6507eb203.htm" />
+          <HelpTOCNode Title="InternalCorruptionException Constructor (String, Exception)" Url="html/b59a97d3-51ee-d3b4-0e78-58c67e6e04d3.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="InternalCorruptionException Properties" Url="html/274a0142-b2a9-5ddd-8040-7dcecbc6a4a1.htm" />
+        <HelpTOCNode Title="InternalCorruptionException Methods" Url="html/dc18702f-b1f8-ea13-fac5-37530da122d9.htm" />
+        <HelpTOCNode Title="InternalCorruptionException Events" Url="html/1963c58b-1e6a-8c6c-cdae-97d8c74f5455.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="3853de98-a6ed-4a21-8616-855c7e5ceb3f" Title="InternReclaimableEventArgs Class" Url="html/532e41eb-9654-8c03-24f1-aa343c03639e.htm">
+        <HelpTOCNode Id="0d606e39-0e33-427f-9b43-dc60a3f0028d" Title="InternReclaimableEventArgs Properties" Url="html/9c35820e-fd03-d96d-8745-b0284a9cf1e2.htm">
+          <HelpTOCNode Title="Cleanup Property " Url="html/6c0420c1-d692-d094-c8c0-8a3b2b46bb3f.htm" />
+          <HelpTOCNode Title="Count Property " Url="html/dda2fb2b-a0cf-24c1-9502-8bbb91288ee3.htm" />
+          <HelpTOCNode Title="InternPoolCount Property " Url="html/1f599b77-ef5e-0f2c-8a80-e027666ff15b.htm" />
+          <HelpTOCNode Title="ReclaimableInternsCount Property " Url="html/ba53564f-3773-6c85-94ed-8fe19de95101.htm" />
+          <HelpTOCNode Title="UniqueCount Property " Url="html/324c2ee1-0065-998d-c37f-9f290553d4c9.htm" />
+        </HelpTOCNode>
+        <HelpTOCNode Title="InternReclaimableEventArgs Methods" Url="html/4de656ae-f829-7c8a-9dbf-9a3a72515258.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="5a0a1a6a-9fe0-4be6-87a2-5f4b504dab3d" Title="StandardCutoverPredicates Class" Url="html/1c73e5d6-e13b-a3a6-5746-c58b2f0f17c7.htm">
+        <HelpTOCNode Id="d8bd193c-bd73-468f-bbc3-0bf4e8be8cb2" Title="StandardCutoverPredicates Methods" Url="html/b23c14c9-7471-994a-508a-942b53baa7b3.htm">
+          <HelpTOCNode Title="BytePredicate Method " Url="html/11713508-a075-bf3f-1758-748063635138.htm" />
+          <HelpTOCNode Title="DecimalPredicate Method " Url="html/9306b9e4-82b8-6b7a-9745-806fa25c14e6.htm" />
+          <HelpTOCNode Title="GetDefaultCutoverPredicate Method " Url="html/b07064f5-c8a3-a558-226c-13bba0dfef19.htm" />
+          <HelpTOCNode Title="IntPredicate Method " Url="html/3e9152a9-d61f-ff94-ad47-33ab66bfd8b2.htm" />
+          <HelpTOCNode Title="LongPredicate Method " Url="html/c6fe2323-53cf-861d-4d2b-2d0a7cd5cff4.htm" />
+          <HelpTOCNode Title="NeverCutover Method " Url="html/693575fd-fc7e-82c2-12fa-1836e83a60e7.htm" />
+          <HelpTOCNode Title="ShortPredicate Method " Url="html/d69ab5f5-3c6e-685c-f13d-c2004767bc43.htm" />
+          <HelpTOCNode Title="StringPredicate Method " Url="html/e726a2de-6a9f-f891-d0eb-206603b05dd7.htm" />
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ceda1472-6897-4e49-91e3-f040da307243" Title="Condensed.Linq" Url="html/db10ce80-b3c5-50a7-261c-780047e8c916.htm">
+      <HelpTOCNode Id="0f246a07-9326-429f-afe3-acefc1b1d2fa" Title="CondensedCollectionExtensions Class" Url="html/e9fba711-b78b-85f4-74a8-58bfdc555f05.htm">
+        <HelpTOCNode Id="a556bf61-5c0c-48f8-81c4-f57e0c3b079c" Title="CondensedCollectionExtensions Methods" Url="html/b1318b56-1fdd-15e1-96f6-6c291d4ac829.htm">
+          <HelpTOCNode Title="All(TSource) Method " Url="html/6ecc4580-899b-011f-1366-21554e068b26.htm" />
+          <HelpTOCNode Title="Any(TSource) Method " Url="html/f6d46849-0fc9-b3ae-c054-3cefbc779006.htm" />
+          <HelpTOCNode Id="56c4acf3-4f7e-475e-8945-fabda7235710" Title="Average Method " Url="html/3609976f-6377-183a-9c17-d318851155de.htm">
+            <HelpTOCNode Title="Average Method (CondensedCollection(Decimal))" Url="html/d61ec656-51b9-4a4c-71a6-f041ca6c952e.htm" />
+            <HelpTOCNode Title="Average Method (CondensedCollection(Double))" Url="html/9660ce53-5279-6888-4fda-b45072ecadd3.htm" />
+            <HelpTOCNode Title="Average Method (CondensedCollection(Int32))" Url="html/b6db52d4-7e24-d1e5-e358-1718e8471808.htm" />
+            <HelpTOCNode Title="Average Method (CondensedCollection(Int64))" Url="html/4f1a16a5-4029-1976-bd7c-3eecebc26ba6.htm" />
+            <HelpTOCNode Title="Average Method (CondensedCollection(Nullable(Decimal)))" Url="html/2bc7cfb9-8aa5-0bd8-667d-1eba43c583ab.htm" />
+            <HelpTOCNode Title="Average Method (CondensedCollection(Nullable(Double)))" Url="html/6491f739-4dcb-cdca-f61c-250f2117c7e0.htm" />
+            <HelpTOCNode Title="Average Method (CondensedCollection(Nullable(Int32)))" Url="html/940fa12c-1137-b1a1-33f6-11aebf517a3d.htm" />
+            <HelpTOCNode Title="Average Method (CondensedCollection(Nullable(Int64)))" Url="html/c9d39cf2-1e4d-8234-1341-49de45c69845.htm" />
+            <HelpTOCNode Title="Average Method (CondensedCollection(Nullable(Single)))" Url="html/5ddaf72f-d933-9f5b-f49d-04e565468fdf.htm" />
+            <HelpTOCNode Title="Average Method (CondensedCollection(Single))" Url="html/3bddf262-85d8-ffc1-680d-be70cf419b3a.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Decimal))" Url="html/85be4969-9afb-0de2-62f7-085837c36858.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Double))" Url="html/afb92097-6db4-af2b-4670-a8aaf78d234f.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Int32))" Url="html/4c61f1d5-bfe6-c83b-583e-ad088bbb7ae5.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Int64))" Url="html/dc129908-7870-56dd-3cc0-ab158d10da45.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Decimal)))" Url="html/626a113f-f710-fadd-91b4-b6f133d417e4.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Double)))" Url="html/1aaa9b5f-1f55-b25a-c666-e83147e174f5.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Int32)))" Url="html/d2fca822-5ded-b74e-1f21-685582052552.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Int64)))" Url="html/a8c8024a-7aed-49c7-1105-96354d400988.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Single)))" Url="html/892eb21e-8537-357b-8316-a15538438024.htm" />
+            <HelpTOCNode Title="Average(TSource) Method (CondensedCollection(TSource), Func(TSource, Single))" Url="html/bb4379dc-6132-ca1f-b8bc-7704d69df43d.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Title="Contains(TSource) Method " Url="html/0ca1202a-8595-e540-2521-7bb3eaaf1ec8.htm" />
+          <HelpTOCNode Title="Count(TSource) Method " Url="html/807d0281-11fd-40dd-ffd0-300d3744e311.htm" />
+          <HelpTOCNode Title="Distinct(TSource) Method " Url="html/50b3a53f-e460-5cde-0f66-5560a308b8b4.htm" />
+          <HelpTOCNode Title="First(TSource) Method " Url="html/e96b295c-bd3d-4b4a-e083-d5f122399fbb.htm" />
+          <HelpTOCNode Title="FirstOrDefault(TSource) Method " Url="html/fbc10557-4ec2-5282-5af9-ea4fee2087ad.htm" />
+          <HelpTOCNode Title="Last(TSource) Method " Url="html/47460e95-8222-2c76-c2aa-323d5a0071ac.htm" />
+          <HelpTOCNode Title="LastOrDefault(TSource) Method " Url="html/9cff0cc5-1d62-45e9-ad20-e9ee6d62b4c1.htm" />
+          <HelpTOCNode Id="a6bb09f7-41ef-4b60-9520-96189115f834" Title="Max Method " Url="html/c4c28e14-9247-8b16-c870-bf46485c56a7.htm">
+            <HelpTOCNode Title="Max Method (CondensedCollection(Decimal))" Url="html/7f8ac883-2173-86b5-029f-566aba5b0a13.htm" />
+            <HelpTOCNode Title="Max Method (CondensedCollection(Double))" Url="html/9d682af3-97a0-007b-3c99-c8b66d7b555b.htm" />
+            <HelpTOCNode Title="Max Method (CondensedCollection(Int32))" Url="html/39129798-13a4-249c-0519-af1cf4bae9fa.htm" />
+            <HelpTOCNode Title="Max Method (CondensedCollection(Int64))" Url="html/565f0ed7-9ff0-6166-a68f-633d4b00f5da.htm" />
+            <HelpTOCNode Title="Max Method (CondensedCollection(Nullable(Decimal)))" Url="html/a99cf213-5a6b-4664-eeda-874427b730bc.htm" />
+            <HelpTOCNode Title="Max Method (CondensedCollection(Nullable(Double)))" Url="html/382461b4-82e1-37b5-3b53-4c50bf502e98.htm" />
+            <HelpTOCNode Title="Max Method (CondensedCollection(Nullable(Int32)))" Url="html/8c367d9d-173b-377f-e951-171d6026b6e3.htm" />
+            <HelpTOCNode Title="Max Method (CondensedCollection(Nullable(Int64)))" Url="html/c67704f3-e883-96f6-924a-a2806d19895d.htm" />
+            <HelpTOCNode Title="Max Method (CondensedCollection(Nullable(Single)))" Url="html/8cd49ab1-62a4-5eaa-b46a-5c0d57af5049.htm" />
+            <HelpTOCNode Title="Max Method (CondensedCollection(Single))" Url="html/023cbe62-bb14-c68b-61cb-fcb2166b26dd.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource))" Url="html/3887104c-c06b-70c2-1aee-882fb12c992c.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Decimal))" Url="html/7c611f55-3f29-06e2-b06c-fc1125c768f3.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Double))" Url="html/5bfba2a2-d57a-6348-5a07-e9d2307f54e7.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Int32))" Url="html/5d691263-e58d-b2ae-11ef-ee1545b07f78.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Int64))" Url="html/694ad733-1c63-59c0-d4a5-2a35acdfaf7d.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Decimal)))" Url="html/59e8ce81-6efb-9cdf-7cee-25b5686fd589.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Double)))" Url="html/ec875462-0a9b-af6b-a47e-766e461c37df.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Int32)))" Url="html/5a20cdc5-de5f-c316-657f-83f390a5a167.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Int64)))" Url="html/bde45b7a-f2e2-4901-e484-b12d64019bac.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Single)))" Url="html/63717f97-5c20-3407-0972-9e75c3f6793a.htm" />
+            <HelpTOCNode Title="Max(TSource) Method (CondensedCollection(TSource), Func(TSource, Single))" Url="html/009f1177-c8a3-ab8a-1bbb-75b7fae2d945.htm" />
+            <HelpTOCNode Title="Max(TSource, TResult) Method (CondensedCollection(TSource), Func(TSource, TResult))" Url="html/2a4b5652-24ba-9c8a-8ce8-d44b783707fe.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Id="45bd4fde-88e7-49c2-b33e-fdf246b23472" Title="Min Method " Url="html/a604a358-71d1-ecfe-5fb3-3bfc29bfc300.htm">
+            <HelpTOCNode Title="Min Method (CondensedCollection(Decimal))" Url="html/8bfba817-1552-1404-17b8-fae3440d7f51.htm" />
+            <HelpTOCNode Title="Min Method (CondensedCollection(Double))" Url="html/48326ab6-73ce-04fa-b6eb-0d0d62342bcb.htm" />
+            <HelpTOCNode Title="Min Method (CondensedCollection(Int32))" Url="html/01f04127-95a6-7f73-9496-c0d2f962c4ff.htm" />
+            <HelpTOCNode Title="Min Method (CondensedCollection(Int64))" Url="html/e4d0cdc5-6696-0f4e-22bd-0bb67fd746a2.htm" />
+            <HelpTOCNode Title="Min Method (CondensedCollection(Nullable(Decimal)))" Url="html/8e224717-dec9-3693-f77b-025e06388912.htm" />
+            <HelpTOCNode Title="Min Method (CondensedCollection(Nullable(Double)))" Url="html/14587b95-2636-8f2d-ca46-84f53ea1fcce.htm" />
+            <HelpTOCNode Title="Min Method (CondensedCollection(Nullable(Int32)))" Url="html/fad22ed5-6a08-5dc1-3f10-c4fcc9a8f411.htm" />
+            <HelpTOCNode Title="Min Method (CondensedCollection(Nullable(Int64)))" Url="html/448b9fb9-7324-c589-eed1-2c201f2bfead.htm" />
+            <HelpTOCNode Title="Min Method (CondensedCollection(Nullable(Single)))" Url="html/c7c88793-6926-e949-7468-b827f7abedf6.htm" />
+            <HelpTOCNode Title="Min Method (CondensedCollection(Single))" Url="html/8c8c5f1f-5da2-2b2b-6c30-17f13abec540.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource))" Url="html/53e052e0-4ee6-2406-bccc-226329943fcb.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Decimal))" Url="html/5b83b5bd-970c-9d7f-e6c2-8d2163d6b0ef.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Double))" Url="html/261c69c6-111e-bfb6-8ee9-0a02743628f6.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Int32))" Url="html/abb9bd3c-883a-3439-4e14-423b3512fa6e.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Int64))" Url="html/5b3d6da5-d129-f3a6-18d7-25c82c783ef4.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Decimal)))" Url="html/28a62aa2-40f2-c68a-c1f1-3871a1052244.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Double)))" Url="html/2025f2b9-f9c4-4254-c387-2d9d6bc0a9d3.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Int32)))" Url="html/b2467350-a298-e209-4706-ac08022941eb.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Int64)))" Url="html/92bacb1b-89bd-419d-4a8a-3ff8d737c062.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Single)))" Url="html/f28880f5-78a1-2d73-e937-8cb903d01a99.htm" />
+            <HelpTOCNode Title="Min(TSource) Method (CondensedCollection(TSource), Func(TSource, Single))" Url="html/0a691b91-2eaf-1f72-0721-af3b2808cc4f.htm" />
+            <HelpTOCNode Title="Min(TSource, TResult) Method (CondensedCollection(TSource), Func(TSource, TResult))" Url="html/2706cabf-c714-a0ec-ab5b-1136e8b68f60.htm" />
+          </HelpTOCNode>
+          <HelpTOCNode Id="db51f224-078e-4e28-bd36-e9b062e2b3e2" Title="Sum Method " Url="html/0c9584f0-9ce6-65ca-75ce-51d569883e51.htm">
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Decimal))" Url="html/bd1eaeb0-a841-6dfb-fb76-2689f5ece350.htm" />
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Double))" Url="html/51a019cb-ef07-b5cd-e8bd-535b6cf277a1.htm" />
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Int32))" Url="html/3ff5f791-39b8-ebf1-b605-ca12b1775810.htm" />
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Int64))" Url="html/f843db4d-e7f6-ded1-7269-e2f995e8a7f1.htm" />
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Nullable(Decimal)))" Url="html/06066bb3-a4e7-8612-f013-85a3cf5ae1b8.htm" />
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Nullable(Double)))" Url="html/192d66de-82d0-b64d-fb8d-298b8afce33a.htm" />
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Nullable(Int32)))" Url="html/d0d1528d-ec64-9c86-dd83-3db60a6186da.htm" />
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Nullable(Int64)))" Url="html/b4affeca-c5ed-6103-8a84-ea69c12e074e.htm" />
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Nullable(Single)))" Url="html/33a8454e-5a6f-55f7-6d5b-18239a3f3037.htm" />
+            <HelpTOCNode Title="Sum Method (CondensedCollection(Single))" Url="html/5f046c06-2f3f-95e4-5990-c4c59163aa27.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Decimal))" Url="html/96dcfcc9-c704-5f23-bccb-e647e48adc36.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Double))" Url="html/213e4a9c-8584-499e-9de9-1b2526d7c66a.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Int32))" Url="html/b34484ad-7e52-7106-45a3-ecd0b1db22ce.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Int64))" Url="html/eb9cd68d-251b-f1eb-8832-0d0a56f6714e.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Decimal)))" Url="html/889fefc7-8978-eba9-a804-e9be1caad843.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Double)))" Url="html/c8ed70e7-9a2e-bd1c-808a-ff91937fe976.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Int32)))" Url="html/8e2ca87b-022d-add0-e1d8-9fe86f2dc9e0.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Int64)))" Url="html/aec7ac90-cb1c-cc3c-35df-c56ab40fc92a.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Nullable(Single)))" Url="html/e7eedfdc-4d0a-548b-002f-da1783e8b9c0.htm" />
+            <HelpTOCNode Title="Sum(TSource) Method (CondensedCollection(TSource), Func(TSource, Single))" Url="html/8f4be909-71dc-3c8b-0fb0-83455c7d66f0.htm" />
+          </HelpTOCNode>
+        </HelpTOCNode>
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

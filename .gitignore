@@ -304,5 +304,3 @@ __pycache__/
 # OpenCover UI analysis results
 OpenCover/
 
--# Sandcastle build output
-ApiDocs/Help

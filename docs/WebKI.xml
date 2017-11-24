@@ -1,0 +1,300 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Add method">
+    <HelpKINode Title="BitCollection.Add Method " Url="html/939057d2-db2b-b08d-685a-bd6b27eb430b.htm" />
+    <HelpKINode Title="CondensedCollection(T).Add Method " Url="html/0d9d0097-db3a-e9d5-bc9d-08aa08879b15.htm" />
+  </HelpKINode>
+  <HelpKINode Title="All(Of TSource) method" Url="html/6ecc4580-899b-011f-1366-21554e068b26.htm" />
+  <HelpKINode Title="All&lt;TSource&gt; method" Url="html/6ecc4580-899b-011f-1366-21554e068b26.htm" />
+  <HelpKINode Title="Any(Of TSource) method" Url="html/f6d46849-0fc9-b3ae-c054-3cefbc779006.htm" />
+  <HelpKINode Title="Any&lt;TSource&gt; method" Url="html/f6d46849-0fc9-b3ae-c054-3cefbc779006.htm" />
+  <HelpKINode Title="Average method" Url="html/3609976f-6377-183a-9c17-d318851155de.htm" />
+  <HelpKINode Title="BitCollection class">
+    <HelpKINode Title="BitCollection Class" Url="html/324295ac-4466-2f3e-aa61-6eb27c917a18.htm" />
+    <HelpKINode Title="about BitCollection class" Url="html/324295ac-4466-2f3e-aa61-6eb27c917a18.htm" />
+    <HelpKINode Title="constructor" Url="html/b698fb06-efd2-a673-61d0-05cc397d2434.htm" />
+    <HelpKINode Title="methods" Url="html/116c353e-a957-f854-1d45-54d22cad02fb.htm" />
+    <HelpKINode Title="properties" Url="html/45ddd059-8019-dca6-757b-10e032d89be0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="BitCollection.Add method" Url="html/939057d2-db2b-b08d-685a-bd6b27eb430b.htm" />
+  <HelpKINode Title="BitCollection.BitCollection constructor" Url="html/b698fb06-efd2-a673-61d0-05cc397d2434.htm" />
+  <HelpKINode Title="BitCollection.Capacity property" Url="html/3cd5177c-7f9d-b2e3-0443-13c437179dda.htm" />
+  <HelpKINode Title="BitCollection.Clear method" Url="html/85543e28-1bfd-c609-8492-be3ba981e429.htm" />
+  <HelpKINode Title="BitCollection.Contains method" Url="html/8be39975-f6de-5ffb-22b8-9a00f3ebf280.htm" />
+  <HelpKINode Title="BitCollection.CopyTo method" Url="html/55586251-580c-a36d-6c8c-69aa7cc1c9d5.htm" />
+  <HelpKINode Title="BitCollection.Count property" Url="html/fd86f0b1-9cd0-fa6e-1a72-0eccab16d3b5.htm" />
+  <HelpKINode Title="BitCollection.GetEnumerator method" Url="html/b39e8bd2-1f0e-8d5f-5c23-cd68e4c3caaf.htm" />
+  <HelpKINode Title="BitCollection.IndexOf method" Url="html/d4a7f18c-70e1-6858-be5c-f1d5605252a1.htm" />
+  <HelpKINode Title="BitCollection.Insert method" Url="html/19da3fdb-4524-836f-4480-f15f8f997037.htm" />
+  <HelpKINode Title="BitCollection.IsReadOnly property" Url="html/dc766d19-ebb6-10d4-42a5-10efd21f18e6.htm" />
+  <HelpKINode Title="BitCollection.Item property" Url="html/cb96e0e6-f9af-332c-a31b-bcb0ca6a5276.htm" />
+  <HelpKINode Title="BitCollection.Remove method" Url="html/36e68864-3206-975c-f4ad-74a3fbb2e187.htm" />
+  <HelpKINode Title="BitCollection.RemoveAt method" Url="html/9a3897d8-af78-7129-3eef-3e32d69f2698.htm" />
+  <HelpKINode Title="BytePredicate method" Url="html/11713508-a075-bf3f-1758-748063635138.htm" />
+  <HelpKINode Title="Capacity property">
+    <HelpKINode Title="BitCollection.Capacity Property " Url="html/3cd5177c-7f9d-b2e3-0443-13c437179dda.htm" />
+    <HelpKINode Title="CondensedCollection(T).Capacity Property " Url="html/32223b4a-8160-02b6-5830-acd8f05656d9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CLDN001" Url="html/12336e43-b0f4-46fb-a17b-c640871bddab.htm" />
+  <HelpKINode Title="Cleanup method" Url="html/7037e78b-13c2-a89c-ca7b-212a32e64225.htm" />
+  <HelpKINode Title="Cleanup property" Url="html/6c0420c1-d692-d094-c8c0-8a3b2b46bb3f.htm" />
+  <HelpKINode Title="Clear method">
+    <HelpKINode Title="BitCollection.Clear Method " Url="html/85543e28-1bfd-c609-8492-be3ba981e429.htm" />
+    <HelpKINode Title="CondensedCollection(T).Clear Method " Url="html/1d4edc1c-fe75-70fc-1c65-23aa8cf7f401.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Comparer property" Url="html/ab8cb006-c52c-02a9-dd4b-606538dd4d11.htm" />
+  <HelpKINode Title="Condensed namespace" Url="html/01bf1e63-a14c-2cab-2f87-1169fbf96d44.htm" />
+  <HelpKINode Title="Condensed.BitCollection class" Url="html/324295ac-4466-2f3e-aa61-6eb27c917a18.htm" />
+  <HelpKINode Title="Condensed.CondensedCollection(Of T) class" Url="html/567ca794-b467-8736-0b20-caacc958e8a9.htm" />
+  <HelpKINode Title="Condensed.CondensedCollection&lt;T&gt; class" Url="html/567ca794-b467-8736-0b20-caacc958e8a9.htm" />
+  <HelpKINode Title="Condensed.CondensedStats structure" Url="html/838a1fb1-96f0-c15c-cb34-ceed9d853037.htm" />
+  <HelpKINode Title="Condensed.IndexType enumeration" Url="html/46a3982a-d16d-aaca-67cf-93d5936faf94.htm" />
+  <HelpKINode Title="Condensed.InternalCorruptionException class" Url="html/d79f31a7-b58b-a409-14d8-9dce0ce59acc.htm" />
+  <HelpKINode Title="Condensed.InternReclaimableEventArgs class" Url="html/532e41eb-9654-8c03-24f1-aa343c03639e.htm" />
+  <HelpKINode Title="Condensed.Linq namespace" Url="html/db10ce80-b3c5-50a7-261c-780047e8c916.htm" />
+  <HelpKINode Title="Condensed.Linq.CondensedCollectionExtensions class" Url="html/e9fba711-b78b-85f4-74a8-58bfdc555f05.htm" />
+  <HelpKINode Title="Condensed.StandardCutoverPredicates class" Url="html/1c73e5d6-e13b-a3a6-5746-c58b2f0f17c7.htm" />
+  <HelpKINode Title="CondensedCollection(Of T) class">
+    <HelpKINode Title="CondensedCollection(T) Class" Url="html/567ca794-b467-8736-0b20-caacc958e8a9.htm" />
+    <HelpKINode Title="about CondensedCollection(Of T) class" Url="html/567ca794-b467-8736-0b20-caacc958e8a9.htm" />
+    <HelpKINode Title="constructor" Url="html/0f761938-d40a-4c06-ff0e-1ac3d0c4a689.htm" />
+    <HelpKINode Title="events" Url="html/61eb268d-5c8e-d319-0717-b67e2423387c.htm" />
+    <HelpKINode Title="methods" Url="html/843603a9-f0d8-cb94-4da4-191c6544b4cb.htm" />
+    <HelpKINode Title="properties" Url="html/392897eb-25ef-1cbb-be05-9f90f43e4f4b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CondensedCollection(Of T).Add method" Url="html/0d9d0097-db3a-e9d5-bc9d-08aa08879b15.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).Capacity property" Url="html/32223b4a-8160-02b6-5830-acd8f05656d9.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).Cleanup method" Url="html/7037e78b-13c2-a89c-ca7b-212a32e64225.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).Clear method" Url="html/1d4edc1c-fe75-70fc-1c65-23aa8cf7f401.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).Comparer property" Url="html/ab8cb006-c52c-02a9-dd4b-606538dd4d11.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).CondensedCollection constructor" Url="html/0f761938-d40a-4c06-ff0e-1ac3d0c4a689.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).Contains method" Url="html/492fe572-3b4a-cd7d-3caa-3403642f98a0.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).CopyTo method" Url="html/bd1af4af-795b-df7d-7ebf-9ee93dbed9ac.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).Count property" Url="html/f1df2bcf-428c-dd94-9644-f676e087d21f.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).CutoverPredicate property" Url="html/6a948783-2645-5cec-e67e-823df11845fe.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).GetEnumerator method" Url="html/2b4321fe-1177-5286-8ef4-cabb7c5d8c11.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).HasCutover property" Url="html/2dcc1db2-5437-5d52-7514-5f6c534deae6.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).IndexOf method" Url="html/ff093ad8-e735-8a06-f18a-43fcc5d7f590.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).IndexType property" Url="html/bd41c4e6-329f-2208-b310-4095bfb166c9.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).Insert method" Url="html/b2a6fd17-075e-44f1-5e0c-372a8c7273f2.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).InternedValueReclaimable event" Url="html/dcf7cb21-1008-3382-8e86-2238dc21499e.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).InternPoolCount property" Url="html/9f0383ee-57a3-5713-12ba-72eb2bb1ad86.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).IsReadOnly property" Url="html/fc949dbc-c2ca-f8ca-40dc-f7fa9f2058a8.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).Item property" Url="html/3b212bf6-cd04-a500-d6fb-e0274607fd2d.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).ReclaimableInternsCount property" Url="html/faafeccb-61b6-5b79-4124-2a3b1b536bc1.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).Remove method" Url="html/7540c193-5179-08cc-de60-deeae8bc8773.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).RemoveAt method" Url="html/65f9967b-14da-1a83-3841-4ce09335a2f3.htm" />
+  <HelpKINode Title="CondensedCollection(Of T).UniqueCount property" Url="html/53abe78c-4313-2f61-7fc8-62d60bdd7092.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt; class">
+    <HelpKINode Title="CondensedCollection(T) Class" Url="html/567ca794-b467-8736-0b20-caacc958e8a9.htm" />
+    <HelpKINode Title="about CondensedCollection&lt;T&gt; class" Url="html/567ca794-b467-8736-0b20-caacc958e8a9.htm" />
+    <HelpKINode Title="constructor" Url="html/0f761938-d40a-4c06-ff0e-1ac3d0c4a689.htm" />
+    <HelpKINode Title="events" Url="html/61eb268d-5c8e-d319-0717-b67e2423387c.htm" />
+    <HelpKINode Title="methods" Url="html/843603a9-f0d8-cb94-4da4-191c6544b4cb.htm" />
+    <HelpKINode Title="properties" Url="html/392897eb-25ef-1cbb-be05-9f90f43e4f4b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Add method" Url="html/0d9d0097-db3a-e9d5-bc9d-08aa08879b15.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Capacity property" Url="html/32223b4a-8160-02b6-5830-acd8f05656d9.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Cleanup method" Url="html/7037e78b-13c2-a89c-ca7b-212a32e64225.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Clear method" Url="html/1d4edc1c-fe75-70fc-1c65-23aa8cf7f401.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Comparer property" Url="html/ab8cb006-c52c-02a9-dd4b-606538dd4d11.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.CondensedCollection constructor" Url="html/0f761938-d40a-4c06-ff0e-1ac3d0c4a689.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Contains method" Url="html/492fe572-3b4a-cd7d-3caa-3403642f98a0.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.CopyTo method" Url="html/bd1af4af-795b-df7d-7ebf-9ee93dbed9ac.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Count property" Url="html/f1df2bcf-428c-dd94-9644-f676e087d21f.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.CutoverPredicate property" Url="html/6a948783-2645-5cec-e67e-823df11845fe.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.GetEnumerator method" Url="html/2b4321fe-1177-5286-8ef4-cabb7c5d8c11.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.HasCutover property" Url="html/2dcc1db2-5437-5d52-7514-5f6c534deae6.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.IndexOf method" Url="html/ff093ad8-e735-8a06-f18a-43fcc5d7f590.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.IndexType property" Url="html/bd41c4e6-329f-2208-b310-4095bfb166c9.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Insert method" Url="html/b2a6fd17-075e-44f1-5e0c-372a8c7273f2.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.InternedValueReclaimable event" Url="html/dcf7cb21-1008-3382-8e86-2238dc21499e.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.InternPoolCount property" Url="html/9f0383ee-57a3-5713-12ba-72eb2bb1ad86.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.IsReadOnly property" Url="html/fc949dbc-c2ca-f8ca-40dc-f7fa9f2058a8.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Item property" Url="html/3b212bf6-cd04-a500-d6fb-e0274607fd2d.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.ReclaimableInternsCount property" Url="html/faafeccb-61b6-5b79-4124-2a3b1b536bc1.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.Remove method" Url="html/7540c193-5179-08cc-de60-deeae8bc8773.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.RemoveAt method" Url="html/65f9967b-14da-1a83-3841-4ce09335a2f3.htm" />
+  <HelpKINode Title="CondensedCollection&lt;T&gt;.UniqueCount property" Url="html/53abe78c-4313-2f61-7fc8-62d60bdd7092.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions class">
+    <HelpKINode Title="CondensedCollectionExtensions Class" Url="html/e9fba711-b78b-85f4-74a8-58bfdc555f05.htm" />
+    <HelpKINode Title="about CondensedCollectionExtensions class" Url="html/e9fba711-b78b-85f4-74a8-58bfdc555f05.htm" />
+    <HelpKINode Title="methods" Url="html/b1318b56-1fdd-15e1-96f6-6c291d4ac829.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CondensedCollectionExtensions.All(Of TSource) method" Url="html/6ecc4580-899b-011f-1366-21554e068b26.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.All&lt;TSource&gt; method" Url="html/6ecc4580-899b-011f-1366-21554e068b26.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Any(Of TSource) method" Url="html/f6d46849-0fc9-b3ae-c054-3cefbc779006.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Any&lt;TSource&gt; method" Url="html/f6d46849-0fc9-b3ae-c054-3cefbc779006.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Average method" Url="html/3609976f-6377-183a-9c17-d318851155de.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Contains(Of TSource) method" Url="html/0ca1202a-8595-e540-2521-7bb3eaaf1ec8.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Contains&lt;TSource&gt; method" Url="html/0ca1202a-8595-e540-2521-7bb3eaaf1ec8.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Count(Of TSource) method" Url="html/807d0281-11fd-40dd-ffd0-300d3744e311.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Count&lt;TSource&gt; method" Url="html/807d0281-11fd-40dd-ffd0-300d3744e311.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Distinct(Of TSource) method" Url="html/50b3a53f-e460-5cde-0f66-5560a308b8b4.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Distinct&lt;TSource&gt; method" Url="html/50b3a53f-e460-5cde-0f66-5560a308b8b4.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.First(Of TSource) method" Url="html/e96b295c-bd3d-4b4a-e083-d5f122399fbb.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.First&lt;TSource&gt; method" Url="html/e96b295c-bd3d-4b4a-e083-d5f122399fbb.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.FirstOrDefault(Of TSource) method" Url="html/fbc10557-4ec2-5282-5af9-ea4fee2087ad.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.FirstOrDefault&lt;TSource&gt; method" Url="html/fbc10557-4ec2-5282-5af9-ea4fee2087ad.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Last(Of TSource) method" Url="html/47460e95-8222-2c76-c2aa-323d5a0071ac.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Last&lt;TSource&gt; method" Url="html/47460e95-8222-2c76-c2aa-323d5a0071ac.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.LastOrDefault(Of TSource) method" Url="html/9cff0cc5-1d62-45e9-ad20-e9ee6d62b4c1.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.LastOrDefault&lt;TSource&gt; method" Url="html/9cff0cc5-1d62-45e9-ad20-e9ee6d62b4c1.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Max method" Url="html/c4c28e14-9247-8b16-c870-bf46485c56a7.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Min method" Url="html/a604a358-71d1-ecfe-5fb3-3bfc29bfc300.htm" />
+  <HelpKINode Title="CondensedCollectionExtensions.Sum method" Url="html/0c9584f0-9ce6-65ca-75ce-51d569883e51.htm" />
+  <HelpKINode Title="CondensedStats structure">
+    <HelpKINode Title="CondensedStats Structure" Url="html/838a1fb1-96f0-c15c-cb34-ceed9d853037.htm" />
+    <HelpKINode Title="about CondensedStats structure" Url="html/838a1fb1-96f0-c15c-cb34-ceed9d853037.htm" />
+    <HelpKINode Title="methods" Url="html/a63676af-4752-96d7-69a9-308a89338682.htm" />
+    <HelpKINode Title="operators" Url="html/02744b47-4271-7687-8b95-61ed86269e1b.htm" />
+    <HelpKINode Title="properties" Url="html/e1cd63fa-720f-54d6-1375-e25ad523b9ae.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CondensedStats.Count property" Url="html/854f93c6-db52-4a03-ef6d-6ea7810d9167.htm" />
+  <HelpKINode Title="CondensedStats.Equality operator" Url="html/38d3e39b-e601-ef10-2bbf-31d41b97faaa.htm" />
+  <HelpKINode Title="CondensedStats.Equals method" Url="html/2342584b-8dcc-925a-a81f-6f8d2865f078.htm" />
+  <HelpKINode Title="CondensedStats.GetHashCode method" Url="html/05be3db4-1260-6d80-6186-67a247608921.htm" />
+  <HelpKINode Title="CondensedStats.Inequality operator" Url="html/d25d5204-99bb-cc5e-374e-2a5a629fd36f.htm" />
+  <HelpKINode Title="CondensedStats.InternPoolCount property" Url="html/7aaec257-1621-a928-bc6d-3e3f3ac2d279.htm" />
+  <HelpKINode Title="CondensedStats.UniqueCount property" Url="html/a9d0b553-8b0d-9fd4-c916-10c38634742f.htm" />
+  <HelpKINode Title="Contains method">
+    <HelpKINode Title="BitCollection.Contains Method " Url="html/8be39975-f6de-5ffb-22b8-9a00f3ebf280.htm" />
+    <HelpKINode Title="CondensedCollection(T).Contains Method " Url="html/492fe572-3b4a-cd7d-3caa-3403642f98a0.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Contains(Of TSource) method" Url="html/0ca1202a-8595-e540-2521-7bb3eaaf1ec8.htm" />
+  <HelpKINode Title="Contains&lt;TSource&gt; method" Url="html/0ca1202a-8595-e540-2521-7bb3eaaf1ec8.htm" />
+  <HelpKINode Title="CopyTo method">
+    <HelpKINode Title="BitCollection.CopyTo Method " Url="html/55586251-580c-a36d-6c8c-69aa7cc1c9d5.htm" />
+    <HelpKINode Title="CondensedCollection(T).CopyTo Method " Url="html/bd1af4af-795b-df7d-7ebf-9ee93dbed9ac.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Count property">
+    <HelpKINode Title="BitCollection.Count Property " Url="html/fd86f0b1-9cd0-fa6e-1a72-0eccab16d3b5.htm" />
+    <HelpKINode Title="CondensedCollection(T).Count Property " Url="html/f1df2bcf-428c-dd94-9644-f676e087d21f.htm" />
+    <HelpKINode Title="CondensedStats.Count Property " Url="html/854f93c6-db52-4a03-ef6d-6ea7810d9167.htm" />
+    <HelpKINode Title="InternReclaimableEventArgs.Count Property " Url="html/dda2fb2b-a0cf-24c1-9502-8bbb91288ee3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Count(Of TSource) method" Url="html/807d0281-11fd-40dd-ffd0-300d3744e311.htm" />
+  <HelpKINode Title="Count&lt;TSource&gt; method" Url="html/807d0281-11fd-40dd-ffd0-300d3744e311.htm" />
+  <HelpKINode Title="Cutover" Url="html/23ce826c-4e23-4c13-9ac9-63cdccb22d86.htm" />
+  <HelpKINode Title="CutoverPredicate property" Url="html/6a948783-2645-5cec-e67e-823df11845fe.htm" />
+  <HelpKINode Title="DecimalPredicate method" Url="html/9306b9e4-82b8-6b7a-9745-806fa25c14e6.htm" />
+  <HelpKINode Title="Distinct(Of TSource) method" Url="html/50b3a53f-e460-5cde-0f66-5560a308b8b4.htm" />
+  <HelpKINode Title="Distinct&lt;TSource&gt; method" Url="html/50b3a53f-e460-5cde-0f66-5560a308b8b4.htm" />
+  <HelpKINode Title="Equality" Url="html/4e8c0308-b111-44cc-aa69-99f3a651f306.htm" />
+  <HelpKINode Title="Equality operator" Url="html/38d3e39b-e601-ef10-2bbf-31d41b97faaa.htm" />
+  <HelpKINode Title="Equals method" Url="html/2342584b-8dcc-925a-a81f-6f8d2865f078.htm" />
+  <HelpKINode Title="First(Of TSource) method" Url="html/e96b295c-bd3d-4b4a-e083-d5f122399fbb.htm" />
+  <HelpKINode Title="First&lt;TSource&gt; method" Url="html/e96b295c-bd3d-4b4a-e083-d5f122399fbb.htm" />
+  <HelpKINode Title="FirstOrDefault(Of TSource) method" Url="html/fbc10557-4ec2-5282-5af9-ea4fee2087ad.htm" />
+  <HelpKINode Title="FirstOrDefault&lt;TSource&gt; method" Url="html/fbc10557-4ec2-5282-5af9-ea4fee2087ad.htm" />
+  <HelpKINode Title="FourBytes enumeration member" Url="html/46a3982a-d16d-aaca-67cf-93d5936faf94.htm" />
+  <HelpKINode Title="GetDefaultCutoverPredicate method" Url="html/b07064f5-c8a3-a558-226c-13bba0dfef19.htm" />
+  <HelpKINode Title="GetEnumerator method">
+    <HelpKINode Title="BitCollection.GetEnumerator Method " Url="html/b39e8bd2-1f0e-8d5f-5c23-cd68e4c3caaf.htm" />
+    <HelpKINode Title="CondensedCollection(T).GetEnumerator Method " Url="html/2b4321fe-1177-5286-8ef4-cabb7c5d8c11.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetHashCode method" Url="html/05be3db4-1260-6d80-6186-67a247608921.htm" />
+  <HelpKINode Title="HasCutover property" Url="html/2dcc1db2-5437-5d52-7514-5f6c534deae6.htm" />
+  <HelpKINode Title="IEqualityComparer&lt;T&gt;" Url="html/4e8c0308-b111-44cc-aa69-99f3a651f306.htm" />
+  <HelpKINode Title="IEquatable&lt;T&gt;" Url="html/4e8c0308-b111-44cc-aa69-99f3a651f306.htm" />
+  <HelpKINode Title="Immutability" Url="html/12336e43-b0f4-46fb-a17b-c640871bddab.htm" />
+  <HelpKINode Title="IndexOf method">
+    <HelpKINode Title="BitCollection.IndexOf Method " Url="html/d4a7f18c-70e1-6858-be5c-f1d5605252a1.htm" />
+    <HelpKINode Title="CondensedCollection(T).IndexOf Method " Url="html/ff093ad8-e735-8a06-f18a-43fcc5d7f590.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IndexType enumeration" Url="html/46a3982a-d16d-aaca-67cf-93d5936faf94.htm" />
+  <HelpKINode Title="IndexType property" Url="html/bd41c4e6-329f-2208-b310-4095bfb166c9.htm" />
+  <HelpKINode Title="Inequality operator" Url="html/d25d5204-99bb-cc5e-374e-2a5a629fd36f.htm" />
+  <HelpKINode Title="Insert method">
+    <HelpKINode Title="BitCollection.Insert Method " Url="html/19da3fdb-4524-836f-4480-f15f8f997037.htm" />
+    <HelpKINode Title="CondensedCollection(T).Insert Method " Url="html/b2a6fd17-075e-44f1-5e0c-372a8c7273f2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InternalCorruptionException class">
+    <HelpKINode Title="InternalCorruptionException Class" Url="html/d79f31a7-b58b-a409-14d8-9dce0ce59acc.htm" />
+    <HelpKINode Title="about InternalCorruptionException class" Url="html/d79f31a7-b58b-a409-14d8-9dce0ce59acc.htm" />
+    <HelpKINode Title="constructor" Url="html/c2d61c07-286a-d638-3e62-7397971e8670.htm" />
+    <HelpKINode Title="events" Url="html/1963c58b-1e6a-8c6c-cdae-97d8c74f5455.htm" />
+    <HelpKINode Title="methods" Url="html/dc18702f-b1f8-ea13-fac5-37530da122d9.htm" />
+    <HelpKINode Title="properties" Url="html/274a0142-b2a9-5ddd-8040-7dcecbc6a4a1.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InternalCorruptionException.InternalCorruptionException constructor" Url="html/c2d61c07-286a-d638-3e62-7397971e8670.htm" />
+  <HelpKINode Title="InternedValueReclaimable event" Url="html/dcf7cb21-1008-3382-8e86-2238dc21499e.htm" />
+  <HelpKINode Title="InternPoolCount property">
+    <HelpKINode Title="CondensedCollection(T).InternPoolCount Property " Url="html/9f0383ee-57a3-5713-12ba-72eb2bb1ad86.htm" />
+    <HelpKINode Title="CondensedStats.InternPoolCount Property " Url="html/7aaec257-1621-a928-bc6d-3e3f3ac2d279.htm" />
+    <HelpKINode Title="InternReclaimableEventArgs.InternPoolCount Property " Url="html/1f599b77-ef5e-0f2c-8a80-e027666ff15b.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InternReclaimableEventArgs class">
+    <HelpKINode Title="InternReclaimableEventArgs Class" Url="html/532e41eb-9654-8c03-24f1-aa343c03639e.htm" />
+    <HelpKINode Title="about InternReclaimableEventArgs class" Url="html/532e41eb-9654-8c03-24f1-aa343c03639e.htm" />
+    <HelpKINode Title="methods" Url="html/4de656ae-f829-7c8a-9dbf-9a3a72515258.htm" />
+    <HelpKINode Title="properties" Url="html/9c35820e-fd03-d96d-8745-b0284a9cf1e2.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InternReclaimableEventArgs.Cleanup property" Url="html/6c0420c1-d692-d094-c8c0-8a3b2b46bb3f.htm" />
+  <HelpKINode Title="InternReclaimableEventArgs.Count property" Url="html/dda2fb2b-a0cf-24c1-9502-8bbb91288ee3.htm" />
+  <HelpKINode Title="InternReclaimableEventArgs.InternPoolCount property" Url="html/1f599b77-ef5e-0f2c-8a80-e027666ff15b.htm" />
+  <HelpKINode Title="InternReclaimableEventArgs.ReclaimableInternsCount property" Url="html/ba53564f-3773-6c85-94ed-8fe19de95101.htm" />
+  <HelpKINode Title="InternReclaimableEventArgs.UniqueCount property" Url="html/324c2ee1-0065-998d-c37f-9f290553d4c9.htm" />
+  <HelpKINode Title="IntPredicate method" Url="html/3e9152a9-d61f-ff94-ad47-33ab66bfd8b2.htm" />
+  <HelpKINode Title="IsReadOnly property">
+    <HelpKINode Title="BitCollection.IsReadOnly Property " Url="html/dc766d19-ebb6-10d4-42a5-10efd21f18e6.htm" />
+    <HelpKINode Title="CondensedCollection(T).IsReadOnly Property " Url="html/fc949dbc-c2ca-f8ca-40dc-f7fa9f2058a8.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Item property">
+    <HelpKINode Title="BitCollection.Item Property " Url="html/cb96e0e6-f9af-332c-a31b-bcb0ca6a5276.htm" />
+    <HelpKINode Title="CondensedCollection(T).Item Property " Url="html/3b212bf6-cd04-a500-d6fb-e0274607fd2d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Last(Of TSource) method" Url="html/47460e95-8222-2c76-c2aa-323d5a0071ac.htm" />
+  <HelpKINode Title="Last&lt;TSource&gt; method" Url="html/47460e95-8222-2c76-c2aa-323d5a0071ac.htm" />
+  <HelpKINode Title="LastOrDefault(Of TSource) method" Url="html/9cff0cc5-1d62-45e9-ad20-e9ee6d62b4c1.htm" />
+  <HelpKINode Title="LastOrDefault&lt;TSource&gt; method" Url="html/9cff0cc5-1d62-45e9-ad20-e9ee6d62b4c1.htm" />
+  <HelpKINode Title="License" Url="html/6c8df980-bdc2-46d6-b712-f2f740467dd9.htm" />
+  <HelpKINode Title="LINQ" Url="html/88ffb368-39bd-430b-bd09-0800d2f14dbf.htm" />
+  <HelpKINode Title="LongPredicate method" Url="html/c6fe2323-53cf-861d-4d2b-2d0a7cd5cff4.htm" />
+  <HelpKINode Title="Max method" Url="html/c4c28e14-9247-8b16-c870-bf46485c56a7.htm" />
+  <HelpKINode Title="Memory" Url="html/606626e5-fb28-47c5-939f-a87c14d4f99a.htm" />
+  <HelpKINode Title="Min method" Url="html/a604a358-71d1-ecfe-5fb3-3bfc29bfc300.htm" />
+  <HelpKINode Title="NeverCutover method" Url="html/693575fd-fc7e-82c2-12fa-1836e83a60e7.htm" />
+  <HelpKINode Title="NoIndex enumeration member" Url="html/46a3982a-d16d-aaca-67cf-93d5936faf94.htm" />
+  <HelpKINode Title="OneBit enumeration member" Url="html/46a3982a-d16d-aaca-67cf-93d5936faf94.htm" />
+  <HelpKINode Title="OneByte enumeration member" Url="html/46a3982a-d16d-aaca-67cf-93d5936faf94.htm" />
+  <HelpKINode Title="ReclaimableInternsCount property">
+    <HelpKINode Title="CondensedCollection(T).ReclaimableInternsCount Property " Url="html/faafeccb-61b6-5b79-4124-2a3b1b536bc1.htm" />
+    <HelpKINode Title="InternReclaimableEventArgs.ReclaimableInternsCount Property " Url="html/ba53564f-3773-6c85-94ed-8fe19de95101.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Remove method">
+    <HelpKINode Title="BitCollection.Remove Method " Url="html/36e68864-3206-975c-f4ad-74a3fbb2e187.htm" />
+    <HelpKINode Title="CondensedCollection(T).Remove Method " Url="html/7540c193-5179-08cc-de60-deeae8bc8773.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RemoveAt method">
+    <HelpKINode Title="BitCollection.RemoveAt Method " Url="html/9a3897d8-af78-7129-3eef-3e32d69f2698.htm" />
+    <HelpKINode Title="CondensedCollection(T).RemoveAt Method " Url="html/65f9967b-14da-1a83-3841-4ce09335a2f3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ShortPredicate method" Url="html/d69ab5f5-3c6e-685c-f13d-c2004767bc43.htm" />
+  <HelpKINode Title="StandardCutoverPredicates class">
+    <HelpKINode Title="StandardCutoverPredicates Class" Url="html/1c73e5d6-e13b-a3a6-5746-c58b2f0f17c7.htm" />
+    <HelpKINode Title="about StandardCutoverPredicates class" Url="html/1c73e5d6-e13b-a3a6-5746-c58b2f0f17c7.htm" />
+    <HelpKINode Title="methods" Url="html/b23c14c9-7471-994a-508a-942b53baa7b3.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StandardCutoverPredicates.BytePredicate method" Url="html/11713508-a075-bf3f-1758-748063635138.htm" />
+  <HelpKINode Title="StandardCutoverPredicates.DecimalPredicate method" Url="html/9306b9e4-82b8-6b7a-9745-806fa25c14e6.htm" />
+  <HelpKINode Title="StandardCutoverPredicates.GetDefaultCutoverPredicate method" Url="html/b07064f5-c8a3-a558-226c-13bba0dfef19.htm" />
+  <HelpKINode Title="StandardCutoverPredicates.IntPredicate method" Url="html/3e9152a9-d61f-ff94-ad47-33ab66bfd8b2.htm" />
+  <HelpKINode Title="StandardCutoverPredicates.LongPredicate method" Url="html/c6fe2323-53cf-861d-4d2b-2d0a7cd5cff4.htm" />
+  <HelpKINode Title="StandardCutoverPredicates.NeverCutover method" Url="html/693575fd-fc7e-82c2-12fa-1836e83a60e7.htm" />
+  <HelpKINode Title="StandardCutoverPredicates.ShortPredicate method" Url="html/d69ab5f5-3c6e-685c-f13d-c2004767bc43.htm" />
+  <HelpKINode Title="StandardCutoverPredicates.StringPredicate method" Url="html/e726a2de-6a9f-f891-d0eb-206603b05dd7.htm" />
+  <HelpKINode Title="StringPredicate method" Url="html/e726a2de-6a9f-f891-d0eb-206603b05dd7.htm" />
+  <HelpKINode Title="Sum method" Url="html/0c9584f0-9ce6-65ca-75ce-51d569883e51.htm" />
+  <HelpKINode Title="TwoBytes enumeration member" Url="html/46a3982a-d16d-aaca-67cf-93d5936faf94.htm" />
+  <HelpKINode Title="UniqueCount property">
+    <HelpKINode Title="CondensedCollection(T).UniqueCount Property " Url="html/53abe78c-4313-2f61-7fc8-62d60bdd7092.htm" />
+    <HelpKINode Title="CondensedStats.UniqueCount Property " Url="html/a9d0b553-8b0d-9fd4-c916-10c38634742f.htm" />
+    <HelpKINode Title="InternReclaimableEventArgs.UniqueCount Property " Url="html/324c2ee1-0065-998d-c37f-9f290553d4c9.htm" />
+  </HelpKINode>
+  <HelpKINode Title="version">
+    <HelpKINode Title="history" Url="html/6326cb27-4108-4317-ae04-e67a8cb4738d.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Welcome" Url="html/a2dd277a-ec2e-4f4b-a42d-e31f23b94bdd.htm" />
+  <HelpKINode Title="ZeroBytes enumeration member" Url="html/46a3982a-d16d-aaca-67cf-93d5936faf94.htm" />
+</HelpKI>

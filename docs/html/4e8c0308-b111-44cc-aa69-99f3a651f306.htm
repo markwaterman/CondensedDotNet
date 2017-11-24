@@ -1,0 +1,83 @@
+﻿<html><head><meta http-equiv="X-UA-Compatible" content="IE=edge" /><link rel="shortcut icon" href="../icons/favicon.ico" /><link rel="stylesheet" type="text/css" href="../styles/branding.css" /><link rel="stylesheet" type="text/css" href="../styles/branding-en-US.css" /><script type="text/javascript" src="../scripts/branding.js"> </script><meta http-equiv="Content-Type" content="text/html; charset=UTF-8" /><title>Equality Overview</title><meta name="Language" content="en-us" /><meta name="System.Keywords" content="IEquatable&lt;T&gt;" /><meta name="System.Keywords" content="IEqualityComparer&lt;T&gt;" /><meta name="System.Keywords" content="Equality" /><meta name="Microsoft.Help.Id" content="4e8c0308-b111-44cc-aa69-99f3a651f306" /><meta name="Description" content="Types stored in a T:Condensed.CondensedCollection`1 must provide a way for the collection to compare elements for equality, otherwise elements will not be deduplicated." /><meta name="Microsoft.Help.ContentType" content="Concepts" /><meta name="BrandingAware" content="true" /><link type="text/css" rel="stylesheet" href="../styles/highlight.css" /><script type="text/javascript" src="../scripts/highlight.js"> </script><link rel="stylesheet" type="text/css" href="../styles/branding-Website.css" /><script type="text/javascript" src="../scripts/jquery-1.11.0.min.js"></script><script type="text/javascript" src="../scripts/branding-Website.js"></script><script type="text/javascript" src="../scripts/clipboard.min.js"></script></head><body onload="OnLoad('cs')"><input type="hidden" id="userDataCache" class="userDataStyle" /><div class="pageHeader" id="PageHeader">Condesed Collection Library for .NET<form id="SearchForm" method="get" action="#" onsubmit="javascript:TransferToSearchPage(); return false;"><input id="SearchTextBox" type="text" maxlength="200" /><button id="SearchButton" type="submit"></button></form></div><div class="pageBody"><div class="leftNav" id="leftNav"><div id="tocNav"><div class="toclevel0" data-toclevel="0" data-childrenloaded="true"><a class="tocExpanded" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="a2dd277a-ec2e-4f4b-a42d-e31f23b94bdd.htm" title="Condesed Collection Library for .NET" tocid="roottoc">Condesed Collection Library for .NET</a></div><div class="toclevel1" data-toclevel="1"><a data-tochassubtree="false" href="a2dd277a-ec2e-4f4b-a42d-e31f23b94bdd.htm" title="Welcome" tocid="a2dd277a-ec2e-4f4b-a42d-e31f23b94bdd">Welcome</a></div><div class="toclevel1" data-toclevel="1"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="6326cb27-4108-4317-ae04-e67a8cb4738d.htm" title="Version History" tocid="6326cb27-4108-4317-ae04-e67a8cb4738d">Version History</a></div><div class="toclevel1" data-toclevel="1"><a data-tochassubtree="false" href="12336e43-b0f4-46fb-a17b-c640871bddab.htm" title="Immutability Overview" tocid="12336e43-b0f4-46fb-a17b-c640871bddab">Immutability Overview</a></div><div class="toclevel1" data-toclevel="1"><a data-tochassubtree="false" href="88ffb368-39bd-430b-bd09-0800d2f14dbf.htm" title="LINQ Operators" tocid="88ffb368-39bd-430b-bd09-0800d2f14dbf">LINQ Operators</a></div><div class="toclevel1" data-toclevel="1"><a data-tochassubtree="false" href="23ce826c-4e23-4c13-9ac9-63cdccb22d86.htm" title="Cutover Overview" tocid="23ce826c-4e23-4c13-9ac9-63cdccb22d86">Cutover Overview</a></div><div class="toclevel1" data-toclevel="1"><a data-tochassubtree="false" href="606626e5-fb28-47c5-939f-a87c14d4f99a.htm" title="Reclamation and Cleanup" tocid="606626e5-fb28-47c5-939f-a87c14d4f99a">Reclamation and Cleanup</a></div><div class="toclevel1 current" data-toclevel="1"><a data-tochassubtree="false" href="4e8c0308-b111-44cc-aa69-99f3a651f306.htm" title="Equality Overview" tocid="4e8c0308-b111-44cc-aa69-99f3a651f306">Equality Overview</a></div><div class="toclevel1" data-toclevel="1"><a data-tochassubtree="false" href="6c8df980-bdc2-46d6-b712-f2f740467dd9.htm" title="License" tocid="6c8df980-bdc2-46d6-b712-f2f740467dd9">License</a></div><div class="toclevel1" data-toclevel="1"><a class="tocCollapsed" onclick="javascript: Toggle(this);" href="#!" /><a data-tochassubtree="true" href="48635bf0-eed3-4978-e228-386eea4ad6d1.htm" title="API Reference" tocid="48635bf0-eed3-4978-e228-386eea4ad6d1">API Reference</a></div></div><div id="tocResizableEW" onmousedown="OnMouseDown(event);"></div><div id="TocResize" class="tocResize"><img id="ResizeImageIncrease" src="../icons/TocOpen.gif" onclick="OnIncreaseToc()" alt="Click or drag to resize" title="Click or drag to resize" /><img id="ResizeImageReset" src="../icons/TocClose.gif" style="display:none" onclick="OnResetToc()" alt="Click or drag to resize" title="Click or drag to resize" /></div></div><div class="topicContent" id="TopicContent"><table class="titleTable"><tr><td class="logoColumn"><img src="../icons/Help.png" /></td><td class="titleColumn"><h1>Equality Overview</h1></td></tr></table><span class="introStyle"></span> <p style="color: #dc143c; font-size: 8.5pt; font-weight: bold;">[This is preliminary documentation and is subject to change.]</p><div class="introduction"><p>
+        Types stored in a <a href="567ca794-b467-8736-0b20-caacc958e8a9.htm">CondensedCollection</a> must provide a way for the collection to compare elements for equality, otherwise elements will not be deduplicated.
+      </p></div><div class="collapsibleAreaRegion" id="Section1"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID1RB')" onkeypress="SectionExpandCollapse_CheckKey('ID1RB', event)" tabindex="0"><img id="ID1RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Storing Custom Types</span></div><div id="ID1RBSection" class="collapsibleSection"><p>
+          Most common System types in the .NET Framework already perform appropriate equality checks (String, DateTime, the various primitives, etc.) by implementing 
+          <a href="http://msdn2.microsoft.com/en-us/library/ms131187" target="_blank">IEquatable<span id="LST24FE6488_0"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST24FE6488_0?cs=&lt;|vb=(Of |cpp=&lt;|nu=(|fs=&lt;'");</script>T<span id="LST24FE6488_1"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST24FE6488_1?cs=&gt;|vb=)|cpp=&gt;|nu=)|fs=&gt;");</script></a>
+          However, if you're storing your own custom type then you must write code that can determine whether two instances are logically equal.
+        </p><p>
+          Consider what happens when you store simple, naive objects in a CondensedCollection:
+        </p><div class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="ID0EABACAAA_tab1" class="codeSnippetContainerTabSingle">Broken Deduplication</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EABACAAA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EABACAAA');return false;" title="Copy">Copy</a></div></div><div id="ID0EABACAAA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">enum</span> Flavor { Chocolate, Vanilla, Carrot, DevilsFood, RedVelvet }
+
+<span class="highlight-keyword">class</span> Cake
+{
+    <span class="highlight-keyword">public</span> Flavor Flavor { <span class="highlight-keyword">get</span>; }
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">byte</span> CandleCount { <span class="highlight-keyword">get</span>; }
+
+    <span class="highlight-keyword">public</span> Cake(Flavor flavor, <span class="highlight-keyword">byte</span> candleCount)
+    {
+        Flavor = flavor;
+        CandleCount = candleCount;
+    }
+}
+
+<span class="highlight-keyword">class</span> Program
+{
+    <span class="highlight-keyword">static</span> <span class="highlight-keyword">void</span> Main()
+    {
+        <span class="highlight-keyword">var</span> cc = <span class="highlight-keyword">new</span> Condensed.CondensedCollection&lt;Cake&gt;();
+        cc.Add(<span class="highlight-keyword">new</span> Cake(Flavor.Chocolate, <span class="highlight-number">42</span>));
+        cc.Add(<span class="highlight-keyword">new</span> Cake(Flavor.Chocolate, <span class="highlight-number">42</span>));
+        Console.WriteLine(cc.InternPoolCount);
+        <span class="highlight-comment">// Output: 2</span>
+    }
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EABACAAA");</script><p>
+          ...no deduplication is performed! The collection is broken because, by default, reference types check for equality by looking to see if two variables point to the same object instance. Because we create two instances in the example above, we get two distinct values stored in the collection's intern pool.
+        </p></div><div class="collapsibleAreaRegion" id="Section2"><span class="collapsibleRegionTitle" onclick="SectionExpandCollapse('ID2RB')" onkeypress="SectionExpandCollapse_CheckKey('ID2RB', event)" tabindex="0"><img id="ID2RBToggle" class="collapseToggle" src="../icons/SectionExpanded.png" />Fixing the Cake</span></div><div id="ID2RBSection" class="collapsibleSection"><p>
+          We will modify our Cake class to get equality behavior that we're looking for. Overrides must be provided for:
+        </p><ul><li><p><a href="http://msdn2.microsoft.com/en-us/library/zdee4b3y" target="_blank">GetHashCode<span id="LST24FE6488_2"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST24FE6488_2?cs=()|vb=|cpp=()|nu=()|fs=()");</script></a></p></li><li><p><a href="http://msdn2.microsoft.com/en-us/library/bsc2ak47" target="_blank">Equals(Object)</a></p></li></ul><p>
+          Implementing 
+          <a href="http://msdn2.microsoft.com/en-us/library/ms131187" target="_blank">IEquatable<span id="LST24FE6488_3"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST24FE6488_3?cs=&lt;|vb=(Of |cpp=&lt;|nu=(|fs=&lt;'");</script>T<span id="LST24FE6488_4"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST24FE6488_4?cs=&gt;|vb=)|cpp=&gt;|nu=)|fs=&gt;");</script></a>
+          is also recommended, though not strictly required. Our corrected Cake class now looks like this:
+        </p><div class="codeSnippetContainer"><div class="codeSnippetContainerTabs"><div id="ID0EADABAAA_tab1" class="codeSnippetContainerTabSingle">Corrected Equality</div></div><div class="codeSnippetContainerCodeContainer"><div class="codeSnippetToolBar"><div class="codeSnippetToolBarText"><a id="ID0EADABAAA_copyCode" href="#" class="copyCodeSnippet" onclick="javascript:CopyToClipboard('ID0EADABAAA');return false;" title="Copy">Copy</a></div></div><div id="ID0EADABAAA_code_Div1" class="codeSnippetContainerCode" style="display: block"><pre xml:space="preserve"><span class="highlight-keyword">class</span> Cake : IEquatable&lt;Cake&gt;
+{
+    <span class="highlight-keyword">public</span> Flavor Flavor { <span class="highlight-keyword">get</span>; }
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">byte</span> CandleCount { <span class="highlight-keyword">get</span>; }
+
+    <span class="highlight-keyword">public</span> Cake(Flavor flavor, <span class="highlight-keyword">byte</span> candleCount)
+    {
+        Flavor = flavor;
+        CandleCount = candleCount;
+    }
+
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">int</span> GetHashCode()
+    {
+        <span class="highlight-keyword">unchecked</span>
+        {
+            <span class="highlight-keyword">int</span> hash = <span class="highlight-number">17</span>;
+            hash = hash * <span class="highlight-number">23</span> + Flavor.GetHashCode();
+            hash = hash * <span class="highlight-number">23</span> + CandleCount.GetHashCode();
+            <span class="highlight-keyword">return</span> hash;
+        }
+    }
+
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">override</span> <span class="highlight-keyword">bool</span> Equals(<span class="highlight-keyword">object</span> obj)
+    {
+        <span class="highlight-keyword">return</span> Equals(obj <span class="highlight-keyword">as</span> Cake);
+    }
+
+    <span class="highlight-keyword">public</span> <span class="highlight-keyword">bool</span> Equals(Cake other)
+    {
+        <span class="highlight-keyword">return</span> (Flavor == other.Flavor &amp;&amp;
+                CandleCount == other.CandleCount);
+    }
+}</pre></div></div></div><script type="text/javascript">AddLanguageTabSet("ID0EADABAAA");</script><p>
+          Now the CondensedCollection will properly deduplicate our identical cake objects.
+        </p><div class="alert"><table><tr><th><img src="../icons/AlertNote.png" alt="Tip" /> Tip</th></tr><tr><td><p>
+            The GetHashCode implementation above is inspired by a StackOverflow 
+            <a href="http://stackoverflow.com/a/263416/3634591" target="_blank">answer</a>
+            provided by the legendary Jon Skeet.
+          </p></td></tr></table></div><p>
+          Alternatively, if you would rather not modify your class (or if you don't have control over its implementation) then you can create an 
+          <a href="http://msdn2.microsoft.com/en-us/library/ms132151" target="_blank">IEqualityComparer<span id="LST24FE6488_5"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST24FE6488_5?cs=&lt;|vb=(Of |cpp=&lt;|nu=(|fs=&lt;'");</script>T<span id="LST24FE6488_6"></span><script type="text/javascript">AddLanguageSpecificTextSet("LST24FE6488_6?cs=&gt;|vb=)|cpp=&gt;|nu=)|fs=&gt;");</script></a>
+          implementation for your type and then feed it into the CondensedCollection's constructor.
+        </p></div></div></div><div id="pageFooter" class="pageFooter"><p>Copyright 2016-2017 Mark Waterman</p></div></body></html>
