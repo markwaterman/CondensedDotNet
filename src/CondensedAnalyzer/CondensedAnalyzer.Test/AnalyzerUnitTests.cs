@@ -38,7 +38,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var cl = new CondensedCollection<MyImmutableClass>();
+        var cl = new DedupedList<MyImmutableClass>();
     }
 }
 
@@ -65,7 +65,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        var cl = new CondensedCollection<MyMutableClass>();
+        var cl = new DedupedList<MyMutableClass>();
     }
 }
 
@@ -76,7 +76,7 @@ class MyMutableClass
             var expected = new DiagnosticResult
             {
                 Id = "CLDN001",
-                Message = String.Format("Type '{0}' is a mutable reference type and should not be used in a CondensedCollection<T>.", "MyMutableClass"),
+                Message = String.Format("Type '{0}' is a mutable reference type and should not be used in a DedupedList<T>.", "MyMutableClass"),
                 Severity = DiagnosticSeverity.Warning,
                 Locations =
                     new[] {

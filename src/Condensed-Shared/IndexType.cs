@@ -22,37 +22,37 @@ using System.Threading.Tasks;
 namespace Condensed
 {
     /// <summary>
-    /// Specifies the width of the internal index currently used by a <see cref="CondensedCollection{T}"/>.
+    /// Specifies the width of the internal index currently used by a <see cref="DedupedList{T}"/>.
     /// </summary>
     public enum IndexType
     {
         /// <summary>
-        /// The index is zero bytes wide (the CondensedCollection only contains
+        /// The index is zero bytes wide (the DedupedList only contains
         /// zero or one unique values).
         /// </summary>
         ZeroBytes,
         /// <summary>
-        /// The index is a single bit wide (the CondensedCollection contains up to
+        /// The index is a single bit wide (the DedupedList contains up to
         /// two unique values).
         /// </summary>
         OneBit,
         /// <summary>
-        /// The index is a single byte wide (the CondensedCollection contains up to
+        /// The index is a single byte wide (the DedupedList contains up to
         /// 256 unique values).
         /// </summary>
         OneByte,
         /// <summary>
-        /// The index is two bytes wide (the CondensedCollection contains up to
+        /// The index is two bytes wide (the DedupedList contains up to
         /// 65536 unique values).
         /// </summary>
         TwoBytes,
         /// <summary>
-        /// The index is four bytes wide (the CondensedCollection contains up to
+        /// The index is four bytes wide (the DedupedList contains up to
         /// 2,147,483,648 unique values).
         /// </summary>
         FourBytes,
         /// <summary>
-        /// The CondensedCollection reached its cutover threshold and is no longer
+        /// The DedupedList reached its cutover threshold and is no longer
         /// performing deduplication.
         /// </summary>
         NoIndex

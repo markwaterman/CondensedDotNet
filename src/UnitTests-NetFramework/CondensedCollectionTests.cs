@@ -32,7 +32,7 @@ namespace UnitTests
         [TestMethod()]
         public void CondensedCollectionTest()
         {
-            var l = new CondensedCollection<int>();
+            var l = new DedupedList<int>();
 
             Assert.AreEqual(0, l.Count);
             Assert.AreEqual(0, l.UniqueCount);
@@ -45,7 +45,7 @@ namespace UnitTests
         [TestMethod()]
         public void CondensedCollectionTest1()
         {
-            var l = new CondensedCollection<string>(1000);
+            var l = new DedupedList<string>(1000);
 
             Assert.AreEqual(0, l.Count);
             Assert.AreEqual(0, l.UniqueCount);
@@ -59,7 +59,7 @@ namespace UnitTests
         {
             // Custom comparer that ignores time component of DateTime:
             var customComparer = new DateOnlyEqualityComparer();
-            var l = new CondensedCollection<DateTime>(99, customComparer);
+            var l = new DedupedList<DateTime>(99, customComparer);
 
             Assert.AreEqual(99, l.Capacity);
             Assert.AreEqual(customComparer, l.Comparer);
@@ -88,7 +88,7 @@ namespace UnitTests
         [TestMethod()]
         public void IndexOfTest()
         {
-            var l = new CondensedCollection<long>(10000);
+            var l = new DedupedList<long>(10000);
             for (int i = 0; i < 10000; ++i)
                 l.Add(i);
 
@@ -102,7 +102,7 @@ namespace UnitTests
         [TestMethod()]
         public void InsertTest()
         {
-            var l = new CondensedCollection<TimeSpan>();
+            var l = new DedupedList<TimeSpan>();
 
             for (int i = 0; i < 10; ++i)
                 l.Add(TimeSpan.FromSeconds(i));
@@ -121,7 +121,7 @@ namespace UnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void InsertOutOfRangeTest1()
         {
-            var l = new CondensedCollection<Guid>();
+            var l = new DedupedList<Guid>();
             for (int i = 0; i < 300; ++i)
                 l.Add(Guid.NewGuid());
 
@@ -149,7 +149,7 @@ namespace UnitTests
         public void InsertOutOfRangeTest2()
         {
 
-            var l = new CondensedCollection<Guid>();
+            var l = new DedupedList<Guid>();
             for (int i = 0; i < 10; ++i)
                 l.Add(Guid.NewGuid());
 
@@ -176,7 +176,7 @@ namespace UnitTests
         [TestMethod()]
         public void InsertAtEnd()
         {
-            var l = new CondensedCollection<long>();
+            var l = new DedupedList<long>();
             l.Insert(0, 484848);
            
         }
@@ -184,7 +184,7 @@ namespace UnitTests
         [TestMethod()]
         public void RemoveAtTest()
         {
-            var l = new CondensedCollection<int>();
+            var l = new DedupedList<int>();
             for (int i = 0; i < 100; ++i)
                 l.Add(i);
 
@@ -202,7 +202,7 @@ namespace UnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveAtOutOfRangeTest1()
         {
-            var l = new CondensedCollection<short>();
+            var l = new DedupedList<short>();
             for (short i = 0; i < 10; ++i)
                 l.Add(i);
 
@@ -224,7 +224,7 @@ namespace UnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void RemoveAtOutOfRangeTest2()
         {
-            var l = new CondensedCollection<long>();
+            var l = new DedupedList<long>();
             for (long i = 0; i < 999; ++i)
                 l.Add(i);
 
@@ -246,7 +246,7 @@ namespace UnitTests
         [TestMethod()]
         public void AddTest()
         {
-            var l = new CondensedCollection<int>(1000000);
+            var l = new DedupedList<int>(1000000);
             for (int i = 0; i < 1000000; ++i)
                 l.Add(i % 42);
 
@@ -257,7 +257,7 @@ namespace UnitTests
         [TestMethod()]
         public void AddNullTest()
         {
-            var l = new CondensedCollection<string>();
+            var l = new DedupedList<string>();
             l.Add(null);
             l.Add("hello world");
             l.Add(null);
@@ -274,7 +274,7 @@ namespace UnitTests
         [TestMethod()]
         public void ClearTest()
         {
-            var l = new CondensedCollection<int>(100000);
+            var l = new DedupedList<int>(100000);
             for (int i = 0; i < 54321; ++i)
                 l.Add(i % 987);
 
@@ -292,7 +292,7 @@ namespace UnitTests
         [TestMethod()]
         public void ContainsTest()
         {
-            var l = new CondensedCollection<long>(1000);
+            var l = new DedupedList<long>(1000);
             for (long i = 0; i < 651; ++i)
                 l.Add(i);
 
@@ -321,7 +321,7 @@ namespace UnitTests
         [TestMethod()]
         public void CopyToTest()
         {
-            var l = new CondensedCollection<int>(300);
+            var l = new DedupedList<int>(300);
             for (int i = 0; i < 231; ++i)
                 l.Add(i % 3);
 
@@ -341,7 +341,7 @@ namespace UnitTests
         [ExpectedException(typeof(ArgumentException))]
         public void CopyToBadOffsetTest()
         {
-            var l = new CondensedCollection<int>();
+            var l = new DedupedList<int>();
             for (int i = 0; i < 6543; ++i)
                 l.Add(i);
 
@@ -355,7 +355,7 @@ namespace UnitTests
         [TestMethod()]
         public void RemoveTest()
         {
-            var l = new CondensedCollection<string>(9876);
+            var l = new DedupedList<string>(9876);
             for (int i = 0; i < 9876; ++i)
                 l.Add((i % 5000).ToString());
 
@@ -379,7 +379,7 @@ namespace UnitTests
         [ExpectedException(typeof(ArgumentOutOfRangeException))]
         public void SetOutOfRange()
         {
-            var l = new CondensedCollection<long>(100);
+            var l = new DedupedList<long>(100);
 
             for (long i = 0; i < 100; ++i )
             {
@@ -392,7 +392,7 @@ namespace UnitTests
         [TestMethod()]
         public void EnumerateEmptyTest()
         {
-            var l = new CondensedCollection<Guid>();
+            var l = new DedupedList<Guid>();
 
             int counter = 0;
             foreach (var item in l)
@@ -405,7 +405,7 @@ namespace UnitTests
         [TestMethod()]
         public void EnumerateSingleItemTest()
         {
-            var l = new CondensedCollection<IPAddress>();
+            var l = new DedupedList<IPAddress>();
             l.Add(IPAddress.Parse("8.8.8.8"));
 
             int counter = 0;
@@ -419,7 +419,7 @@ namespace UnitTests
         [TestMethod()]
         public void EnumerateNulls()
         {
-            var l = new CondensedCollection<string>();
+            var l = new DedupedList<string>();
 
             for (int i = 0; i < 1732; ++i)
                 l.Add(null);
@@ -437,7 +437,7 @@ namespace UnitTests
         [TestMethod()]
         public void EnumerateNullable()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
 
             for (int i = 0; i < 234; ++i)
             {

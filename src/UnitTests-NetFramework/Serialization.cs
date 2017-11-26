@@ -31,7 +31,7 @@ namespace UnitTests
         [TestMethod]
         public void SerializeSingleUnique()
         {
-            var l = new CondensedCollection<DateTime>();
+            var l = new DedupedList<DateTime>();
             var now = DateTime.Now;
             for (int i = 0; i < 100; ++i)
                 l.Add(now);
@@ -41,7 +41,7 @@ namespace UnitTests
             bf.Serialize(stream, l);
 
             stream.Seek(0, 0);
-            var l2 = bf.Deserialize(stream) as CondensedCollection<DateTime>;
+            var l2 = bf.Deserialize(stream) as DedupedList<DateTime>;
 
             Assert.IsNotNull(l2);
             Assert.AreEqual(100, l2.Count);
@@ -53,7 +53,7 @@ namespace UnitTests
         [TestMethod]
         public void SerializeTwoUnique()
         {
-            var l = new CondensedCollection<string>();
+            var l = new DedupedList<string>();
             var now = DateTime.Now;
             for (int i = 0; i < 1000; ++i)
             {
@@ -68,7 +68,7 @@ namespace UnitTests
             bf.Serialize(stream, l);
 
             stream.Seek(0, 0);
-            var l2 = bf.Deserialize(stream) as CondensedCollection<string>;
+            var l2 = bf.Deserialize(stream) as DedupedList<string>;
 
             Assert.IsNotNull(l2);
             Assert.AreEqual(1000, l2.Count);
@@ -82,7 +82,7 @@ namespace UnitTests
         [TestMethod]
         public void SerializeByteIndex()
         {
-            var l = new CondensedCollection<Nullable<long>>();
+            var l = new DedupedList<Nullable<long>>();
             var now = DateTime.Now;
             for (int i = 0; i < 1234; ++i)
             {
@@ -96,7 +96,7 @@ namespace UnitTests
             bf.Serialize(stream, l);
 
             stream.Seek(0, 0);
-            var l2 = bf.Deserialize(stream) as CondensedCollection<long?>;
+            var l2 = bf.Deserialize(stream) as DedupedList<long?>;
 
             Assert.IsNotNull(l2);
             Assert.AreEqual(1234, l2.Count); 
@@ -110,7 +110,7 @@ namespace UnitTests
         [TestMethod]
         public void SerializeShortIndex()
         {
-            var l = new CondensedCollection<TimeSpan>();
+            var l = new DedupedList<TimeSpan>();
             var now = DateTime.Now;
             for (int i = 0; i < 23456; ++i)
             {
@@ -123,7 +123,7 @@ namespace UnitTests
             bf.Serialize(stream, l);
 
             stream.Seek(0, 0);
-            var l2 = bf.Deserialize(stream) as CondensedCollection<TimeSpan>;
+            var l2 = bf.Deserialize(stream) as DedupedList<TimeSpan>;
 
             Assert.IsNotNull(l2);
             Assert.AreEqual(23456, l2.Count);

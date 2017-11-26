@@ -24,7 +24,7 @@ using System.Text;
 namespace Condensed
 {
     /// <summary>
-    /// An exception that is thrown when the internal state of a <see cref="CondensedCollection{T}"/> is
+    /// An exception that is thrown when the internal state of a <see cref="DedupedList{T}"/> is
     /// irrevocably corrupted, typically caused by unsynchronized multithreaded accesses.
     /// </summary>
     /// <remarks>
@@ -38,7 +38,7 @@ namespace Condensed
         /// <summary>
         /// Default error message.
         /// </summary>
-        private const string DefaultErrorMessage = "An unrecoverable inconsistency in the CondensedCollection's internal reference counting was detected. A typical cause is earlier multi-threaded access to the collection where a modification was made without an exclusive lock.";
+        private const string DefaultErrorMessage = "An unrecoverable inconsistency in the DedupedList's internal reference counting was detected. A typical cause is earlier multi-threaded access to the collection where a modification was made without an exclusive lock.";
 
         /// <summary>
         /// Default constructor.

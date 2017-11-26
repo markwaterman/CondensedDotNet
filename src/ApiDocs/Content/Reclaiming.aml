@@ -21,11 +21,11 @@
       <autoOutline />
 
       <para>
-        Depending on your workload, you can choose one of the following options to clean up unused values in a <codeEntityReference linkText="CondensedCollection's">T:Condensed.CondensedCollection`1</codeEntityReference> intern pool.
+        Depending on your workload, you can choose one of the following options to clean up unused values in a <codeEntityReference linkText="DedupedList's">T:Condensed.DedupedList`1</codeEntityReference> intern pool.
       </para>
       <alert class="tip">
         <para>
-          Use the CondensedCollection's <codeEntityReference>P:Condensed.CondensedCollection`1.InternPoolCount</codeEntityReference> property to see the size of the intern pool--if it's larger than the <codeEntityReference>P:Condensed.CondensedCollection`1.UniqueCount</codeEntityReference> property then your collection's pool contains unused values that can be reclaimed.
+          Use the DedupedList's <codeEntityReference>P:Condensed.DedupedList`1.InternPoolCount</codeEntityReference> property to see the size of the intern pool--if it's larger than the <codeEntityReference>P:Condensed.DedupedList`1.UniqueCount</codeEntityReference> property then your collection's pool contains unused values that can be reclaimed.
         </para>
       </alert>
     </introduction>
@@ -57,14 +57,14 @@
     </section>
 
     <section address="ExplicitCleanup">
-      <title>Option 2: Periodically call CondensedCollection.Cleanup</title>
+      <title>Option 2: Periodically call DedupedList.Cleanup</title>
       <content>
         <para>
-          The <codeEntityReference>M:Condensed.CondensedCollection`1.Cleanup</codeEntityReference> method rebuilds the collection's internal data structures, removing unused values and making them eligible for garbage collection. This is a relatively expensive operation, so you may only want to perform it on an infrequent, periodic basis.
+          The <codeEntityReference>M:Condensed.DedupedList`1.Cleanup</codeEntityReference> method rebuilds the collection's internal data structures, removing unused values and making them eligible for garbage collection. This is a relatively expensive operation, so you may only want to perform it on an infrequent, periodic basis.
         </para>
         <alert class="note">
           <para>
-            The <codeEntityReference>M:Condensed.CondensedCollection`1.Cleanup</codeEntityReference> method has no effect on collections that have cut over to normal (non-deduplicated) list storage. Reconstruct the collection from itself to rebuild it and restart deduplication (Option 3).
+            The <codeEntityReference>M:Condensed.DedupedList`1.Cleanup</codeEntityReference> method has no effect on collections that have cut over to normal (non-deduplicated) list storage. Reconstruct the collection from itself to rebuild it and restart deduplication (Option 3).
           </para>
         </alert>
       </content>
@@ -74,7 +74,7 @@
       <title>Option 3: Reconstruct</title>
       <content>
         <para>
-          If you've constructed a CondensedCollection with the ability to <link xlink:href="23ce826c-4e23-4c13-9ac9-63cdccb22d86">cut over</link> to non-deduplicated storage then the Cleanup() method will not be effective if/when your collection makes the transition. To restart deduplication, you can simply reconstruct a CondensedCollection from itself for a fresh start.
+          If you've constructed a DedupedList with the ability to <link xlink:href="23ce826c-4e23-4c13-9ac9-63cdccb22d86">cut over</link> to non-deduplicated storage then the Cleanup() method will not be effective if/when your collection makes the transition. To restart deduplication, you can simply reconstruct a DedupedList from itself for a fresh start.
         </para>
         <code source="..\Samples\Samples.cs" region="ReconstructFromCutover"></code>
       </content>
@@ -86,7 +86,7 @@
       </title>
       <content>
         <para>
-          The CondensedCollection will raise the <codeEntityReference>E:Condensed.CondensedCollection`1.InternedValueReclaimable</codeEntityReference> event 
+          The DedupedList will raise the <codeEntityReference>E:Condensed.DedupedList`1.InternedValueReclaimable</codeEntityReference> event 
           as soon as one of the values in its pool is no longer used. You can set the <codeEntityReference linkText="InternReclaimableEventArgs.Cleanup">P:Condensed.InternReclaimableEventArgs.Cleanup</codeEntityReference> 
           property to true in your event handler to trigger a cleanup of the pool as soon as your handler completes.
         </para>

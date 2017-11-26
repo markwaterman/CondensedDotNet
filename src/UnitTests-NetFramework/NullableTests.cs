@@ -26,7 +26,7 @@ namespace UnitTests
         [TestMethod()]
         public void CondensedCollectionTest()
         {
-            var l = new CondensedCollection<Nullable<int>>();
+            var l = new DedupedList<Nullable<int>>();
             Assert.AreEqual(0, l.Count);
             Assert.AreEqual(0, l.UniqueCount);
             Assert.AreEqual(0, l.Capacity);
@@ -37,7 +37,7 @@ namespace UnitTests
         [TestMethod()]
         public void CondensedCollectionTest1()
         {
-            var l = new CondensedCollection<Nullable<int>>(1000);
+            var l = new DedupedList<Nullable<int>>(1000);
 
             Assert.AreEqual(0, l.Count);
             Assert.AreEqual(0, l.UniqueCount);
@@ -50,7 +50,7 @@ namespace UnitTests
         [TestMethod()]
         public void IndexOfTest()
         {
-            var l = new CondensedCollection<string>(100);
+            var l = new DedupedList<string>(100);
             for (int i = 0; i < 100; ++i)
                 l.Add(i.ToString());
 
@@ -63,7 +63,7 @@ namespace UnitTests
         [TestMethod()]
         public void IndexOfTest1()
         {
-            var l = new CondensedCollection<string>(10);
+            var l = new DedupedList<string>(10);
             l.Add(null);
             for (int i = 1; i < 10; ++i)
                 l.Add("foo");
@@ -76,7 +76,7 @@ namespace UnitTests
         [TestMethod()]
         public void IndexOfTest2()
         {
-            var l = new CondensedCollection<string>(10);
+            var l = new DedupedList<string>(10);
             for (int i = 0; i < 9; ++i)
                 l.Add("foo");
 
@@ -90,7 +90,7 @@ namespace UnitTests
         [TestMethod()]
         public void IndexOfTest3()
         {
-            var l = new CondensedCollection<string>(10);
+            var l = new DedupedList<string>(10);
             for (int i = 0; i < 10; ++i)
                 l.Add(null);
 
@@ -103,7 +103,7 @@ namespace UnitTests
         [TestMethod()]
         public void IndexOfTest4()
         {
-            var l = new CondensedCollection<string>(10);
+            var l = new DedupedList<string>(10);
             for (int i = 0; i < 9; ++i)
                 l.Add(null);
             l.Add("foo");
@@ -118,7 +118,7 @@ namespace UnitTests
         [TestMethod()]
         public void InsertTest()
         {
-            var l = new CondensedCollection<int?>(1000);
+            var l = new DedupedList<int?>(1000);
             for (int i = 0; i < 1000; ++i)
                 l.Add(i);
 
@@ -132,7 +132,7 @@ namespace UnitTests
         [TestMethod()]
         public void InsertTest1()
         {
-            var l = new CondensedCollection<int?>(1000);
+            var l = new DedupedList<int?>(1000);
             for (int i = 0; i < 1000; ++i)
                 l.Add(i);
 
@@ -161,7 +161,7 @@ namespace UnitTests
         [TestMethod()]
         public void InsertTest2()
         {
-            var l = new CondensedCollection<int?>(10);
+            var l = new DedupedList<int?>(10);
             l.Add(null);
 
             // insert non-null items in front of the null
@@ -177,7 +177,7 @@ namespace UnitTests
         [TestMethod()]
         public void RemoveAtTest()
         {
-            var l = new CondensedCollection<string>(1000);
+            var l = new DedupedList<string>(1000);
             for (int i = 0; i < 1000; ++i)
                 l.Add(null);
 
@@ -192,7 +192,7 @@ namespace UnitTests
         [TestMethod()]
         public void ClearTest()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
 
             l.Add(42);
             l.Add(null);
@@ -230,7 +230,7 @@ namespace UnitTests
         [TestMethod()]
         public void ContainsTest()
         {
-            var l = new CondensedCollection<string>();
+            var l = new DedupedList<string>();
             Assert.IsFalse(l.Contains("foo"));
             Assert.IsFalse(l.Contains(null));
 
@@ -252,7 +252,7 @@ namespace UnitTests
         [TestMethod()]
         public void CopyToTest()
         {
-            var l = new CondensedCollection<long?>();
+            var l = new DedupedList<long?>();
             for (long i = 0; i < 100; ++i)
             {
                 if (i % 42 == 0)
@@ -277,7 +277,7 @@ namespace UnitTests
         public void RemoveTest()
         {
             bool ret;
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
 
             l.Add(42);
             l.Add(43);

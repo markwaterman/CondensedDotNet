@@ -29,7 +29,7 @@ namespace UnitTests
         [TestMethod]
         public void AddAndReadSingle()
         {
-            CondensedCollection<int> dlist = new CondensedCollection<int>();
+            DedupedList<int> dlist = new DedupedList<int>();
             dlist.Add(42);
             Assert.AreEqual(42, dlist[0]);
         }
@@ -37,7 +37,7 @@ namespace UnitTests
         [TestMethod]
         public void RemoveSingle()
         {
-            CondensedCollection<string> dlist = new CondensedCollection<string>();
+            DedupedList<string> dlist = new DedupedList<string>();
             dlist.Add("test");
             Assert.AreEqual("test", dlist[0]);
             Assert.AreEqual<int>(1, dlist.Count);
@@ -51,7 +51,7 @@ namespace UnitTests
         [TestMethod]
         public void RemoveAtSingle()
         {
-            CondensedCollection<string> dlist = new CondensedCollection<string>();
+            DedupedList<string> dlist = new DedupedList<string>();
             dlist.Add("test");
             Assert.AreEqual("test", dlist[0]);
             Assert.AreEqual<int>(1, dlist.Count);
@@ -65,7 +65,7 @@ namespace UnitTests
         [TestMethod]
         public void AddAndReadDuplicates()
         {
-            CondensedCollection<int> dlist = new CondensedCollection<int>();
+            DedupedList<int> dlist = new DedupedList<int>();
             dlist.Add(43);
             dlist.Add(43);
             Assert.AreEqual(43, dlist[0]);
@@ -75,7 +75,7 @@ namespace UnitTests
         [TestMethod]
         public void Add1000()
         {
-            CondensedCollection<int> dlist = new CondensedCollection<int>();
+            DedupedList<int> dlist = new DedupedList<int>();
             for (int i = 0; i < 1000; ++i)
             {
                 dlist.Add(i);
@@ -90,7 +90,7 @@ namespace UnitTests
         [TestMethod]
         public void IndexOf()
         {
-            CondensedCollection<int> dlist = new CondensedCollection<int>();
+            DedupedList<int> dlist = new DedupedList<int>();
             for (int i = 0; i < 1000; ++i)
             {
                 dlist.Add(i);
@@ -104,7 +104,7 @@ namespace UnitTests
         public void MutableStruct()
         {
             var point = new System.Drawing.Point(42, 42);
-            var l = new CondensedCollection<System.Drawing.Point>();
+            var l = new DedupedList<System.Drawing.Point>();
             l.Add(point);
             l.Add(point);
             Assert.AreEqual(2, l.Count);

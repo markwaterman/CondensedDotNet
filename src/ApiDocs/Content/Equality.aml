@@ -18,7 +18,7 @@
       <!-- <autoOutline /> -->
 
       <para>
-        Types stored in a <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference> must provide a way for the collection to compare elements for equality, otherwise elements will not be deduplicated.
+        Types stored in a <codeEntityReference linkText="DedupedList">T:Condensed.DedupedList`1</codeEntityReference> must provide a way for the collection to compare elements for equality, otherwise elements will not be deduplicated.
       </para>
     </introduction>
 
@@ -31,7 +31,7 @@
           However, if you're storing your own custom type then you must write code that can determine whether two instances are logically equal.
         </para>
         <para>
-          Consider what happens when you store simple, naive objects in a CondensedCollection:
+          Consider what happens when you store simple, naive objects in a DedupedList:
         </para>
         <code source="..\Samples\Equality.cs" region="BasicCake" title="Broken Deduplication"></code>
         <para>
@@ -72,7 +72,7 @@
         <code source="..\Samples\Equality.cs" region="FixedCake" title="Corrected Equality"></code>
 
         <para>
-          Now the CondensedCollection will properly deduplicate our identical cake objects.
+          Now the DedupedList will properly deduplicate our identical cake objects.
         </para>
 
         <alert class="tip">
@@ -89,7 +89,7 @@
         <para>
           Alternatively, if you would rather not modify your class (or if you don't have control over its implementation) then you can create an 
           <codeEntityReference>T:System.Collections.Generic.IEqualityComparer`1</codeEntityReference>
-          implementation for your type and then feed it into the CondensedCollection's constructor.
+          implementation for your type and then feed it into the DedupedList's constructor.
         </para>
         
       </content>

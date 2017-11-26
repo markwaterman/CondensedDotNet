@@ -25,8 +25,8 @@ namespace Condensed
     /// </summary>
     /// <remarks>
     /// <para>
-    /// The BitCollection is used internally by the <see cref="CondensedCollection{T}"/>, and, while not part of 
-    /// the CondensedCollection's public API, it's marked public in case others find it useful.
+    /// The BitCollection is used internally by the <see cref="DedupedList{T}"/>, and, while not part of 
+    /// the DedupedList's public API, it's marked public in case others find it useful.
     /// </para>
     /// <para>
     /// The main noteworthy difference between this collection and System.Collections.BitArray is the

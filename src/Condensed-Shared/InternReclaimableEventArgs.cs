@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 namespace Condensed
 {
     /// <summary>
-    /// Event args provided to a <see cref="CondensedCollection{T}.InternedValueReclaimable"/> event handler, intended
+    /// Event args provided to a <see cref="DedupedList{T}.InternedValueReclaimable"/> event handler, intended
     /// to help decide whether a cleanup operation should be performed.
     /// </summary>
     /// <remarks>

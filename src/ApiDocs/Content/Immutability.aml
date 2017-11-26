@@ -5,14 +5,14 @@
     xmlns:xlink="http://www.w3.org/1999/xlink">
 
     <introduction>
-      <para>Objects stored in a <codeEntityReference>T:Condensed.CondensedCollection`1</codeEntityReference> must be immutable.</para>
+      <para>Objects stored in a <codeEntityReference>T:Condensed.DedupedList`1</codeEntityReference> must be immutable.</para>
     </introduction>
 
     <section address="Section1">
       <title>The Immutability Requirement</title>
       <content>
         <para>
-          Modifying an object that's held in the CondensedCollection's intern pool will cause every other element pointing to that unique value to reflect the same change. This is almost never a desirable outcome.
+          Modifying an object that's held in the DedupedList's intern pool will cause every other element pointing to that unique value to reflect the same change. This is almost never a desirable outcome.
         </para>
         <alert class="warning">
           <para>
@@ -25,7 +25,7 @@
             "But I promise to be careful," says the little voice.
           </para>
           <para>
-            No! Don't do it. You'll forget your promise in two months, or someone else on your team won't know about it, or somewhere you'll reference the CondensedCollection as an <codeEntityReference qualifyHint="false">T:System.Collections.Generic.IList`1</codeEntityReference> and will lose track of what kind of collection you're working with, and your app will break catastrophically. Don't give in to the temptation.
+            No! Don't do it. You'll forget your promise in two months, or someone else on your team won't know about it, or somewhere you'll reference the DedupedList as an <codeEntityReference qualifyHint="false">T:System.Collections.Generic.IList`1</codeEntityReference> and will lose track of what kind of collection you're working with, and your app will break catastrophically. Don't give in to the temptation.
           </para>
         </alert>
         <para>
@@ -41,7 +41,7 @@
           <definition>
             <para>
               <computerOutputInline>
-                Type 'Foo' is a mutable reference type and should not be used in a CondensedCollection&lt;T&gt;.
+                Type 'Foo' is a mutable reference type and should not be used in a DedupedList&lt;T&gt;.
               </computerOutputInline>
             </para>
           </definition>
@@ -53,7 +53,7 @@
           <para>
             It's OK to store mutable structs (like
             <codeEntityReference qualifyHint="false" linkText="System.Drawing.Point">T:System.Drawing.Point</codeEntityReference>,
-            for example) in a CondensedCollection--the collection returns copies of value types, so they can be safely modified. However, mutable structs are a controversial design choice, and they're frowned upon by many developers in the .NET community (search for 
+            for example) in a DedupedList--the collection returns copies of value types, so they can be safely modified. However, mutable structs are a controversial design choice, and they're frowned upon by many developers in the .NET community (search for
             <externalLink>
               <linkText>"C# mutable struct"</linkText>
               <linkUri>https://www.google.com/search?q=C%23+mutable+struct</linkUri>

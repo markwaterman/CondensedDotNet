@@ -21,10 +21,10 @@
         <para>To use the specialized extension methods, add a "<codeInline>using Condensed.Linq;</codeInline>" statement to your source files that need to use them:</para>
         <code source="..\Samples\LinqSample1.cs"/>
         <para>
-          In addition to memory savings, LINQ operators are a core part of the collection's value proposition. The <codeEntityReference linkText="Count">M:Condensed.Linq.CondensedCollectionExtensions.Count``1(Condensed.CondensedCollection{``0},System.Func{``0,System.Boolean})</codeEntityReference> call in the sample above takes approximately 0.002 seconds to run on a 2015 laptop. The same logic takes over 5 seconds to execute against an ordinary List&lt;T&gt; collection. Specialized operators take advantage of the CondensedCollection's built-in knowledge of unique values and internal reference counting to improve the performance of many LINQ operations.
+          In addition to memory savings, LINQ operators are a core part of the collection's value proposition. The <codeEntityReference linkText="Count">M:Condensed.Linq.CondensedCollectionExtensions.Count``1(Condensed.DedupedList{``0},System.Func{``0,System.Boolean})</codeEntityReference> call in the sample above takes approximately 0.002 seconds to run on a 2015 laptop. The same logic takes over 5 seconds to execute against an ordinary List&lt;T&gt; collection. Specialized operators take advantage of the CondensedCollection's built-in knowledge of unique values and internal reference counting to improve the performance of many LINQ operations.
         </para>
         <para>
-          The trade-off is that loading the CondensedCollection typically takes anywhere from 2-10x longer than loading an ordinary List&lt;T&gt;, depending on the type and the quality of its equality comparer.
+          The trade-off is that loading the DedupedList typically takes anywhere from 2-10x longer than loading an ordinary List&lt;T&gt;, depending on the type and the quality of its equality comparer.
         </para>
         <para>
           The following operators are currently supported in the initial alpha release, with more on way:

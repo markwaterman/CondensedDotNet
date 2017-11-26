@@ -22,25 +22,25 @@ using System.Threading.Tasks;
 namespace Condensed.Linq
 {
     /// <summary>
-    /// Provides a set of extension methods for querying <see cref="CondensedCollection{T}"/> objects.
+    /// Provides a set of extension methods for querying <see cref="DedupedList{T}"/> objects.
     /// </summary>
     public static partial class CondensedCollectionExtensions
     {
         /// <summary>
-        /// Computes the average of a sequence of Int32 values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of Int32 values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of Int32 values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of Int32 values to calculate the average of.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Int64.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{int})"/> implementation.
         /// </remarks>
-        public static double Average(this CondensedCollection<int> source)
+        public static double Average(this DedupedList<int> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -62,19 +62,19 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a sequence of nullable Int32 values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of nullable Int32 values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of nullable Int32 values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of nullable Int32 values to calculate the average of.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Int64.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{int?})"/> implementation.
         /// </remarks>
-        public static double? Average(this CondensedCollection<int?> source)
+        public static double? Average(this DedupedList<int?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -104,23 +104,23 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of Int32 values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of Int32 values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Int64.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, int})"/> implementation.
         /// </remarks>
-        public static double Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, int> selector)
+        public static double Average<TSource>(this DedupedList<TSource> source, Func<TSource, int> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -143,22 +143,22 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of nullable Int32 values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of nullable Int32 values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Int64.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, int?})"/> implementation.
         /// </remarks>
-        public static double? Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, int?> selector)
+        public static double? Average<TSource>(this DedupedList<TSource> source, Func<TSource, int?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -194,20 +194,20 @@ namespace Condensed.Linq
 
 
         /// <summary>
-        /// Computes the average of a sequence of Decimal values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of Decimal values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of Decimal values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of Decimal values to calculate the average of.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Decimal.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{decimal})"/> implementation.
         /// </remarks>
-        public static Decimal Average(this CondensedCollection<Decimal> source)
+        public static Decimal Average(this DedupedList<Decimal> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -229,19 +229,19 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a sequence of nullable Decimal values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of nullable Decimal values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of nullable Decimal values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of nullable Decimal values to calculate the average of.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Decimal.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{decimal?})"/> implementation.
         /// </remarks>
-        public static Decimal? Average(this CondensedCollection<Decimal?> source)
+        public static Decimal? Average(this DedupedList<Decimal?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -272,23 +272,23 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of Decimal values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of Decimal values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Decimal.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, decimal})"/> implementation.
         /// </remarks>
-        public static Decimal Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, Decimal> selector)
+        public static Decimal Average<TSource>(this DedupedList<TSource> source, Func<TSource, Decimal> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -311,22 +311,22 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of nullable Decimal values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of nullable Decimal values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Decimal.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, decimal?})"/> implementation.
         /// </remarks>
-        public static Decimal? Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, Decimal?> selector)
+        public static Decimal? Average<TSource>(this DedupedList<TSource> source, Func<TSource, Decimal?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -363,20 +363,20 @@ namespace Condensed.Linq
 
 
         /// <summary>
-        /// Computes the average of a sequence of Int64 values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of Int64 values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of Int64 values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of Int64 values to calculate the average of.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Int64.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{long})"/> implementation.
         /// </remarks>
-        public static double Average(this CondensedCollection<long> source)
+        public static double Average(this DedupedList<long> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -398,19 +398,19 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a sequence of nullable Int64 values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of nullable Int64 values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of nullable Int64 values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of nullable Int64 values to calculate the average of.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Int64.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{long?})"/> implementation.
         /// </remarks>
-        public static double? Average(this CondensedCollection<long?> source)
+        public static double? Average(this DedupedList<long?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -437,23 +437,23 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of Int64 values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of Int64 values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Int64.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, long})"/> implementation.
         /// </remarks>
-        public static double Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, long> selector)
+        public static double Average<TSource>(this DedupedList<TSource> source, Func<TSource, long> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -476,22 +476,22 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of nullable Int64 values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of nullable Int64 values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <exception cref="OverflowException">The sum of the elements in the sequence is larger than Int64.MaxValue.</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, long?})"/> implementation.
         /// </remarks>
-        public static double? Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, long?> selector)
+        public static double? Average<TSource>(this DedupedList<TSource> source, Func<TSource, long?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -526,19 +526,19 @@ namespace Condensed.Linq
 
 
         /// <summary>
-        /// Computes the average of a sequence of double values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of double values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of double values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of double values to calculate the average of.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{double})"/> implementation.
         /// </remarks>
-        public static double Average(this CondensedCollection<double> source)
+        public static double Average(this DedupedList<double> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -560,18 +560,18 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a sequence of nullable double values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of nullable double values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of nullable double values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of nullable double values to calculate the average of.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{double?})"/> implementation.
         /// </remarks>
-        public static double? Average(this CondensedCollection<double?> source)
+        public static double? Average(this DedupedList<double?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -602,22 +602,22 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of double values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of double values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, double})"/> implementation.
         /// </remarks>
-        public static double Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, double> selector)
+        public static double Average<TSource>(this DedupedList<TSource> source, Func<TSource, double> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -640,21 +640,21 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of nullable double values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of nullable double values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, double?})"/> implementation.
         /// </remarks>
-        public static double? Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, double?> selector)
+        public static double? Average<TSource>(this DedupedList<TSource> source, Func<TSource, double?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -691,19 +691,19 @@ namespace Condensed.Linq
 
 
         /// <summary>
-        /// Computes the average of a sequence of float values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of float values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of float values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of float values to calculate the average of.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{float})"/> implementation.
         /// </remarks>
-        public static float Average(this CondensedCollection<float> source)
+        public static float Average(this DedupedList<float> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -725,18 +725,18 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a sequence of nullable float values. Optimized for a CondensedCollection.
+        /// Computes the average of a sequence of nullable float values. Optimized for a DedupedList.
         /// </summary>
-        /// <param name="source">A CondensedCollection of nullable float values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of nullable float values to calculate the average of.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source is null</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average(IEnumerable{float?})"/> implementation.
         /// </remarks>
-        public static float? Average(this CondensedCollection<float?> source)
+        public static float? Average(this DedupedList<float?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -765,22 +765,22 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of float values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of float values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <exception cref="InvalidOperationException">source contains no elements</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, float})"/> implementation.
         /// </remarks>
-        public static float Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, float> selector)
+        public static float Average<TSource>(this DedupedList<TSource> source, Func<TSource, float> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)
@@ -803,21 +803,21 @@ namespace Condensed.Linq
         }
 
         /// <summary>
-        /// Computes the average of a CondensedCollection of nullable float values that are obtained by invoking a transform 
-        /// function on each element of the input sequence. Optimized for a CondensedCollection.
+        /// Computes the average of a DedupedList of nullable float values that are obtained by invoking a transform 
+        /// function on each element of the input sequence. Optimized for a DedupedList.
         /// </summary>
         /// <typeparam name="TSource">The type of the elements of source.</typeparam>
-        /// <param name="source">A CondensedCollection of values to calculate the average of.</param>
+        /// <param name="source">A DedupedList of values to calculate the average of.</param>
         /// <param name="selector">A transform function to apply to each element.</param>
         /// <returns>The average of the sequence of values, or null if the source sequence is empty or contains only values that are null.</returns>
         /// <exception cref="ArgumentNullException">source or selector is null</exception>
         /// <remarks>
-        /// This implementation of Average() is specialized for a CondensedCollection and tries to
-        /// take advantage of the CondensedCollection's knowledge of unique values in order to improve performance.
-        /// If you would rather use the normal LINQ extension method then cast the CondensedCollection to an <see cref="IList{T}"/>
+        /// This implementation of Average() is specialized for a DedupedList and tries to
+        /// take advantage of the DedupedList's knowledge of unique values in order to improve performance.
+        /// If you would rather use the normal LINQ extension method then cast the DedupedList to an <see cref="IList{T}"/>
         /// to use the <see cref="Enumerable.Average{TSource}(IEnumerable{TSource}, Func{TSource, float?})"/> implementation.
         /// </remarks>
-        public static float? Average<TSource>(this CondensedCollection<TSource> source, Func<TSource, float?> selector)
+        public static float? Average<TSource>(this DedupedList<TSource> source, Func<TSource, float?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
             if (source.HasCutover)

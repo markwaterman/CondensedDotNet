@@ -10,7 +10,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BitCollection.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CondensedCollection.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DedupedList.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)CondensedStats.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exceptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Indexes\IntListBitStorage.cs" />

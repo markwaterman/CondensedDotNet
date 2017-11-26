@@ -29,7 +29,7 @@ namespace UnitTests
         [TestMethod()]
         public void BoolCutover()
         {
-            var l = new CondensedCollection<bool>();
+            var l = new DedupedList<bool>();
             l.Add(true);
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
             l.Add(false);
@@ -40,7 +40,7 @@ namespace UnitTests
         [TestMethod()]
         public void ByteCutover()
         {
-            var l = new CondensedCollection<byte>(cutoverPredicate: StandardCutoverPredicates.BytePredicate);
+            var l = new DedupedList<byte>(cutoverPredicate: StandardCutoverPredicates.BytePredicate);
             l.Add((byte)43);
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
             l.Add((byte)44);
@@ -53,7 +53,7 @@ namespace UnitTests
         [TestMethod()]
         public void ShortCutover()
         {
-            var l = new CondensedCollection<short>(cutoverPredicate: StandardCutoverPredicates.ShortPredicate);
+            var l = new DedupedList<short>(cutoverPredicate: StandardCutoverPredicates.ShortPredicate);
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
             l.Add(-1);
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
@@ -75,7 +75,7 @@ namespace UnitTests
         [TestMethod()]
         public void IntCutover()
         {
-            var l = new CondensedCollection<int>(cutoverPredicate: StandardCutoverPredicates.IntPredicate);
+            var l = new DedupedList<int>(cutoverPredicate: StandardCutoverPredicates.IntPredicate);
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
             l.Add(-1);
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);

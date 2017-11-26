@@ -42,7 +42,7 @@ namespace Samples
         {
             static void Main()
             {
-                var cc = new Condensed.CondensedCollection<Cake>();
+                var cc = new Condensed.DedupedList<Cake>();
                 cc.Add(new Cake(Flavor.Chocolate, 42));
                 cc.Add(new Cake(Flavor.Chocolate, 42));
                 Console.WriteLine(cc.InternPoolCount);

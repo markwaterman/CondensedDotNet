@@ -24,13 +24,13 @@ namespace Condensed.Indexes
 {
     /// <summary>
     /// A "fake" collection of integers that can only hold the value 0. Used
-    /// by the CondensedCollection when it only contains a single unique value.
+    /// by the DedupedList when it only contains a single unique value.
     /// </summary>
     [Serializable]
     class IntListZeroStorage : OffsetIndex
     {
         int _count = 0;
-        // Track the user's intended capacity--useful to hold onto for later, when the CondensedCollection
+        // Track the user's intended capacity--useful to hold onto for later, when the DedupedList
         // needs to switch from using this collection to a "real" index (like an IntListBitStorage).
         int _capacity;
 

@@ -30,7 +30,7 @@ namespace UnitTests
         [TestMethod]
         public void First()
         {
-            CondensedCollection<int> l = new CondensedCollection<int>();
+            DedupedList<int> l = new DedupedList<int>();
             for (int i = 0; i < 1000; ++i)
                 l.Add(i);
 
@@ -41,7 +41,7 @@ namespace UnitTests
         [TestMethod]
         public void FirstNullable()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
             for (int i = 0; i < 1000; ++i)
                 l.Add(i);
 
@@ -53,7 +53,7 @@ namespace UnitTests
             item = l.First((i) => (i != null || i == null));
             Assert.IsNull(item);
 
-            l = new CondensedCollection<int?>();
+            l = new DedupedList<int?>();
             for (int i = 0; i < 1000; ++i)
                 l.Add(i % 2);
 
@@ -70,7 +70,7 @@ namespace UnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void FirstOnEmpty()
         {
-            var l = new CondensedCollection<int>();
+            var l = new DedupedList<int>();
             var item = l.First((i) => i == 0);
             
         }
@@ -79,7 +79,7 @@ namespace UnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void FirstNotfound()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
             for (int i = 0; i < 1000; ++i)
                 l.Add(i % 2);
 
@@ -90,7 +90,7 @@ namespace UnitTests
         [TestMethod]
         public void FirstOrDefault()
         {
-            CondensedCollection<int> l = new CondensedCollection<int>();
+            DedupedList<int> l = new DedupedList<int>();
             for (int i = 0; i < 1000; ++i)
                 l.Add(i);
 
@@ -104,7 +104,7 @@ namespace UnitTests
         [TestMethod]
         public void Last()
         {
-            CondensedCollection<int> l = new CondensedCollection<int>();
+            DedupedList<int> l = new DedupedList<int>();
             for (int i = 0; i < 100; ++i)
                 l.Add(i);
 
@@ -119,7 +119,7 @@ namespace UnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void LastNotFound()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
             for (int i = 0; i < 1000; ++i)
                 l.Add(i % 2);
 
@@ -129,7 +129,7 @@ namespace UnitTests
         [TestMethod]
         public void LastOrDefault()
         {
-            var l = new CondensedCollection<string>();
+            var l = new DedupedList<string>();
             for (int i = 0; i < 100; ++i)
                 l.Add(i.ToString());
 
@@ -143,7 +143,7 @@ namespace UnitTests
         [TestMethod]
         public void Average()
         {
-            var l = new CondensedCollection<int>();
+            var l = new DedupedList<int>();
             var control = new List<int>();
 
             // add sequence of 0,1,2,3 repeating 25 times
@@ -164,14 +164,14 @@ namespace UnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void AverageEmpty()
         {
-            var l = new CondensedCollection<int>();
+            var l = new DedupedList<int>();
             var avg = l.Average();
         }
 
         [TestMethod]
         public void AverageEmptyNullable()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
             var avg = l.Average();
             Assert.IsNull(avg);
 
@@ -187,7 +187,7 @@ namespace UnitTests
         [TestMethod]
         public void AverageNullable()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
             var control = new List<int?>();
 
             // add some integers with null mixed in.
@@ -210,7 +210,7 @@ namespace UnitTests
         [TestMethod]
         public void AverageOfTransform()
         {
-            var l = new CondensedCollection<TimeSpan>();
+            var l = new DedupedList<TimeSpan>();
             var control = new List<TimeSpan>();
 
             for (int i = 0; i < 100; ++i)
@@ -230,7 +230,7 @@ namespace UnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void AverageTransformEmpty()
         {
-            var l = new CondensedCollection<DateTime>();
+            var l = new DedupedList<DateTime>();
             var avg = l.Average((dt) => dt.DayOfYear);
         }
 
@@ -254,7 +254,7 @@ namespace UnitTests
         [TestMethod]
         public void AverageOfNullableTransform()
         {
-            var l = new CondensedCollection<TimeSpan>();
+            var l = new DedupedList<TimeSpan>();
             var control = new List<TimeSpan>();
 
             for (int i = 0; i < 100; ++i)
@@ -273,7 +273,7 @@ namespace UnitTests
         [TestMethod]
         public void AverageOfTransformNullable()
         {
-            var l = new CondensedCollection<TimeSpan?>();
+            var l = new DedupedList<TimeSpan?>();
             var control = new List<TimeSpan?>();
 
             for (int i = 0; i < 100; ++i)
@@ -294,7 +294,7 @@ namespace UnitTests
         [TestMethod]
         public void AverageTransformToAllNulls()
         {
-            var l = new CondensedCollection<TimeSpan>();
+            var l = new DedupedList<TimeSpan>();
             var avg = l.Average((ts) => null);
             Assert.IsNull(avg);
 
@@ -309,7 +309,7 @@ namespace UnitTests
         [TestMethod]
         public void SumNullable()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
             var control = new List<int?>();
 
             // add some integers with null mixed in.
@@ -333,7 +333,7 @@ namespace UnitTests
         [TestMethod]
         public void DistinctNullable()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
             var control = new List<int?>();
 
             // add some integers with null mixed in.
@@ -364,7 +364,7 @@ namespace UnitTests
         [TestMethod]
         public void Max()
         {
-            var l = new CondensedCollection<int>();
+            var l = new DedupedList<int>();
             for (int i = 0; i < 100; ++i)
                 l.Add(i % 7);
 
@@ -374,7 +374,7 @@ namespace UnitTests
         [TestMethod]
         public void MaxNullable()
         {
-            var l = new CondensedCollection<int?>();
+            var l = new DedupedList<int?>();
             for (int i = 0; i < 100; ++i)
             {
                 int? val = i % 7;
@@ -389,7 +389,7 @@ namespace UnitTests
         [TestMethod]
         public void MaxTransform()
         {
-            var l = new CondensedCollection<TimeSpan>();
+            var l = new DedupedList<TimeSpan>();
 
             for (int i = 0; i < 100; ++i)
             {
@@ -402,7 +402,7 @@ namespace UnitTests
         [TestMethod]
         public void MaxNullableTransform()
         {
-            var l = new CondensedCollection<TimeSpan>();
+            var l = new DedupedList<TimeSpan>();
 
             for (int i = 0; i < 100; ++i)
             {
@@ -415,7 +415,7 @@ namespace UnitTests
         [TestMethod]
         public void MaxTransformNullable()
         {
-            var l = new CondensedCollection<TimeSpan?>();
+            var l = new DedupedList<TimeSpan?>();
 
             for (int i = 0; i < 100; ++i)
             {
@@ -432,7 +432,7 @@ namespace UnitTests
         [TestMethod]
         public void MaxNullStrings()
         {
-            var l = new CondensedCollection<string>();
+            var l = new DedupedList<string>();
 
             l.Add(null);
 
@@ -443,7 +443,7 @@ namespace UnitTests
         [TestMethod]
         public void MaxTransformedToString()
         {
-            var l = new CondensedCollection<DateTime>();
+            var l = new DedupedList<DateTime>();
             var max = l.Max((dt) => dt.ToString());
             Assert.IsNull(max);
         }
@@ -452,14 +452,14 @@ namespace UnitTests
         [ExpectedException(typeof(InvalidOperationException))]
         public void MaxTransformedDateTime()
         {
-            var l = new CondensedCollection<string>();
+            var l = new DedupedList<string>();
             var max = l.Max((dt) => DateTime.Now);
         }
 
         [TestMethod]
         public void MaxTransformedDateTimeToNull()
         {
-            var l = new CondensedCollection<string>();
+            var l = new DedupedList<string>();
             l.Add(null);
 
             var max = l.Max((dt) =>

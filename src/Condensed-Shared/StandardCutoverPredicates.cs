@@ -23,7 +23,7 @@ namespace Condensed
 {
     /// <summary>
     /// Contains cutover predicates that implement reasonable heuristics that can be used for common types
-    /// when deciding whether a CondensedCollection should stop performing deduplication and just store values
+    /// when deciding whether a DedupedList should stop performing deduplication and just store values
     /// in an ordinary <see cref="List{T}"/>.
     /// </summary>
     /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
@@ -35,7 +35,7 @@ namespace Condensed
         /// <summary>
         /// Convenience method that returns a cutover predicate for the specified type.
         /// </summary>
-        /// <param name="type">Type of object being stored in a <see cref="CondensedCollection{T}"/>.</param>
+        /// <param name="type">Type of object being stored in a <see cref="DedupedList{T}"/>.</param>
         /// <returns>Default predicate used for the type.</returns>
         public static Predicate<CondensedStats> GetDefaultCutoverPredicate(Type type)
         {
@@ -173,7 +173,7 @@ namespace Condensed
         }
 
         /// <summary>
-        /// Cutover predicate to use when the <see cref="CondensedCollection{T}"/> should never stop performing deduplication.
+        /// Cutover predicate to use when the <see cref="DedupedList{T}"/> should never stop performing deduplication.
         /// </summary>
         /// <param name="stats">Current collection statistics (prior to the item that's currently being added).</param>
         /// <returns>Always false.</returns>

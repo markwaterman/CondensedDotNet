@@ -33,7 +33,7 @@ namespace Condensed
     /// </summary>
     /// <remarks>
     /// <para>
-    /// The CondensedCollection class provides a generalized form of interning for immutable types. It provides the following features:
+    /// The DedupedList class provides a generalized form of interning for immutable types. It provides the following features:
     /// <list type="bullet">
     /// <item>Nullable types are supported.</item>
     /// <item>Optional fallback ("cutover") to non-deduplicated list behavior if the items in the list aren't sufficiently unique.</item>
@@ -41,11 +41,11 @@ namespace Condensed
     /// </list>
     /// </para>
     /// <para>
-    /// The CondensedCollection class is best suited for relatively static collection of elements, or, at the very least, a population whose set of unique
+    /// The DedupedList class is best suited for relatively static collection of elements, or, at the very least, a population whose set of unique
     /// values is relatively fixed. The collection maintains an "intern pool" of unique values, and this pool is not automatically cleaned up.
     /// </para>
     /// <para>
-    /// CondensedCollection is not thread-safe and does not perform any internal synchronization. Multiple simultaneous readers are allowed, 
+    /// DedupedList is not thread-safe and does not perform any internal synchronization. Multiple simultaneous readers are allowed, 
     /// (provided there is no active writer), so a <see cref="System.Threading.ReaderWriterLockSlim"/> (or an ordinary exclusive lock) should be used to synchronize 
     /// multi-threaded access to an instance of the collection.
     /// </para>
@@ -55,18 +55,18 @@ namespace Condensed
     /// <conceptualLink target="a2dd277a-ec2e-4f4b-a42d-e31f23b94bdd" />
     [DebuggerDisplay("Count = {Count}")]
     [Serializable]
-    public class CondensedCollection<T> : IList<T>
+    public class DedupedList<T> : IList<T>
     {
         /// <summary>
         /// List containing unique/distinct values or "interns", in the sense of a more generalized implementation of
         /// string interning (https://en.wikipedia.org/wiki/String_interning).
         /// The _indexList collection (defined below) contains offsets that point into _internPool.
-        /// Used for performing fast gets into this CondensedCollection via indexer.
+        /// Used for performing fast gets into this DedupedList via indexer.
         /// </summary>
         internal List<T> _internPool;
 
         /// <summary>
-        /// Lookup table for finding whether an equal value already exists in this CondensedCollection. Its ValueInfo value
+        /// Lookup table for finding whether an equal value already exists in this DedupedList. Its ValueInfo value
         /// contains the index of the equivalent value in the _interns list and a refcount of the entries in the index
         /// (defined below).
         /// </summary>
@@ -135,24 +135,24 @@ namespace Condensed
         public event EventHandler<InternReclaimableEventArgs> InternedValueReclaimable;
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CondensedCollection{T}"/> class with the 
+        /// Initializes a new instance of the <see cref="DedupedList{T}"/> class with the 
         /// default capacity, default comparer for the type, and no cutover predicate.
         /// </summary>
         /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
-        public CondensedCollection()
+        public DedupedList()
             : this(capacity: 0, comparer: null, cutoverPredicate: null, collection: null)
         {
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="CondensedCollection{T}"/> class.
+        /// Initializes a new instance of the <see cref="DedupedList{T}"/> class.
         /// </summary>
         /// <param name="capacity">The number of elements that the new list can initially store.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> implementation to use when comparing elements, or null to use the default <see cref="IEqualityComparer{T}"/> for the type of the object.</param>
-        /// <param name="cutoverPredicate">A callback used to decide when a CondensedCollection should stop attempting to perform deduplication and store values directly. If null or unspecified, the collection will never cutover.</param>
-        /// <param name="collection">The collection whose elements are copied to the new <see cref="CondensedCollection{T}"/>, or null to create an empty collection.</param>
+        /// <param name="cutoverPredicate">A callback used to decide when a DedupedList should stop attempting to perform deduplication and store values directly. If null or unspecified, the collection will never cutover.</param>
+        /// <param name="collection">The collection whose elements are copied to the new <see cref="DedupedList{T}"/>, or null to create an empty collection.</param>
         /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
-        public CondensedCollection(int capacity = 0, IEqualityComparer<T> comparer = null, Predicate<CondensedStats> cutoverPredicate = null, IEnumerable<T> collection = null)
+        public DedupedList(int capacity = 0, IEqualityComparer<T> comparer = null, Predicate<CondensedStats> cutoverPredicate = null, IEnumerable<T> collection = null)
         {
             if (capacity < 0)
                 throw new ArgumentOutOfRangeException("capacity", capacity, "capacity cannot be less than zero.");
@@ -179,8 +179,8 @@ namespace Condensed
             else
             {
                 // We're being initialized with another collection.
-                // check to see if it's another CondensedCollection. If so, use its comparer/cutover as defaults.
-                CondensedCollection<T> otherCondensedColl = collection as CondensedCollection<T>;
+                // check to see if it's another DedupedList. If so, use its comparer/cutover as defaults.
+                DedupedList<T> otherCondensedColl = collection as DedupedList<T>;
 
                 if (comparer == null)
                 {
@@ -678,7 +678,7 @@ namespace Condensed
         /// <summary>
         /// Copies the entire collection to a compatible one-dimensional array, starting at the specified index of the target array.
         /// </summary>
-        /// <param name="array">The one-dimensional Array that is the destination of the elements copied from <see cref="CondensedCollection{T}"/>. The Array must have zero-based indexing.</param>
+        /// <param name="array">The one-dimensional Array that is the destination of the elements copied from <see cref="DedupedList{T}"/>. The Array must have zero-based indexing.</param>
         /// <param name="arrayIndex">The zero-based index in <paramref name="array"/> at which copying begins.</param>
         public void CopyTo(T[] array, int arrayIndex)
         {
@@ -741,9 +741,9 @@ namespace Condensed
         /// </summary>
         /// <remarks>
         /// <para>
-        /// The <see cref="CondensedCollection{T}"/> does not automatically reclaim values from the 
+        /// The <see cref="DedupedList{T}"/> does not automatically reclaim values from the 
         /// intern pool. An intern pool that is significantly larger then the <see cref="UniqueCount"/>
-        /// indicates that many values being held in the pool are no longer being used by the CondensedCollection.
+        /// indicates that many values being held in the pool are no longer being used by the DedupedList.
         /// Call <see cref="Cleanup"/> as needed to reclaim memory from the intern pool or subscribe to the
         /// <see cref="InternedValueReclaimable"/> event.
         /// </para>
@@ -772,9 +772,9 @@ namespace Condensed
         /// </summary>
         /// <remarks>
         /// <para>
-        /// The <see cref="CondensedCollection{T}"/> does not automatically reclaim values from the 
+        /// The <see cref="DedupedList{T}"/> does not automatically reclaim values from the 
         /// intern pool. A high <see cref="ReclaimableInternsCount"/> value
-        /// indicates that many values being held in the pool are no longer being used by the CondensedCollection.
+        /// indicates that many values being held in the pool are no longer being used by the DedupedList.
         /// Call <see cref="Cleanup"/> as needed to reclaim memory from the intern pool or subscribe to the
         /// <see cref="InternedValueReclaimable"/> event.
         /// </para>
@@ -859,7 +859,7 @@ namespace Condensed
         }
 
         /// <summary>
-        /// Gets the <see cref="IEqualityComparer{T}"/> that is used by the <see cref="CondensedCollection{T}"/>
+        /// Gets the <see cref="IEqualityComparer{T}"/> that is used by the <see cref="DedupedList{T}"/>
         /// to compare elements while performing deduplication.
         /// </summary>
         public IEqualityComparer<T> Comparer
@@ -871,7 +871,7 @@ namespace Condensed
         }
 
         /// <summary>
-        /// Gets the width of the internal index currently used by a <see cref="CondensedCollection{T}"/>.
+        /// Gets the width of the internal index currently used by a <see cref="DedupedList{T}"/>.
         /// </summary>
         public IndexType IndexType
         {
@@ -940,13 +940,13 @@ namespace Condensed
         /// <para>
         /// Cleanups are potentially expensive operations that should only be performed on an
         /// occasional basis. Instead of calling this method directly, you can use the 
-        /// <see cref="CondensedCollection{T}.InternedValueReclaimable"/> event
+        /// <see cref="DedupedList{T}.InternedValueReclaimable"/> event
         /// as an occasion to decide whether a cleanup should be performed--consider performing cleanups
-        /// only when the <see cref="CondensedCollection{T}.InternPoolCount"/> is substantially larger 
-        /// than the <see cref="CondensedCollection{T}.UniqueCount"/>.
+        /// only when the <see cref="DedupedList{T}.InternPoolCount"/> is substantially larger 
+        /// than the <see cref="DedupedList{T}.UniqueCount"/>.
         /// </para>
         /// <para>
-        /// Cleanup cannot be performed on a CondensedCollection that has cutover to normal
+        /// Cleanup cannot be performed on a DedupedList that has cutover to normal
         /// (non-deduplicated) list storage because its internal pool and refcounting information
         /// has been lost. Reconstruct the collection from itself to rebuild it and 
         /// restart deduplication.
@@ -1150,7 +1150,7 @@ namespace Condensed
         }
         #endregion // Cleanup routines
 
-    } // class CondensedCollection
+    } // class DedupedList
 
     [Serializable]
     internal class UniqueValueInfo

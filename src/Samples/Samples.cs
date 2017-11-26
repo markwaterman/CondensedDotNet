@@ -28,7 +28,7 @@ namespace Samples
         {
             #region WelcomeSample
 			// Add 100 million dates spanning December 2016:
-            var cc = new Condensed.CondensedCollection<DateTime>(capacity: 100000000);
+            var cc = new Condensed.DedupedList<DateTime>(capacity: 100000000);
 
             for (int i = 0; i < 100000000; i++)
                 cc.Add(new DateTime(2016, 12, i % 30 + 1));
@@ -42,15 +42,15 @@ namespace Samples
             #region SimpleCutover
             var cutover = new Predicate<CondensedStats>(delegate(CondensedStats stats)
             {
-                // Return true to make a CondensedCollection stop performing deduplication.
+                // Return true to make a DedupedList stop performing deduplication.
                 if (stats.UniqueCount > ushort.MaxValue)
                     return true;
                 else
                     return false;
             });
 
-            // Provide the cutover predicate to the CondensedCollection:
-            var cc = new CondensedCollection<int>(cutoverPredicate: cutover);
+            // Provide the cutover predicate to the DedupedList:
+            var cc = new DedupedList<int>(cutoverPredicate: cutover);
             #endregion
         }
 
@@ -72,8 +72,8 @@ namespace Samples
                     return false;
             });
 
-            // Provide the cutover predicate to the CondensedCollection:
-            var cc = new CondensedCollection<string>(cutoverPredicate: cutover, 
+            // Provide the cutover predicate to the DedupedList:
+            var cc = new DedupedList<string>(cutoverPredicate: cutover, 
                                                      comparer: StringComparer.Ordinal);
             #endregion
         }
@@ -81,18 +81,18 @@ namespace Samples
         public void StandardCutover()
         {
             #region StandardCutover
-            var cc = new CondensedCollection<decimal>(cutoverPredicate: StandardCutoverPredicates.DecimalPredicate);
+            var cc = new DedupedList<decimal>(cutoverPredicate: StandardCutoverPredicates.DecimalPredicate);
             #endregion
         }
 
         public void ReconstructFromCutover()
         {
-            var myCondensedColl = new CondensedCollection<string>(cutoverPredicate: StandardCutoverPredicates.StringPredicate);
+            var myCondensedColl = new DedupedList<string>(cutoverPredicate: StandardCutoverPredicates.StringPredicate);
             #region ReconstructFromCutover
             if (myCondensedColl.HasCutover)
             {
                 // Reconstruct collection from itself to restart deduplication.
-                myCondensedColl = new CondensedCollection<string>(collection: myCondensedColl);
+                myCondensedColl = new DedupedList<string>(collection: myCondensedColl);
             }
             else
             {

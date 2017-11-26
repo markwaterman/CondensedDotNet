@@ -8,7 +8,7 @@
       <list class="bullet">
         <listItem>
           <para>
-            Register a "cutover" predicate in the <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference>'s constructor to revert to non-deduplicated list behavior if it turns out that your collection's population has too many unique values.
+            Register a "cutover" predicate in the <codeEntityReference linkText="DedupedList">T:Condensed.DedupedList`1</codeEntityReference>'s constructor to revert to non-deduplicated list behavior if it turns out that your collection's population has too many unique values.
           </para>
         </listItem>
         <listItem>
@@ -18,7 +18,7 @@
         </listItem>
         <listItem>
           <para>
-            By default, the CondensedCollection does not perform cutover.
+            By default, the DedupedList does not perform cutover.
           </para>
         </listItem>
       </list>
@@ -28,13 +28,13 @@
       <title>Background</title>
       <content>
         <para>
-          A <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference> creates significant overhead for each unique item in its intern pool (somewhere in the 70-80 byte range), plus an additional copy/reference of each interned value in the collection's internal lookup table. This high overhead is typically amortized if you're working with a very large collection that has a lot of repeated elements. But too many unique values will cause your memory usage to skyrocket.
+          A <codeEntityReference linkText="DedupedList">T:Condensed.DedupedList`1</codeEntityReference> creates significant overhead for each unique item in its intern pool (somewhere in the 70-80 byte range), plus an additional copy/reference of each interned value in the collection's internal lookup table. This high overhead is typically amortized if you're working with a very large collection that has a lot of repeated elements. But too many unique values will cause your memory usage to skyrocket.
         </para>
         <para>
-          In short, if you expect your collection to always have a lot of unique values, don't use a CondensedCollection--just use a normal List&lt;T&gt; or some other appropriate collection.
+          In short, if you expect your collection to always have a lot of unique values, don't use a DedupedList--just use a normal List&lt;T&gt; or some other appropriate collection.
         </para>
         <para>
-          However, there may be situations when your app doesn't know anything about its incoming workload, but you want to take advantage of a CondensedCollection's behavior as a nice-to-have optimization if the elements happen to be sufficiently repetitive. In this case, registering a cutover callback can give you the flexibility you need.
+          However, there may be situations when your app doesn't know anything about its incoming workload, but you want to take advantage of a DedupedList's behavior as a nice-to-have optimization if the elements happen to be sufficiently repetitive. In this case, registering a cutover callback can give you the flexibility you need.
         </para>
       </content>
     </section>
@@ -42,10 +42,10 @@
       <title>Registering a Cutover Callback</title>
       <content>
         <para>
-          A cutover callback is a user-supplied delegate that's occasionally called by a CondensedCollection as items are added/inserted/updated. Statistics are provided to your callback, and if you decide that the population is too diverse, the collection stops performing its internal deduplication and starts storing your objects like an ordinary list.
+          A cutover callback is a user-supplied delegate that's occasionally called by a DedupedList as items are added/inserted/updated. Statistics are provided to your callback, and if you decide that the population is too diverse, the collection stops performing its internal deduplication and starts storing your objects like an ordinary list.
         </para>
         <para>
-          In the simplest case, say you're using a CondensedCollection to store Int32 values. A reasonable cutover predicate would look like this:
+          In the simplest case, say you're using a DedupedList to store Int32 values. A reasonable cutover predicate would look like this:
         </para>
         <code source="..\Samples\Samples.cs" region="SimpleCutover"></code>
         <para>
@@ -56,7 +56,7 @@
         </para>
         <code source="..\Samples\Samples.cs" region="StringCutover"></code>
         <para>
-          You can determine whether cutover has occurred by using the <codeEntityReference>P:Condensed.CondensedCollection`1.IndexType</codeEntityReference> property or the <codeEntityReference>P:Condensed.CondensedCollection`1.HasCutover</codeEntityReference> property.
+          You can determine whether cutover has occurred by using the <codeEntityReference>P:Condensed.DedupedList`1.IndexType</codeEntityReference> property or the <codeEntityReference>P:Condensed.DedupedList`1.HasCutover</codeEntityReference> property.
         </para>
       </content>
     </section>

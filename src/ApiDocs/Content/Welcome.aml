@@ -4,7 +4,7 @@
 	
 		<introduction>
 			<para>
-        The <legacyBold>Condensed Collection Library for .NET</legacyBold> provides the <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference> class, an IList&lt;T&gt; implementation that uses interning (deduplication) for efficient storage of large numbers of immutable elements.
+        The <legacyBold>Condensed Collection Library for .NET</legacyBold> provides the <codeEntityReference linkText="DedupedList">T:Condensed.DedupedList`1</codeEntityReference> class, an IList&lt;T&gt; implementation that uses interning (deduplication) for efficient storage of large numbers of immutable elements.
       </para>
 		</introduction>
 
@@ -38,7 +38,7 @@
       <title>Usage</title>
       <content>
         <para>
-          The CondensedCollection class provides a generalized form of interning for any immutable .NET type. Use this collection like an ordinary list, keeping the following guidelines in mind:
+          The DedupedList class provides a generalized form of interning for any immutable .NET type. Use this collection like an ordinary list, keeping the following guidelines in mind:
         </para>
         <list class="ordered">
           <listItem>
@@ -58,7 +58,7 @@
         </list>
         <code source="..\Samples\Samples.cs" region="WelcomeSample" title="Basic Usage"></code>
         <para>
-          Internally, the CondensedCollection uses a variable-width index to reference the unique values in its intern pool. Given sufficient repetition in your collection, this can provide significant memory savings even when storing small types. In the example above, references to the 31 unique days in a month can be held in an internal index that is just one byte wide.
+          Internally, the DedupedList uses a variable-width index to reference the unique values in its intern pool. Given sufficient repetition in your collection, this can provide significant memory savings even when storing small types. In the example above, references to the 31 unique days in a month can be held in an internal index that is just one byte wide.
         </para>
         <para>
           Interning items can reduce memory consumption and can often improve performance for certain compute-intensive tasks. The trade-off is that modifications to the collection are slower. The Wikipedia article on
@@ -77,7 +77,7 @@
       </title>
       <content>
         <para>
-          The CondensedCollection provides the following additional features:
+          The DedupedList provides the following additional features:
         </para>
         <list class="bullet">
           <listItem>
@@ -110,7 +110,7 @@
       </title>
       <content>
         <para>
-          <codeEntityReference linkText="CondensedCollection">T:Condensed.CondensedCollection`1</codeEntityReference> is <legacyItalic>not</legacyItalic> thread-safe and does not perform any internal synchronization. Multiple simultaneous readers are allowed, provided there is no active writer. An exclusive lock or a <codeEntityReference qualifyHint="false">T:System.Threading.ReaderWriterLockSlim</codeEntityReference> should be used to synchronize multi-threaded access to each instance of the collection.
+          <codeEntityReference linkText="DedupedList">T:Condensed.DedupedList`1</codeEntityReference> is <legacyItalic>not</legacyItalic> thread-safe and does not perform any internal synchronization. Multiple simultaneous readers are allowed, provided there is no active writer. An exclusive lock or a <codeEntityReference qualifyHint="false">T:System.Threading.ReaderWriterLockSlim</codeEntityReference> should be used to synchronize multi-threaded access to each instance of the collection.
         </para>
       </content>
     </section>

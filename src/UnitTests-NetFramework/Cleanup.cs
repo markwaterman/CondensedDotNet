@@ -32,7 +32,7 @@ namespace UnitTests
         [TestMethod]
         public void Cleanup0()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             cc.Cleanup();
             Assert.AreEqual(0, cc.Count);
             Assert.AreEqual(0, cc.UniqueCount);
@@ -43,7 +43,7 @@ namespace UnitTests
         [TestMethod]
         public void Cleanup1()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             cc.Insert(0, 99);
             cc.Cleanup();
             Assert.AreEqual(1, cc.Count);
@@ -63,7 +63,7 @@ namespace UnitTests
         [TestMethod]
         public void Cleanup2()
         {
-            var cc = new CondensedCollection<string>();
+            var cc = new DedupedList<string>();
             cc.Add("Hello");
             cc.Add("world");
 
@@ -83,7 +83,7 @@ namespace UnitTests
         [TestMethod]
         public void Cleanup3()
         {
-            var cc = new CondensedCollection<string>();
+            var cc = new DedupedList<string>();
             cc.Add("Hello");
             cc.Add("world");
 
@@ -108,7 +108,7 @@ namespace UnitTests
         [TestMethod]
         public void CleanupMany()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             for (int i = 0; i < 100; ++i)
                 cc.Add(i % 10);
 
@@ -139,7 +139,7 @@ namespace UnitTests
         [TestMethod]
         public void CleanupManyNullable()
         {
-            var cc = new CondensedCollection<int?>();
+            var cc = new DedupedList<int?>();
             for (int i = 0; i < 100; ++i)
                 cc.Add(i % 10);
 
@@ -173,7 +173,7 @@ namespace UnitTests
         [TestMethod]
         public void CleanupNarrowToZero()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             cc.Add(0);
 
             Assert.AreEqual(IndexType.ZeroBytes, cc.IndexType);
@@ -198,7 +198,7 @@ namespace UnitTests
         [TestMethod]
         public void CleanupNarrowToBit()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             cc.Add(0);
             cc.Add(1);
 
@@ -224,7 +224,7 @@ namespace UnitTests
         [TestMethod]
         public void CleanupNarrowToByte()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             for (int i = 0; i < 256; ++i)
                 cc.Add(i);
 
@@ -249,7 +249,7 @@ namespace UnitTests
         [TestMethod]
         public void CleanupNarrowToTwoBytes()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             for (int i = 0; i < 65536; ++i)
                 cc.Add(i);
 
@@ -275,7 +275,7 @@ namespace UnitTests
         [TestMethod]
         public void CleanupRepopulate()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             for (int i = 0; i < 100000; ++i)
                 cc.Add(i);
 
@@ -307,7 +307,7 @@ namespace UnitTests
         [TestMethod]
         public void ZeroRefcountFires()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             cc.InternedValueReclaimable += ZeroRefcountFiresEventHandler;
             cc.Add(42);
 
@@ -333,7 +333,7 @@ namespace UnitTests
         [TestMethod]
         public void ZeroRefcountNoCleanup()
         {
-            var cc = new CondensedCollection<int>();
+            var cc = new DedupedList<int>();
             cc.InternedValueReclaimable += ZeroRefcountNoCleanupEventHandler;
             cc.Add(42);
             cc.Add(24);

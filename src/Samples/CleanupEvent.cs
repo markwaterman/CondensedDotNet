@@ -27,7 +27,7 @@ namespace Samples
         #region CleanupEvent
         static void Main()
         {
-            var cc = new CondensedCollection<string>(comparer: StringComparer.Ordinal);
+            var cc = new DedupedList<string>(comparer: StringComparer.Ordinal);
             cc.InternedValueReclaimable += HandleInternedValueReclaimable;   
         }
 
