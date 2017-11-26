@@ -39,11 +39,7 @@ namespace Condensed.Linq
         public static int Max(this DedupedList<int> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
-            
+            return source._objToInternLookup.Keys.Max();
         }
 
         /// <summary>
@@ -61,10 +57,7 @@ namespace Condensed.Linq
         public static int? Max(this DedupedList<int?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
+            return source._objToInternLookup.Keys.Max();
         }
 
         /// <summary>
@@ -86,10 +79,7 @@ namespace Condensed.Linq
         public static int Max<TSource>(this DedupedList<TSource> source, Func<TSource, int> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else 
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
         /// <summary>
@@ -109,11 +99,7 @@ namespace Condensed.Linq
         /// </remarks>
         public static int? Max<TSource>(this DedupedList<TSource> source, Func<TSource, int?> selector)
         {
-            if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
 
@@ -135,11 +121,7 @@ namespace Condensed.Linq
         public static decimal Max(this DedupedList<decimal> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
-
+            return source._objToInternLookup.Keys.Max();
         }
 
         /// <summary>
@@ -157,10 +139,7 @@ namespace Condensed.Linq
         public static decimal? Max(this DedupedList<decimal?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
+            return source._objToInternLookup.Keys.Max();
         }
 
         /// <summary>
@@ -182,10 +161,7 @@ namespace Condensed.Linq
         public static decimal Max<TSource>(this DedupedList<TSource> source, Func<TSource, decimal> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
         /// <summary>
@@ -206,10 +182,7 @@ namespace Condensed.Linq
         public static decimal? Max<TSource>(this DedupedList<TSource> source, Func<TSource, decimal?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
 
@@ -231,10 +204,7 @@ namespace Condensed.Linq
         public static long Max(this DedupedList<long> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
+            return source._objToInternLookup.Keys.Max();
             
         }
 
@@ -253,10 +223,7 @@ namespace Condensed.Linq
         public static long? Max(this DedupedList<long?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
+            return source._objToInternLookup.Keys.Max();
         }
 
         /// <summary>
@@ -278,10 +245,7 @@ namespace Condensed.Linq
         public static long Max<TSource>(this DedupedList<TSource> source, Func<TSource, long> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
 
         }
 
@@ -304,11 +268,7 @@ namespace Condensed.Linq
         public static long? Max<TSource>(this DedupedList<TSource> source, Func<TSource, long?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
-
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
 
@@ -330,10 +290,7 @@ namespace Condensed.Linq
         public static double Max(this DedupedList<double> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
+            return source._objToInternLookup.Keys.Max();
 
         }
 
@@ -352,10 +309,7 @@ namespace Condensed.Linq
         public static double? Max(this DedupedList<double?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
+            return source._objToInternLookup.Keys.Max();
         }
 
         /// <summary>
@@ -377,10 +331,7 @@ namespace Condensed.Linq
         public static double Max<TSource>(this DedupedList<TSource> source, Func<TSource, double> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
 
         }
 
@@ -402,11 +353,7 @@ namespace Condensed.Linq
         public static double? Max<TSource>(this DedupedList<TSource> source, Func<TSource, double?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
-
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
 
@@ -427,10 +374,7 @@ namespace Condensed.Linq
         public static float Max(this DedupedList<float> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
+            return source._objToInternLookup.Keys.Max();
 
         }
 
@@ -449,10 +393,7 @@ namespace Condensed.Linq
         public static float? Max(this DedupedList<float?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
+            return source._objToInternLookup.Keys.Max();
         }
 
         /// <summary>
@@ -474,10 +415,7 @@ namespace Condensed.Linq
         public static float Max<TSource>(this DedupedList<TSource> source, Func<TSource, float> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
 
         }
 
@@ -499,10 +437,7 @@ namespace Condensed.Linq
         public static float? Max<TSource>(this DedupedList<TSource> source, Func<TSource, float?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Max(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
 
@@ -524,10 +459,7 @@ namespace Condensed.Linq
         public static TSource Max<TSource>(this DedupedList<TSource> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max();
-            else
-                return source._objToInternLookup.Keys.Max();
+            return source._objToInternLookup.Keys.Max();
 
         }
 
@@ -551,10 +483,7 @@ namespace Condensed.Linq
         public static TResult Max<TSource, TResult>(this DedupedList<TSource> source, Func<TSource, TResult> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Max(selector);
-            else
-                return Enumerable.Max(source._objToInternLookup.Keys, selector);
+            return Enumerable.Max(source._objToInternLookup.Keys, selector);
         }
 
     } // class

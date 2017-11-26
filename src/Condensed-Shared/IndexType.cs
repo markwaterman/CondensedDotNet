@@ -50,11 +50,6 @@ namespace Condensed
         /// The index is four bytes wide (the DedupedList contains up to
         /// 2,147,483,648 unique values).
         /// </summary>
-        FourBytes,
-        /// <summary>
-        /// The DedupedList reached its cutover threshold and is no longer
-        /// performing deduplication.
-        /// </summary>
-        NoIndex
+        FourBytes
     }
 }

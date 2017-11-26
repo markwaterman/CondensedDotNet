@@ -87,11 +87,6 @@
           </listItem>
           <listItem>
             <para>
-              Optional automatic fallback ("<link xlink:href="23ce826c-4e23-4c13-9ac9-63cdccb22d86">cutover</link>") to non-deduplicated list behavior if the items in the collection aren't sufficiently unique to make the interning overhead worthwhile.
-            </para>
-          </listItem>
-          <listItem>
-            <para>
               Support for nullable types.
             </para>
           </listItem>

@@ -56,7 +56,7 @@
   <ItemGroup>
     <Compile Include="Basics.cs" />
     <Compile Include="Cleanup.cs" />
-    <Compile Include="CutoverTests.cs" />
+    <Compile Include="IndexTypeTests.cs" />
     <Compile Include="DateOnlyEqualityComparer.cs" />
     <Compile Include="DedupedListTests.cs" />
     <Compile Include="BitCollectionTests.cs" />

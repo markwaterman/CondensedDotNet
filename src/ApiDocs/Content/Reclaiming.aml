@@ -62,27 +62,12 @@
         <para>
           The <codeEntityReference>M:Condensed.DedupedList`1.Cleanup</codeEntityReference> method rebuilds the collection's internal data structures, removing unused values and making them eligible for garbage collection. This is a relatively expensive operation, so you may only want to perform it on an infrequent, periodic basis.
         </para>
-        <alert class="note">
-          <para>
-            The <codeEntityReference>M:Condensed.DedupedList`1.Cleanup</codeEntityReference> method has no effect on collections that have cut over to normal (non-deduplicated) list storage. Reconstruct the collection from itself to rebuild it and restart deduplication (Option 3).
-          </para>
-        </alert>
-      </content>
-    </section>
-
-    <section address="Reconstruct">
-      <title>Option 3: Reconstruct</title>
-      <content>
-        <para>
-          If you've constructed a DedupedList with the ability to <link xlink:href="23ce826c-4e23-4c13-9ac9-63cdccb22d86">cut over</link> to non-deduplicated storage then the Cleanup() method will not be effective if/when your collection makes the transition. To restart deduplication, you can simply reconstruct a DedupedList from itself for a fresh start.
-        </para>
-        <code source="..\Samples\Samples.cs" region="ReconstructFromCutover"></code>
       </content>
     </section>
 
     <section address="InternedValueReclaimable">
       <title>
-        Option 4: Cleanup from the InternedValueReclaimable Event (Preferred)
+        Option 3: Cleanup from the InternedValueReclaimable Event (Preferred)
       </title>
       <content>
         <para>
@@ -98,9 +83,6 @@
         </para>
         <para>A event handler that only performs occasional cleanup could be implemented as follows:</para>
         <code source="..\Samples\CleanupEvent.cs" region="CleanupEvent"></code>
-        <para>
-          The InternedValueReclaimable event will not be fired if the collection has cut over to a non-deduplicated list
-        </para>
       </content>
     </section>
 

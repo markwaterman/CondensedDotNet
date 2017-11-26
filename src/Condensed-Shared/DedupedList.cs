@@ -36,7 +36,6 @@ namespace Condensed
     /// The DedupedList class provides a generalized form of interning for immutable types. It provides the following features:
     /// <list type="bullet">
     /// <item>Nullable types are supported.</item>
-    /// <item>Optional fallback ("cutover") to non-deduplicated list behavior if the items in the list aren't sufficiently unique.</item>
     /// <item>Specialized LINQ operators in <see cref="Condensed.Linq"/> namespace that are optimized to work on the deduplicated collection.</item>
     /// </list>
     /// </para>
@@ -66,7 +65,7 @@ namespace Condensed
         internal List<T> _internPool;
 
         /// <summary>
-        /// Lookup table for finding whether an equal value already exists in this DedupedList. Its ValueInfo value
+        /// Lookup table for finding whether an equal value already exists in this DedupedList. A UniqueValueInfo entry
         /// contains the index of the equivalent value in the _interns list and a refcount of the entries in the index
         /// (defined below).
         /// </summary>
@@ -92,26 +91,6 @@ namespace Condensed
         internal OffsetIndex _indexList;
 
         /// <summary>
-        /// tracks whether the collection has stopped performing deduplication
-        /// and has internally cutover to normal <see cref="List{T}"/> storage.
-        /// </summary>
-        private bool _hasCutover;
-
-        /// <summary>
-        /// Regular list used to hold values if this collection's "cutover" threshold is met and 
-        /// there isn't enough repetition of elements to warrant deduplication.
-        /// </summary>
-        internal List<T> _unindexedValues;
-
-        /// <summary>
-        /// Callback that is periodically called to determine whether it's still worthwhile for
-        /// this collection to perform deduplication. Called immediately before a new, unique item
-        /// is added to the intern pool. Return <c>true</c>
-        /// if the condensed list needs to cutover to normal <see cref="List{T}"/> storage. 
-        /// </summary>
-        readonly Predicate<CondensedStats> _cutoverPredicate;
-
-        /// <summary>
         /// Event that is raised when an item in the intern pool of 
         /// unique values is no longer stored in the collection.
         /// </summary>
@@ -126,9 +105,6 @@ namespace Condensed
         /// the event is raised; consider cleaning up only when the <see cref="InternReclaimableEventArgs.InternPoolCount"/>
         /// is significantly larger than the <see cref="InternReclaimableEventArgs.UniqueCount"/>.
         /// </para>
-        /// <para>
-        /// This event will not be fired if the collection has cutover to a non-deduplicated list.
-        /// </para>
         /// <code language="cs" source="..\Samples\CleanupEvent.cs" region="CleanupEvent"/>
         /// </remarks>
         /// <conceptualLink target="606626e5-fb28-47c5-939f-a87c14d4f99a" />
@@ -136,11 +112,10 @@ namespace Condensed
 
         /// <summary>
         /// Initializes a new instance of the <see cref="DedupedList{T}"/> class with the 
-        /// default capacity, default comparer for the type, and no cutover predicate.
+        /// default capacity and default comparer for the type.
         /// </summary>
-        /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
         public DedupedList()
-            : this(capacity: 0, comparer: null, cutoverPredicate: null, collection: null)
+            : this(capacity: 0, comparer: null, collection: null)
         {
         }
 
@@ -149,10 +124,8 @@ namespace Condensed
         /// </summary>
         /// <param name="capacity">The number of elements that the new list can initially store.</param>
         /// <param name="comparer">The <see cref="IEqualityComparer{T}"/> implementation to use when comparing elements, or null to use the default <see cref="IEqualityComparer{T}"/> for the type of the object.</param>
-        /// <param name="cutoverPredicate">A callback used to decide when a DedupedList should stop attempting to perform deduplication and store values directly. If null or unspecified, the collection will never cutover.</param>
         /// <param name="collection">The collection whose elements are copied to the new <see cref="DedupedList{T}"/>, or null to create an empty collection.</param>
-        /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
-        public DedupedList(int capacity = 0, IEqualityComparer<T> comparer = null, Predicate<CondensedStats> cutoverPredicate = null, IEnumerable<T> collection = null)
+        public DedupedList(int capacity = 0, IEqualityComparer<T> comparer = null, IEnumerable<T> collection = null)
         {
             if (capacity < 0)
                 throw new ArgumentOutOfRangeException("capacity", capacity, "capacity cannot be less than zero.");
@@ -173,13 +146,12 @@ namespace Condensed
             if (collection == null)
             {
                 _comparer = comparer ?? EqualityComparer<T>.Default;
-                _cutoverPredicate = cutoverPredicate ?? StandardCutoverPredicates.NeverCutover;
                 InitializeIndex(capacity);
             }
             else
             {
                 // We're being initialized with another collection.
-                // check to see if it's another DedupedList. If so, use its comparer/cutover as defaults.
+                // check to see if it's another DedupedList. If so, use its comparer as defaults.
                 DedupedList<T> otherCondensedColl = collection as DedupedList<T>;
 
                 if (comparer == null)
@@ -192,18 +164,6 @@ namespace Condensed
                 else
                 {
                     _comparer = comparer;
-                }
-
-                if (cutoverPredicate == null)
-                {
-                    if (otherCondensedColl != null)
-                        _cutoverPredicate = otherCondensedColl.CutoverPredicate;
-                    else
-                        _cutoverPredicate = StandardCutoverPredicates.GetDefaultCutoverPredicate(typeof(T));
-                }
-                else
-                {
-                    _cutoverPredicate = cutoverPredicate;
                 }
 
                 int indexCapacity = 0;
@@ -228,7 +188,6 @@ namespace Condensed
         private void InitializeIndex(int capacity)
         {
             _indexList = new IntListZeroStorage(capacity);
-            _hasCutover = false;
         }
 
 
@@ -247,11 +206,6 @@ namespace Condensed
             {
                 // we're going from one to two unique items.
                 singleValueIndex = _indexList as IntListZeroStorage;
-                if (CutoverPredicate(new CondensedStats(singleValueIndex.Count, UniqueCount, _internPool.Count)))
-                {
-                    CutoverToList(singleValueIndex.Capacity);
-                    return;
-                }
                 twoValueIndex = new IntListBitStorage(singleValueIndex.Count, singleValueIndex.Capacity);
 
                 _indexList = twoValueIndex;
@@ -263,11 +217,6 @@ namespace Condensed
                 // we're going from 2 to 3 unique items:
                 
                 twoValueIndex = _indexList as IntListBitStorage;
-                if (CutoverPredicate(new CondensedStats(twoValueIndex.Count, UniqueCount, _internPool.Count)))
-                {
-                    CutoverToList(twoValueIndex.Capacity);
-                    return;
-                }
                 byteIndex = new IntListByteStorage(twoValueIndex.Capacity);
                 foreach (int item in twoValueIndex)
                     byteIndex.Add(item);
@@ -279,13 +228,6 @@ namespace Condensed
             {
                 // switch from byte to ushort index
                 byteIndex = _indexList as IntListByteStorage;
-
-                if (CutoverPredicate(new CondensedStats(byteIndex.Count, UniqueCount, _internPool.Count)))
-                {
-                    CutoverToList(byteIndex.Capacity);
-                    return;
-                }
-
                 ushortIndex = new IntListUShortStorage(byteIndex.Capacity);
                 foreach (int item in byteIndex)
                     ushortIndex.Add(item);
@@ -298,13 +240,6 @@ namespace Condensed
 
                 // switch from ushort to int32 index
                 ushortIndex = _indexList as IntListUShortStorage;
-
-                if (CutoverPredicate(new CondensedStats(ushortIndex.Count, UniqueCount, _internPool.Count)))
-                {
-                    CutoverToList(ushortIndex.Capacity);
-                    return;
-                }
-
                 intIndex = new IntListIntStorage(ushortIndex.Capacity);
                 foreach (int item in ushortIndex)
                     intIndex.Add(item);
@@ -312,31 +247,6 @@ namespace Condensed
                 _indexList = intIndex;
                 return;
             }
-            else if (_internPool.Count > 65536 && _internPool.Count % 1000 == 0)
-            {
-                // check every 1000 unique elements to see if we should stop deduplication
-                if (CutoverPredicate(new CondensedStats(this.Count, UniqueCount, _internPool.Count)))
-                {
-                    CutoverToList((int)(this.Count * 1.25));
-                    return;
-                }
-
-            }
-
-
-        }
-
-        private void CutoverToList(int capacity)
-        {
-            _unindexedValues = new List<T>(capacity);
-            foreach (int internPoolOffset in _indexList)
-                _unindexedValues.Add(_internPool[internPoolOffset]);
-
-            _indexList = null;
-            _internPool = null;
-            _objToInternLookup = null;
-            _reclaimableInterns = null;
-            _hasCutover = true;
         }
 
 
@@ -347,11 +257,6 @@ namespace Condensed
         /// <returns>The zero-based index of the first occurrence of item within the collection, if found; otherwise, -1.</returns>
         public int IndexOf(T item)
         {
-            if (_hasCutover)
-            {
-                return _unindexedValues.IndexOf(item);
-            }
-
             UniqueValueInfo info = new UniqueValueInfo();
             bool found = _objToInternLookup.TryGetValue(item, out info);
             if (!found)
@@ -359,7 +264,6 @@ namespace Condensed
                 return -1;
             }
 
-            
             int position = 0;
             foreach (int internPoolOffset in _indexList)
             {
@@ -387,12 +291,6 @@ namespace Condensed
         /// <param name="item">The object to insert into the collection.</param>
         public void Insert(int index, T item)
         {
-            if (_hasCutover)
-            {
-                _unindexedValues.Insert(index, item);
-                return;
-            }
-
             // Ordinarily we just let the underlying index do the range checking, but we have to validate here 
             // to avoid side effects... Otherwise the GetOrCreateIndexFor() call that we make first would change
             // our bookkeeping state before the exception is thrown and ruin the refcounting.
@@ -400,11 +298,7 @@ namespace Condensed
                 throw new ArgumentOutOfRangeException("index", index, "Index out of range. Must be non-negative and less than or equal to the size of the collection.");
 
             UniqueValueInfo info = GetOrCreateIndexFor(item);
-
-            if (_hasCutover)
-                _unindexedValues.Insert(index, item);
-            else
-                _indexList.Insert(index, info.InternPoolOffset);
+            _indexList.Insert(index, info.InternPoolOffset);
             
         }
 
@@ -414,12 +308,6 @@ namespace Condensed
         /// <param name="index">The zero-based index of the item to remove.</param>
         public void RemoveAt(int index)
         {
-            if (_hasCutover)
-            {
-                _unindexedValues.RemoveAt(index);
-                return;
-            }
-
             int internPoolOffset = _indexList[index];
             _indexList.RemoveAt(index);
 
@@ -455,22 +343,19 @@ namespace Condensed
 
 
         /// <summary>
-        /// Private getter. Does not perform null checking.
+        /// Private getter.
         /// </summary>
         /// <param name="index">zero-based index of the element to get</param>
         /// <returns>The element at the specified index.</returns>
         private T GetInternal(int index)
         {
-            if (_hasCutover)
-                return _unindexedValues[index];
-            else
-                return _internPool[_indexList[index]];
+            return _internPool[_indexList[index]];
            
         }
 
 
         /// <summary>
-        /// Called when an items's refcount hits zero and it's eligible to be removed from internal
+        /// Called when an item's refcount hits zero and it's eligible to be removed from internal
         /// data structures.
         /// </summary>
         /// <param name="item">The object that can be removed from the intern collection.</param>
@@ -521,12 +406,6 @@ namespace Condensed
                 // We're adding a new interned value. Ensure the index is wide enough to accommodate.
                 CheckToWiden();
 
-                if (_hasCutover)
-                {
-                    // CheckToWiden just expanded collection to not do indexing. Returning null.
-                    return null;
-                }
-
                 ret.InternPoolOffset = _internPool.Count;
                 ret.RefCount = 1;
                 _internPool.Add(item);
@@ -555,13 +434,6 @@ namespace Condensed
 
             set
             {
-                if (_hasCutover)
-                {
-                    _unindexedValues[index] = value;
-                    return;
-                }
-
-                
                 if (index < 0 || index >= this.Count)
                     throw new ArgumentOutOfRangeException("index", index, "Index out of range. Must be non-negative and less than the size of the collection.");
 
@@ -593,14 +465,9 @@ namespace Condensed
 
                 }
 
-
                 // Set the new value:
-                var indexInfo = GetOrCreateIndexFor(value);
-
-                if (_hasCutover)
-                    _unindexedValues[index] = value;
-                else
-                    _indexList[index] = indexInfo.InternPoolOffset;
+                UniqueValueInfo indexInfo = GetOrCreateIndexFor(value);
+                _indexList[index] = indexInfo.InternPoolOffset;
 
             } // end set
         }
@@ -611,22 +478,8 @@ namespace Condensed
         /// <param name="item">The object to add to the collection.</param>
         public void Add(T item)
         {
-            if (_hasCutover)
-            {
-                _unindexedValues.Add(item);
-            }
-            else
-            {
-                UniqueValueInfo info;
-
-                info = GetOrCreateIndexFor(item);
-
-                if (_hasCutover)
-                    _unindexedValues.Add(item);
-                else
-                    _indexList.Add(info.InternPoolOffset);
-                
-            }
+            UniqueValueInfo info = GetOrCreateIndexFor(item);
+            _indexList.Add(info.InternPoolOffset);           
 
         }
 
@@ -648,7 +501,6 @@ namespace Condensed
             _internPool.Clear();
             _objToInternLookup.Clear();
             _reclaimableInterns.Clear();
-            _unindexedValues = null;
 
             _indexList = null;
             InitializeIndex(latestCapacity);
@@ -662,11 +514,6 @@ namespace Condensed
         /// <returns>The object to locate in the collection.</returns>
         public bool Contains(T item)
         {
-            if (_hasCutover)
-            {
-                return _unindexedValues.Contains(item);
-            }
-
             UniqueValueInfo info;
             bool found = _objToInternLookup.TryGetValue(item, out info);
             if (found && info.RefCount > 0)
@@ -705,10 +552,7 @@ namespace Condensed
         {
             get
             {
-                if (_hasCutover)
-                    return _unindexedValues.Count;
-                else
-                    return _indexList.Count;
+                return _indexList.Count;
             }
         }
 
@@ -721,23 +565,13 @@ namespace Condensed
         {
             get
             {
-                if (_hasCutover)
-                {
-                    return _unindexedValues.Distinct().Count();
-                }
-                else
-                {
-                    int ret = _objToInternLookup.Count;
-
-                    return ret;
-                }
+                return _objToInternLookup.Count;
             }
         }
 
 
         /// <summary>
-        /// Gets count of values held internally in the collection's intern pool of unique values,
-        /// or -1 if the collection has cutover and is no longer performing deduplication.
+        /// Gets count of values held internally in the collection's intern pool of unique values.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -748,27 +582,19 @@ namespace Condensed
         /// <see cref="InternedValueReclaimable"/> event.
         /// </para>
         /// </remarks>
-        /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
+        /// <conceptualLink target="606626e5-fb28-47c5-939f-a87c14d4f99a" />
         public int InternPoolCount
         {
             get
             {
-                if (_hasCutover)
-                {
-                    return -1;
-                }
-                else
-                {
-                    return _internPool.Count;
-                }
+                return _internPool.Count;
             }
         }
 
 
         /// <summary>
         /// Gets count of unused items in the collection's intern pool that 
-        /// would be freed (made eligible for GC) by a cleanup operation,
-        /// or -1 if the collection has cutover and is no longer performing deduplication.
+        /// would be freed (made eligible for GC) by a cleanup operation.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -783,19 +609,12 @@ namespace Condensed
         /// property from the <see cref="InternPoolCount"/> property.
         /// </para>
         /// </remarks>
-        /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
+        /// <conceptualLink target="606626e5-fb28-47c5-939f-a87c14d4f99a" />
         public int ReclaimableInternsCount
         {
             get
             {
-                if (_hasCutover)
-                {
-                    return -1;
-                }
-                else
-                {
-                    return _reclaimableInterns.Count;
-                }
+                return _reclaimableInterns.Count;
             }
         }
 
@@ -816,11 +635,6 @@ namespace Condensed
         /// <returns>true if item was successfully removed from the collection; otherwise, false. This method also returns false if item is not found in the original collection.</returns>
         public bool Remove(T item)
         {
-            if (_hasCutover)
-            {
-                return _unindexedValues.Remove(item);
-            }
-
             int indexToRemove = this.IndexOf(item);
             if (indexToRemove < 0)
                 return false;
@@ -837,16 +651,8 @@ namespace Condensed
         /// <returns>An enumerator that can be used to iterate through the collection.</returns>
         public IEnumerator<T> GetEnumerator()
         {
-            if (_hasCutover)
-            {
-                foreach (var item in _unindexedValues)
-                    yield return item;
-            }
-            else
-            {
-                for (int i = 0; i < Count; ++i)
-                    yield return _internPool[_indexList[i]];
-            }
+            for (int i = 0; i < Count; ++i)
+                yield return _internPool[_indexList[i]];
         }
 
         /// <summary>
@@ -876,21 +682,8 @@ namespace Condensed
         public IndexType IndexType
         {
             get {
-                if (_hasCutover)
-                    return IndexType.NoIndex;
-                else
-                    return _indexList.IndexType;
+                return _indexList.IndexType;
             }
-        }
-
-        /// <summary>
-        /// Gets whether the collection has stopped performing deduplication
-        /// and has internally cutover to normal <see cref="List{T}"/> storage.
-        /// </summary>
-        /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
-        public bool HasCutover
-        {
-            get { return _hasCutover; }
         }
 
         /// <summary>
@@ -900,32 +693,11 @@ namespace Condensed
         {
             get
             {
-                if (_hasCutover)
-                    return _unindexedValues.Capacity;
-                else
-                    return _indexList.Capacity;
+                return _indexList.Capacity;
             }
             set
             {
-                if (_hasCutover)
-                    _unindexedValues.Capacity = value;
-                else
-                   _indexList.Capacity = value;
-            }
-        }
-
-        /// <summary>
-        /// Gets the callback that is periodically called to determine whether it's worthwhile for
-        /// this collection to perform deduplication. Called immediately before a new, unique item
-        /// is added to the intern pool. Return <c>true</c>
-        /// if the condensed list needs to cutover to normal <see cref="List{T}"/> storage. 
-        /// </summary>
-        /// <conceptualLink target="23ce826c-4e23-4c13-9ac9-63cdccb22d86" />
-        public Predicate<CondensedStats> CutoverPredicate
-        {
-            get
-            {
-                return _cutoverPredicate;
+               _indexList.Capacity = value;
             }
         }
 
@@ -934,8 +706,7 @@ namespace Condensed
         /// Rebuilds the collection's internal data structures, reclaiming unused items and 
         /// potentially freeing memory.
         /// </summary>
-        /// <returns>Count of items removed from the intern pool, or -1 if the collection has
-        /// already cutover to a non-deduplicated list.</returns>
+        /// <returns>Count of items removed from the intern pool.</returns>
         /// <remarks>
         /// <para>
         /// Cleanups are potentially expensive operations that should only be performed on an
@@ -945,20 +716,10 @@ namespace Condensed
         /// only when the <see cref="DedupedList{T}.InternPoolCount"/> is substantially larger 
         /// than the <see cref="DedupedList{T}.UniqueCount"/>.
         /// </para>
-        /// <para>
-        /// Cleanup cannot be performed on a DedupedList that has cutover to normal
-        /// (non-deduplicated) list storage because its internal pool and refcounting information
-        /// has been lost. Reconstruct the collection from itself to rebuild it and 
-        /// restart deduplication.
-        /// </para>
         /// </remarks>
         /// <conceptualLink target="606626e5-fb28-47c5-939f-a87c14d4f99a" />
         public virtual int Cleanup()
         {
-            if (_hasCutover)
-            {
-                return -1;
-            }
             if (_reclaimableInterns.Count == 0)
             {
                 return 0;
@@ -1019,9 +780,6 @@ namespace Condensed
 
         private int[] CreateIndexConversionLookup(List<int> removedInternIndexes)
         {
-            if (_hasCutover)
-                throw new NotImplementedException();
-
             int arraySize = _internPool.Count + removedInternIndexes.Count;
             int[] ret = new int[arraySize];
 
@@ -1058,9 +816,6 @@ namespace Condensed
 
         void ReindexObjToInternLookup(int[] newIndexes)
         {
-            if (_hasCutover)
-                throw new NotImplementedException();
-
             foreach (var uniqueInfo in _objToInternLookup.Values)
             {
                 uniqueInfo.InternPoolOffset = newIndexes[uniqueInfo.InternPoolOffset];
@@ -1113,8 +868,6 @@ namespace Condensed
                     if (_internPool.Count <= ushort.MaxValue + 1)
                         return true;
                     break;
-                case IndexType.NoIndex:
-                    throw new NotSupportedException("Cleanup not supported for collection that has been cutover.");
                 default:
                     throw new NotImplementedException("Unknown index type encountered during cleanup.");
             }

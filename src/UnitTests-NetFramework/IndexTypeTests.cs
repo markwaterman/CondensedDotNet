@@ -24,10 +24,10 @@ using Condensed;
 namespace UnitTests
 {
     [TestClass()]
-    public class CutoverTests
+    public class IndexTypeTests
     {
         [TestMethod()]
-        public void BoolCutover()
+        public void BoolIndex()
         {
             var l = new DedupedList<bool>();
             l.Add(true);
@@ -38,22 +38,22 @@ namespace UnitTests
         }
 
         [TestMethod()]
-        public void ByteCutover()
+        public void ByteIndex()
         {
-            var l = new DedupedList<byte>(cutoverPredicate: StandardCutoverPredicates.BytePredicate);
+            var l = new DedupedList<byte>();
             l.Add((byte)43);
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
             l.Add((byte)44);
             Assert.AreEqual(IndexType.OneBit, l.IndexType);
             l.Add((byte)45);
-            Assert.AreEqual(IndexType.NoIndex, l.IndexType);
+            Assert.AreEqual(IndexType.OneByte, l.IndexType);
 
         }
 
         [TestMethod()]
-        public void ShortCutover()
+        public void ShortIndex()
         {
-            var l = new DedupedList<short>(cutoverPredicate: StandardCutoverPredicates.ShortPredicate);
+            var l = new DedupedList<short>();
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
             l.Add(-1);
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
@@ -66,16 +66,16 @@ namespace UnitTests
             // should now have 256 unique values in the list.
             Assert.AreEqual(IndexType.OneByte, l.IndexType);
 
-            // add one more and we should cutover to direct (non-indexed) storage:
+            // add one more and we should switch to 2-byte storage:
             l.Add(999);
-            Assert.AreEqual(IndexType.NoIndex, l.IndexType);
+            Assert.AreEqual(IndexType.TwoBytes, l.IndexType);
             
         }
 
         [TestMethod()]
-        public void IntCutover()
+        public void IntIndex()
         {
-            var l = new DedupedList<int>(cutoverPredicate: StandardCutoverPredicates.IntPredicate);
+            var l = new DedupedList<int>();
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
             l.Add(-1);
             Assert.AreEqual(IndexType.ZeroBytes, l.IndexType);
@@ -88,9 +88,9 @@ namespace UnitTests
             // should now have 65536 unique values in the list.
             Assert.AreEqual(IndexType.TwoBytes, l.IndexType);
 
-            // add one more and we should cutover to direct (non-indexed) storage:
+            // add one more and we should have 4-byte storage:
             l.Add(9999999);
-            Assert.AreEqual(IndexType.NoIndex, l.IndexType);
+            Assert.AreEqual(IndexType.FourBytes, l.IndexType);
 
         }
     }

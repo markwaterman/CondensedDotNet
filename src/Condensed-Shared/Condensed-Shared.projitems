@@ -11,7 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BitCollection.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DedupedList.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)CondensedStats.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Exceptions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Indexes\IntListBitStorage.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Indexes\IntListByteStorage.cs" />
@@ -27,6 +26,5 @@
     <Compile Include="$(MSBuildThisFileDirectory)Linq\Min.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Linq\Sum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NullKeyDictionary.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)StandardCutoverPredicates.cs" />
   </ItemGroup>
 </Project>

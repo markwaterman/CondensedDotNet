@@ -40,9 +40,6 @@ namespace Condensed.Linq
         public static TSource First<TSource>(this DedupedList<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.First(predicate);
-
             if (source.Count == 0) throw new InvalidOperationException("The source sequence is empty.");
 
             int firstMatchedIndex = IndexOfFirst(source, predicate);
@@ -77,8 +74,6 @@ namespace Condensed.Linq
         public static TSource FirstOrDefault<TSource>(this DedupedList<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.FirstOrDefault(predicate);
 
             int firstMatchedIndex = IndexOfFirst(source, predicate);
             if (firstMatchedIndex != -1)
@@ -102,8 +97,6 @@ namespace Condensed.Linq
         {
             if (predicate == null)
                 throw new ArgumentNullException("predicate", "Predicate cannot be null.");
-            if (source.HasCutover)
-                throw new InvalidOperationException("Internal error: index type not supported.");
 
             BitArray evaluatedInterns = new BitArray(source._internPool.Count);
             int firstMatch = -1;
@@ -157,9 +150,6 @@ namespace Condensed.Linq
         public static TSource Last<TSource>(this DedupedList<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Last(predicate);
-
             if (source.Count == 0) throw new InvalidOperationException("The source sequence is empty.");
 
             int lastMatchedIndex = IndexOfLast(source, predicate);
@@ -193,8 +183,6 @@ namespace Condensed.Linq
         public static TSource LastOrDefault<TSource>(this DedupedList<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.LastOrDefault(predicate);
 
             int lastMatchedIndex = IndexOfLast(source, predicate);
             if (lastMatchedIndex < source.Count)
@@ -217,8 +205,6 @@ namespace Condensed.Linq
         {
             if (predicate == null)
                 throw new ArgumentNullException("predicate", "Predicate cannot be null.");
-            if (source.HasCutover)
-                throw new InvalidOperationException("Internal error: index type not supported.");
 
             BitArray evaluatedInterns = new BitArray(source._internPool.Count);
             int lastMatch = source._indexList.Count;
@@ -271,8 +257,6 @@ namespace Condensed.Linq
         public static bool All<TSource>(this DedupedList<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.All(predicate);
             if (predicate == null)
                 throw new ArgumentNullException("predicate", "Predicate cannot be null.");
 
@@ -302,8 +286,6 @@ namespace Condensed.Linq
         public static bool Any<TSource>(this DedupedList<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Any(predicate);
             if (predicate == null)
                 throw new ArgumentNullException("predicate", "Predicate cannot be null.");
 
@@ -327,9 +309,6 @@ namespace Condensed.Linq
         public static int Count<TSource>(this DedupedList<TSource> source, Func<TSource, bool> predicate)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Count(predicate);
-
             if (predicate == null) throw new ArgumentNullException("predicate", "predicate cannot be null");
 
             int count = 0;
@@ -357,11 +336,7 @@ namespace Condensed.Linq
         public static IEnumerable<TSource> Distinct<TSource>(this DedupedList<TSource> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Distinct();
-            else
-                return source._objToInternLookup.Keys;
-
+            return source._objToInternLookup.Keys;
         }
 
         /// <summary>

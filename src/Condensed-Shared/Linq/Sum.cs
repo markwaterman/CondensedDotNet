@@ -42,9 +42,6 @@ namespace Condensed.Linq
         public static int Sum(this DedupedList<int> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
             int sum = 0;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -74,9 +71,6 @@ namespace Condensed.Linq
         public static int? Sum(this DedupedList<int?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
             int sum = 0;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -114,9 +108,6 @@ namespace Condensed.Linq
         public static int Sum<TSource>(this DedupedList<TSource> source, Func<TSource, int> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             int sum = 0;
@@ -151,9 +142,6 @@ namespace Condensed.Linq
         public static int? Sum<TSource>(this DedupedList<TSource> source, Func<TSource, int?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             int sum = 0;
@@ -194,9 +182,6 @@ namespace Condensed.Linq
         public static Decimal Sum(this DedupedList<Decimal> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
             decimal sum = 0M;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -226,9 +211,6 @@ namespace Condensed.Linq
         public static Decimal? Sum(this DedupedList<Decimal?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
             decimal sum = 0M;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -267,9 +249,6 @@ namespace Condensed.Linq
         public static Decimal Sum<TSource>(this DedupedList<TSource> source, Func<TSource, Decimal> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             decimal sum = 0M;
@@ -304,9 +283,6 @@ namespace Condensed.Linq
         public static Decimal? Sum<TSource>(this DedupedList<TSource> source, Func<TSource, Decimal?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             decimal sum = 0M;
@@ -348,9 +324,6 @@ namespace Condensed.Linq
         public static long Sum(this DedupedList<long> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
             long sum = 0L;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -380,9 +353,6 @@ namespace Condensed.Linq
         public static long? Sum(this DedupedList<long?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
             long sum = 0L;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -420,9 +390,6 @@ namespace Condensed.Linq
         public static long Sum<TSource>(this DedupedList<TSource> source, Func<TSource, long> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             long sum = 0L;
@@ -457,9 +424,6 @@ namespace Condensed.Linq
         public static long? Sum<TSource>(this DedupedList<TSource> source, Func<TSource, long?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             long sum = 0L;
@@ -498,10 +462,6 @@ namespace Condensed.Linq
         public static double Sum(this DedupedList<double> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
-
             double sum = 0D;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -530,9 +490,6 @@ namespace Condensed.Linq
         public static double? Sum(this DedupedList<double?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
             double sum = 0D;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -570,9 +527,6 @@ namespace Condensed.Linq
         public static double Sum<TSource>(this DedupedList<TSource> source, Func<TSource, double> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             double sum = 0D;
@@ -606,9 +560,6 @@ namespace Condensed.Linq
         public static double? Sum<TSource>(this DedupedList<TSource> source, Func<TSource, double?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             double sum = 0D;
@@ -649,9 +600,6 @@ namespace Condensed.Linq
         public static float Sum(this DedupedList<float> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
             float sum = 0F;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -680,9 +628,6 @@ namespace Condensed.Linq
         public static float? Sum(this DedupedList<float?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum();
-
             float sum = 0F;
 
             // we want to throw OverflowExceptions here like the normal LINQ implementation, so
@@ -719,9 +664,6 @@ namespace Condensed.Linq
         public static float Sum<TSource>(this DedupedList<TSource> source, Func<TSource, float> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             float sum = 0F;
@@ -755,9 +697,6 @@ namespace Condensed.Linq
         public static float? Sum<TSource>(this DedupedList<TSource> source, Func<TSource, float?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Sum(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             float sum = 0F;

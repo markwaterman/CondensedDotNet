@@ -100,7 +100,6 @@
     <Folder Include="media" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Content\Cutover.aml" />
     <None Include="Content\Equality.aml" />
     <None Include="Content\Immutability.aml" />
     <None Include="Content\License.aml" />

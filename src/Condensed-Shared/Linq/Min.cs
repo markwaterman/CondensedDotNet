@@ -39,10 +39,7 @@ namespace Condensed.Linq
         public static int Min(this DedupedList<int> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
 
         }
 
@@ -61,10 +58,7 @@ namespace Condensed.Linq
         public static int? Min(this DedupedList<int?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
         }
 
         /// <summary>
@@ -86,10 +80,7 @@ namespace Condensed.Linq
         public static int Min<TSource>(this DedupedList<TSource> source, Func<TSource, int> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
 
         }
 
@@ -111,14 +102,9 @@ namespace Condensed.Linq
         public static int? Min<TSource>(this DedupedList<TSource> source, Func<TSource, int?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
 
         }
-
-
 
 
         /// <summary>
@@ -137,10 +123,7 @@ namespace Condensed.Linq
         public static decimal Min(this DedupedList<decimal> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
 
         }
 
@@ -159,10 +142,7 @@ namespace Condensed.Linq
         public static decimal? Min(this DedupedList<decimal?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
         }
 
         /// <summary>
@@ -184,11 +164,7 @@ namespace Condensed.Linq
         public static decimal Min<TSource>(this DedupedList<TSource> source, Func<TSource, decimal> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
-
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
         /// <summary>
@@ -209,10 +185,7 @@ namespace Condensed.Linq
         public static decimal? Min<TSource>(this DedupedList<TSource> source, Func<TSource, decimal?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
 
@@ -234,10 +207,7 @@ namespace Condensed.Linq
         public static long Min(this DedupedList<long> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
 
         }
 
@@ -256,10 +226,7 @@ namespace Condensed.Linq
         public static long? Min(this DedupedList<long?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
         }
 
         /// <summary>
@@ -281,10 +248,7 @@ namespace Condensed.Linq
         public static long Min<TSource>(this DedupedList<TSource> source, Func<TSource, long> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
 
         }
 
@@ -307,10 +271,7 @@ namespace Condensed.Linq
         public static long? Min<TSource>(this DedupedList<TSource> source, Func<TSource, long?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
 
@@ -332,10 +293,7 @@ namespace Condensed.Linq
         public static double Min(this DedupedList<double> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
 
         }
 
@@ -354,10 +312,7 @@ namespace Condensed.Linq
         public static double? Min(this DedupedList<double?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
         }
 
         /// <summary>
@@ -379,10 +334,7 @@ namespace Condensed.Linq
         public static double Min<TSource>(this DedupedList<TSource> source, Func<TSource, double> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
 
         }
 
@@ -404,10 +356,7 @@ namespace Condensed.Linq
         public static double? Min<TSource>(this DedupedList<TSource> source, Func<TSource, double?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
 
@@ -428,10 +377,7 @@ namespace Condensed.Linq
         public static float Min(this DedupedList<float> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
 
         }
 
@@ -450,10 +396,7 @@ namespace Condensed.Linq
         public static float? Min(this DedupedList<float?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
         }
 
         /// <summary>
@@ -475,10 +418,7 @@ namespace Condensed.Linq
         public static float Min<TSource>(this DedupedList<TSource> source, Func<TSource, float> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
 
         }
 
@@ -500,10 +440,7 @@ namespace Condensed.Linq
         public static float? Min<TSource>(this DedupedList<TSource> source, Func<TSource, float?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
+            return Enumerable.Min(Enumerable.Select(source._objToInternLookup.Keys, selector));
         }
 
 
@@ -525,10 +462,7 @@ namespace Condensed.Linq
         public static TSource Min<TSource>(this DedupedList<TSource> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min();
-            else
-                return source._objToInternLookup.Keys.Min();
+            return source._objToInternLookup.Keys.Min();
 
         }
 
@@ -552,10 +486,7 @@ namespace Condensed.Linq
         public static TResult Min<TSource, TResult>(this DedupedList<TSource> source, Func<TSource, TResult> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Min(selector);
-            else
-                return Enumerable.Min(source._objToInternLookup.Keys, selector);
+            return Enumerable.Min(source._objToInternLookup.Keys, selector);
         }
 
     } // class

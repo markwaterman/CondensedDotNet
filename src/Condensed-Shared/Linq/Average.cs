@@ -43,9 +43,6 @@ namespace Condensed.Linq
         public static double Average(this DedupedList<int> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
-
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
             long sum = 0L;
@@ -77,8 +74,6 @@ namespace Condensed.Linq
         public static double? Average(this DedupedList<int?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
 
             long count = 0L;
             long sum = 0L;
@@ -123,9 +118,6 @@ namespace Condensed.Linq
         public static double Average<TSource>(this DedupedList<TSource> source, Func<TSource, int> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
@@ -161,9 +153,6 @@ namespace Condensed.Linq
         public static double? Average<TSource>(this DedupedList<TSource> source, Func<TSource, int?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             long sum = 0L;
@@ -210,9 +199,6 @@ namespace Condensed.Linq
         public static Decimal Average(this DedupedList<Decimal> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
-
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
             decimal sum = 0M;
@@ -244,8 +230,6 @@ namespace Condensed.Linq
         public static Decimal? Average(this DedupedList<Decimal?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
 
             decimal sum = 0M;
             long count = 0L;
@@ -291,9 +275,6 @@ namespace Condensed.Linq
         public static Decimal Average<TSource>(this DedupedList<TSource> source, Func<TSource, Decimal> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
@@ -329,9 +310,6 @@ namespace Condensed.Linq
         public static Decimal? Average<TSource>(this DedupedList<TSource> source, Func<TSource, Decimal?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             decimal sum = 0M;
@@ -379,9 +357,6 @@ namespace Condensed.Linq
         public static double Average(this DedupedList<long> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
-
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
             long sum = 0L;
@@ -413,9 +388,6 @@ namespace Condensed.Linq
         public static double? Average(this DedupedList<long?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
-
             long sum = 0L;
             long count = 0L;
 
@@ -433,7 +405,10 @@ namespace Condensed.Linq
                 }
             }
 
-            return (double)sum / count;
+            if (count == 0)
+                return null;
+            else
+                return (double)sum / count;
         }
 
         /// <summary>
@@ -456,9 +431,6 @@ namespace Condensed.Linq
         public static double Average<TSource>(this DedupedList<TSource> source, Func<TSource, long> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
@@ -494,9 +466,6 @@ namespace Condensed.Linq
         public static double? Average<TSource>(this DedupedList<TSource> source, Func<TSource, long?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             long sum = 0L;
@@ -541,9 +510,6 @@ namespace Condensed.Linq
         public static double Average(this DedupedList<double> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
-
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
             double sum = 0D;
@@ -574,8 +540,6 @@ namespace Condensed.Linq
         public static double? Average(this DedupedList<double?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
 
             long count = 0L;
             double sum = 0D;
@@ -620,9 +584,6 @@ namespace Condensed.Linq
         public static double Average<TSource>(this DedupedList<TSource> source, Func<TSource, double> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
@@ -657,9 +618,6 @@ namespace Condensed.Linq
         public static double? Average<TSource>(this DedupedList<TSource> source, Func<TSource, double?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             double sum = 0D;
@@ -706,9 +664,6 @@ namespace Condensed.Linq
         public static float Average(this DedupedList<float> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
-
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
             double sum = 0D;
@@ -739,8 +694,6 @@ namespace Condensed.Linq
         public static float? Average(this DedupedList<float?> source)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average();
 
             long count = 0L;
             double sum = 0D;
@@ -783,9 +736,6 @@ namespace Condensed.Linq
         public static float Average<TSource>(this DedupedList<TSource> source, Func<TSource, float> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
             if (source.Count == 0) throw new InvalidOperationException("source contains no elements");
 
@@ -820,9 +770,6 @@ namespace Condensed.Linq
         public static float? Average<TSource>(this DedupedList<TSource> source, Func<TSource, float?> selector)
         {
             if (source == null) throw new ArgumentNullException("source");
-            if (source.HasCutover)
-                return source._unindexedValues.Average(selector);
-
             if (selector == null) throw new ArgumentNullException("selector", "selector cannot be null");
 
             double sum = 0D;
