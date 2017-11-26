@@ -118,11 +118,11 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="AnalyzerDescription" xml:space="preserve">
-    <value>The type of element stored in a CondensedCollection should be a value type or an immutable reference type.</value>
+    <value>The type of element stored in a DedupedList should be a value type or an immutable reference type.</value>
     <comment>An optional longer localizable description of the diagnostic.</comment>
   </data>
   <data name="AnalyzerMessageFormat" xml:space="preserve">
-    <value>Type '{0}' is a mutable reference type and should not be used in a CondensedCollection&lt;T&gt;.</value>
+    <value>Type '{0}' is a mutable reference type and should not be used in a DedupedList&lt;T&gt;.</value>
     <comment>The format-able message the diagnostic displays.</comment>
   </data>
   <data name="AnalyzerTitle" xml:space="preserve">

@@ -20,7 +20,7 @@ namespace Condensed.Diagnostics {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "4.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "15.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resources {
@@ -62,7 +62,7 @@ namespace Condensed.Diagnostics {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The type of element stored in a CondensedCollection should be a value type or an immutable reference type..
+        ///   Looks up a localized string similar to The type of element stored in a DedupedList should be a value type or an immutable reference type..
         /// </summary>
         internal static string AnalyzerDescription {
             get {
@@ -71,7 +71,7 @@ namespace Condensed.Diagnostics {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Type &apos;{0}&apos; is a mutable reference type and should not be used in a CondensedCollection&lt;T&gt;..
+        ///   Looks up a localized string similar to Type &apos;{0}&apos; is a mutable reference type and should not be used in a DedupedList&lt;T&gt;..
         /// </summary>
         internal static string AnalyzerMessageFormat {
             get {

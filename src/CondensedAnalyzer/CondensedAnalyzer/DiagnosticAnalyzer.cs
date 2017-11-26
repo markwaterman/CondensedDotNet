@@ -26,7 +26,7 @@ using Microsoft.CodeAnalysis.Diagnostics;
 namespace Condensed.Diagnostics
 {
     /// <summary>
-    /// C# analyzer that checks for CondensedCollection usage problems.
+    /// C# analyzer that checks for DedupedList usage problems.
     /// </summary>
     [DiagnosticAnalyzer(LanguageNames.CSharp)]
     public class CondensedAnalyzer : DiagnosticAnalyzer
@@ -56,7 +56,7 @@ namespace Condensed.Diagnostics
 
         /// <summary>
         /// Quick and dirty syntax analysis method that complains if it sees a blatantly mutable type being 
-        /// used in a CondensedCollection.
+        /// used in a DedupedList.
         /// </summary>
         /// <remarks>
         /// <para>
@@ -82,12 +82,12 @@ namespace Condensed.Diagnostics
                 return;
             
             if (createdType.ContainingNamespace.Name == "Condensed" &&
-                 createdType.MetadataName == "CondensedCollection`1")
+                 createdType.MetadataName == "DedupedList`1")
             {
-                // Find what type is being stored in the CondensedCollection<T>:
+                // Find what type is being stored in the DedupedList<T>:
                 var elementType = createdType.TypeArguments[0];
 
-                // Value types (primitives, structs) are safe to use in a CondensedCollection since
+                // Value types (primitives, structs) are safe to use in a DedupedList since
                 // copies are always returned. Safe to give them a pass:
                 if (elementType.IsValueType)
                     return;
