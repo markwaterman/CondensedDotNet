@@ -22,7 +22,7 @@ using System.Threading.Tasks;
 
 namespace Condensed.Linq
 {
-    public static partial class CondensedCollectionExtensions
+    public static partial class DedupedListExtensions
     {
         /// <summary>
         /// Returns the first element in a sequence that satisfies a specified condition. Optimized for a DedupedList.

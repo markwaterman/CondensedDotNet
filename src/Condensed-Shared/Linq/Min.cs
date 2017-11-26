@@ -21,7 +21,7 @@ using System.Threading.Tasks;
 
 namespace Condensed.Linq
 {
-    public static partial class CondensedCollectionExtensions
+    public static partial class DedupedListExtensions
     {
         /// <summary>
         /// Computes the minimum value of a sequence of Int32 values. Optimized for a DedupedList.

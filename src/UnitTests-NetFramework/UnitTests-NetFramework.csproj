@@ -58,7 +58,7 @@
     <Compile Include="Cleanup.cs" />
     <Compile Include="CutoverTests.cs" />
     <Compile Include="DateOnlyEqualityComparer.cs" />
-    <Compile Include="CondensedCollectionTests.cs" />
+    <Compile Include="DedupedListTests.cs" />
     <Compile Include="BitCollectionTests.cs" />
     <Compile Include="LinqTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

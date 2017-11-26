@@ -22,7 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)IndexType.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)InternReclaimableEventArgs.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Linq\Average.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Linq\CondensedCollectionExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Linq\DedupedListExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Linq\Max.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Linq\Min.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Linq\Sum.cs" />

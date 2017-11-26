@@ -24,7 +24,7 @@ namespace Condensed.Linq
     /// <summary>
     /// Provides a set of extension methods for querying <see cref="DedupedList{T}"/> objects.
     /// </summary>
-    public static partial class CondensedCollectionExtensions
+    public static partial class DedupedListExtensions
     {
         /// <summary>
         /// Computes the sum of a sequence of Int32 values. Optimized for a DedupedList.

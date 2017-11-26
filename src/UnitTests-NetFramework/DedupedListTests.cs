@@ -27,10 +27,10 @@ using Condensed.Linq;
 namespace UnitTests
 {
     [TestClass()]
-    public class CondensedCollectionTests
+    public class DedupedListTests
     {
         [TestMethod()]
-        public void CondensedCollectionTest()
+        public void DedupedListTest()
         {
             var l = new DedupedList<int>();
 
@@ -43,7 +43,7 @@ namespace UnitTests
         }
 
         [TestMethod()]
-        public void CondensedCollectionTest1()
+        public void DedupedListTest1()
         {
             var l = new DedupedList<string>(1000);
 
@@ -55,7 +55,7 @@ namespace UnitTests
         }
 
         [TestMethod()]
-        public void CondensedCollectionTest2()
+        public void DedupedListTest2()
         {
             // Custom comparer that ignores time component of DateTime:
             var customComparer = new DateOnlyEqualityComparer();

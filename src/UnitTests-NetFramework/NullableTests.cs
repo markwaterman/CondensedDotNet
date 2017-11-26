@@ -24,7 +24,7 @@ namespace UnitTests
     public class NullableTests
     {
         [TestMethod()]
-        public void CondensedCollectionTest()
+        public void DedupedListTest()
         {
             var l = new DedupedList<Nullable<int>>();
             Assert.AreEqual(0, l.Count);
@@ -35,7 +35,7 @@ namespace UnitTests
         }
 
         [TestMethod()]
-        public void CondensedCollectionTest1()
+        public void DedupedListTest1()
         {
             var l = new DedupedList<Nullable<int>>(1000);
 
