@@ -64,7 +64,7 @@ namespace Condensed
         {
         }
 
-#if !PORTABLE
+
         /// <summary>
         /// Initializes a new instance of the InternalCorruptionException class with serialized data.
         /// </summary>
@@ -74,7 +74,6 @@ namespace Condensed
             :base(info, context)
         {
         }
-#endif
 
 
     }

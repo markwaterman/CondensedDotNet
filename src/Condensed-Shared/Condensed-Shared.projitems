@@ -6,7 +6,7 @@
     <SharedGUID>09605f2b-b52e-4370-bf37-66614741bb85</SharedGUID>
   </PropertyGroup>
   <PropertyGroup Label="Configuration">
-    <Import_RootNamespace>Condensed_Shared</Import_RootNamespace>
+    <Import_RootNamespace>Condensed</Import_RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)BitCollection.cs" />
@@ -26,5 +26,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)Linq\Min.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Linq\Sum.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)NullKeyDictionary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SparseArray.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SparseArrayGroup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SparseBitwise.cs" />
   </ItemGroup>
 </Project>

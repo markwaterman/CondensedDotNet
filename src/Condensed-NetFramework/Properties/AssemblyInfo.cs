@@ -45,7 +45,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyVersion("0.1.0.0")]
 [assembly: AssemblyFileVersion("0.1.0.0")]
 
-#if !PORTABLE
 [assembly: CLSCompliant(true)]
 [assembly: ComVisible(false)]
-#endif
+
+[assembly: InternalsVisibleTo("UnitTests, PublicKey=0024000004800000940000000602000000240000525341310004000001000100e39866bb986655e308e2c6927ff6032f6e071fb959e282e1bff01017ba325b9f137c77b132bfa5a13e7deddc1945ae74781bf9950140404b23e6a59760113e2524ac59f003b2356b8ec8a4519a83a01a45858f270aa670584167b149cb5bdf095cafb9dfb228ecae7b123a4e0259e4cf68b1af2db60dc29742311e83b47dbed0")]
